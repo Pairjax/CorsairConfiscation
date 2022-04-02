@@ -30,8 +30,18 @@ public class MainMenu : MonoBehaviour
     //Function for turning off start screen and opening the main menu on by setting alpha to 1
     public void OpenMainMenu()
     {
-        startScreen.SetActive(false);
+        if (startScreen.activeInHierarchy)
+            startScreen.SetActive(false);
+
         mainMenu.alpha = 1;
+        mainMenu.blocksRaycasts = true;
+    }
+
+    //Function for closing the main menu by setting alpha to 0 and allowing for clicks to not be made
+    public void CloseMainMenu()
+    {
+        mainMenu.alpha = 0;
+        mainMenu.blocksRaycasts = false;
     }
 
     //Function for opening the controls menu by setting alpha to 1 and allowing for clicks to be made
@@ -81,5 +91,11 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit Game");
+    }
+
+    //Function for playing sound when a button is pressed
+    public void PlayButtonPress()
+    {
+        AudioManager.instance.PlaySFX(4);
     }
 }

@@ -1,0 +1,73 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 02 2022 14:32:55 GMT-0400 (Eastern Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* "Assets/Prefabs/Menus and UI/Button.prefab"
+* Assets/Scenes/MenuScene.unity
+* Assets/Scripts/Menus/MainMenu.cs
+
+
+Created files:
+* Assets/Audio/Music.meta
+* "Assets/Audio/Music/A Long Way (Looped).wav"
+* "Assets/Audio/Music/A Long Way (Looped).wav.meta"
+* "Assets/Audio/Music/A Long Way.mp3"
+* "Assets/Audio/Music/A Long Way.mp3.meta"
+* "Assets/Audio/Music/Another World.mp3"
+* "Assets/Audio/Music/Another World.mp3.meta"
+* "Assets/Audio/Music/Dark Side (Looped).wav"
+* "Assets/Audio/Music/Dark Side (Looped).wav.meta"
+* "Assets/Audio/Music/Dark Side.mp3"
+* "Assets/Audio/Music/Dark Side.mp3.meta"
+* Assets/Audio/Music/Freedom.mp3
+* Assets/Audio/Music/Freedom.mp3.meta
+* "Assets/Audio/Music/Stars Ttalk.mp3"
+* "Assets/Audio/Music/Stars Ttalk.mp3.meta"
+* Assets/Audio/SFX.meta
+* Assets/Prefabs/Managers.meta
+* "Assets/Prefabs/Managers/Audio Manager.prefab"
+* "Assets/Prefabs/Managers/Audio Manager.prefab.meta"
+* Assets/Scripts/Managers.meta
+* Assets/Scripts/Managers/AudioManager.cs
+* Assets/Scripts/Managers/AudioManager.cs.meta
+* Assets/Scripts/Menus/MenuScroller.cs
+* Assets/Scripts/Menus/MenuScroller.cs.meta
+* "Assets/Udemy Space Shooter Assets/Art/Backgrounds/Scrolling 1.png"
+* "Assets/Udemy Space Shooter Assets/Art/Backgrounds/Scrolling 1.png.meta"
+* "Assets/Udemy Space Shooter Assets/Art/Backgrounds/Scrolling 2.png"
+* "Assets/Udemy Space Shooter Assets/Art/Backgrounds/Scrolling 2.png.meta"
+
+
+Deleted files:
+
+
+Renamed files:
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]

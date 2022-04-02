@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.EventSystems;
 
 public class TextColor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Text Variables")]
+    public TMP_Text text;
+
+    public void OnSelect()
     {
-        
+        text.color = Color.white;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDeselect()
     {
-        
+        text.color = Color.black;
     }
 }

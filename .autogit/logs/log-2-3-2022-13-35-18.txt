@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 02 2022 13:35:18 GMT-0400 (Eastern Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* Assets/Scenes/MenuScene.unity
+* Assets/Scripts/Menus/LoadingScreen.cs
+* ProjectSettings/EditorBuildSettings.asset
+
+
+Created files:
+* Assets/Scripts/Menus/TextColor.cs
+* Assets/Scripts/Menus/TextColor.cs.meta
+
+
+Deleted files:
+
+
+Renamed files:

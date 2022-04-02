@@ -1,0 +1,24 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 02 2022 16:55:18 GMT-0400 (Eastern Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* "Assets/Prefabs/Managers/Audio Manager.prefab"
+* Assets/Scenes/MenuScene.unity
+* Assets/Scripts/Menus/MenuScroller.cs
+* "Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset"
+
+
+Created files:
+* Assets/Audio/TheMixer.mixer
+* Assets/Audio/TheMixer.mixer.meta
+* "Assets/Prefabs/Menus and UI/Audio Slider.prefab"
+* "Assets/Prefabs/Menus and UI/Audio Slider.prefab.meta"
+* Assets/Scripts/Managers/SettingsManager.cs
+* Assets/Scripts/Managers/SettingsManager.cs.meta
+
+
+Deleted files:
+
+
+Renamed files:

@@ -12,15 +12,38 @@ public class SettingsManager : MonoBehaviour
     public Slider masterSlider, musicSlider, sfxSlider;
     public TMP_Text masterValueText, musicValueText, sfxValueText;
 
-    /*[Header("FPS Counter Variables")]
+    [Header("FPS Counter Variables")]
     public Toggle fpsToggle;
     public TMP_Text fpsText;
     public GameObject fpsCounterObject;
-    [HideInInspector] public int fpsInt;*/
+    [HideInInspector] public int fpsInt;
+
+    [Header("FullScreen Variables")]
+    public Toggle fullscreenToggle;
+    [HideInInspector] public int fullscreenInt;
+
+    [Header("Vsync Variables")]
+    public Toggle vSyncToggle;
+    [HideInInspector] public int vsyncInt;
 
     void Awake()
     {
+        //Check if there is a key for the playerprefs for the fps counter and set the int depending on it
+        if (PlayerPrefs.HasKey("FpsToggleState"))
+            fpsInt = PlayerPrefs.GetInt("FpsToggleState");
+        else
+            fpsInt = 1;
 
+        if (fpsInt == 1)
+        {
+            fpsToggle.isOn = true;
+            fpsCounterObject.SetActive(true);
+        }
+        else
+        {
+            fpsToggle.isOn = false;
+            fpsCounterObject.SetActive(false);
+        }
     }
 
     void Start()
@@ -55,5 +78,29 @@ public class SettingsManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    //Function to adjust the master volume by readjusting the value text and slider and setting the float for playerprefs
+    public void AdjustMasterVolume()
+    {
+        masterValueText.text = (masterSlider.value + 80).ToString() + "%";
+        theMixer.SetFloat("MasterVol", masterSlider.value);
+        PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
+    }
+
+    //Function to adjust the music volume by readjusting the value text and slider and setting the float for playerprefs
+    public void AdjustMusicVolume()
+    {
+        musicValueText.text = (musicSlider.value + 80).ToString() + "%";
+        theMixer.SetFloat("MusicVol", musicSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+    }
+
+    //Function to adjust the sfx volume by readjusting the value text and slider and setting the float for playerprefs
+    public void AdjustSfxVolume()
+    {
+        sfxValueText.text = (sfxSlider.value + 80).ToString() + "%";
+        theMixer.SetFloat("SfxVol", sfxSlider.value);
+        PlayerPrefs.SetFloat("SfxVolume", sfxSlider.value);
     }
 }

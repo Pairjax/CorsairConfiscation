@@ -12,9 +12,9 @@ public class Spaceship : MonoBehaviour
 
     public void Damage()
     {
-        spaceshipStats.lives--;
+        spaceshipStats.hp -= 10;
 
-        if (spaceshipStats.lives <= 0)
+        if (spaceshipStats.hp <= 0)
         {
             Debug.Log("Killed!");
             Destroy(gameObject);

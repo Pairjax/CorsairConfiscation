@@ -7,16 +7,16 @@ public class HPTracker : MonoBehaviour
 {
     public Image frontHealthBar;
     public Image backHealthBar;
-    public PlayerStats stats;
+    public SpaceshipStats stats;
 
-    [SerializeField] private float _chipSpeed = 2f;
+    [SerializeField] private float _chipSpeed = 1.75f;
     private float lerpTimer;
 
     void Update()
     {
         float fillF = frontHealthBar.fillAmount;
         float fillB = backHealthBar.fillAmount;
-        float hFraction = stats.hp / stats.maxhp;
+        float hFraction = (float)stats.hp / (float)stats.maxhp;
 
         if (fillB > hFraction)
         {
@@ -25,6 +25,7 @@ public class HPTracker : MonoBehaviour
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / _chipSpeed;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
+            print(lerpTimer);
         }
         /*else if (fillF < hFraction)
         {
@@ -34,6 +35,8 @@ public class HPTracker : MonoBehaviour
             float percentComplete = lerpTimer / _chipSpeed;
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, hFraction, percentComplete);
         }*/
+
+        lerpTimer /= 2;
     }
 
 }

@@ -25,7 +25,6 @@ public class HPTracker : MonoBehaviour
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / _chipSpeed;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
-            print(lerpTimer);
         }
         /*else if (fillF < hFraction)
         {

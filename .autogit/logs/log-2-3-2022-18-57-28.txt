@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 02 2022 18:57:28 GMT-0400 (Eastern Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* Assets/Scenes/MainScene.unity
+* Assets/Scripts/Menus/PauseMenu.cs
+* ProjectSettings/InputManager.asset
+* ProjectSettings/ProjectSettings.asset
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

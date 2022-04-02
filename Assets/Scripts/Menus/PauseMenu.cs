@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Pause Menu Variables")]
     public GameObject[] buttons;
-    public CanvasGroup controlsMenu, optionsMenu, creditsMenu;
+    public CanvasGroup mainMenu, controlsMenu, optionsMenu, creditsMenu;
 
     void Awake()
     {
@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
             pauseScreen.SetActive(true);
             isPaused = true;
             Time.timeScale = 0;
+            OpenMainMenu();
 
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(resumeButton);
@@ -59,6 +60,7 @@ public class PauseMenu : MonoBehaviour
             isPaused = false;
             Time.timeScale = 1;
 
+            CloseMainMenu();
             CloseControls();
             CloseOptions();
             CloseCredits();
@@ -75,6 +77,20 @@ public class PauseMenu : MonoBehaviour
     {
         ChangeTimeScale();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    //Function for turning off start screen and opening the main menu on by setting alpha to 1
+    public void OpenMainMenu()
+    {
+        mainMenu.alpha = 1;
+        mainMenu.blocksRaycasts = true;
+    }
+
+    //Function for closing the main menu by setting alpha to 0 and allowing for clicks to not be made
+    public void CloseMainMenu()
+    {
+        mainMenu.alpha = 0;
+        mainMenu.blocksRaycasts = false;
     }
 
     public void OpenControls()

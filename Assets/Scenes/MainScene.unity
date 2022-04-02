@@ -295,6 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3e1552ed77f642a258e739f56e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementAcceleration: 5
+  _maxMoveSpeed: 12
+  _linearDrag: 1
+  _rotateSpeed: 100
+  _rotateLinger: 0
   input: {fileID: 999936840}
   rb2d: {fileID: 999936841}
 --- !u!114 &999936840

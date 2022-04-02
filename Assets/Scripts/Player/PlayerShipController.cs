@@ -5,19 +5,28 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerShipController : MonoBehaviour
 {
-    private float thrust = 1f;
-    private float turnSpeed = 20f;
+    [Header("Movement Variables")]
+    [SerializeField] private float _movementAcceleration;
+    [SerializeField] private float _maxMoveSpeed;
+    [SerializeField] private float _linearDrag;
+    [SerializeField] private float _rotateSpeed;
+    [SerializeField] private float _rotateLinger;
+
     public PlayerInput input;
     public Rigidbody2D rb2d;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!input.movementInput.Equals(Vector2.zero))
+        {
             Move(input.movementInput);
+        }
 
         // BRANDON: Tractor beam can be called here!
         //if (input.tractorActive)
             //EnableTractor();
+
+        ApplyLinearDrag();
     }
 
     private void Move(Vector2 movement)
@@ -25,17 +34,37 @@ public class PlayerShipController : MonoBehaviour
         // Turning right/left
         if(movement.x != 0f)
         {
-            transform.Rotate(new Vector3(0f, 0f, -movement.x) * turnSpeed * Time.fixedDeltaTime);
+            _rotateLinger = _rotateSpeed * Time.fixedDeltaTime;
         }
+        else
+        {
+            // _rotateLinger = _rotateLinger - (1 / 1000);
+        }
+
+        transform.Rotate(new Vector3(0f, 0f, -movement.x) * _rotateLinger);
 
         // Thrust up
         if (movement.y > 0f)
         {
-            rb2d.AddForce(transform.right * thrust, ForceMode2D.Impulse);
+            rb2d.AddForce(transform.right * _movementAcceleration);
         }
-        if (movement.y < 0f) // Thrust down
+        // Thrust down
+        if (movement.y < 0f)
         {
-            rb2d.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
+            rb2d.AddForce(-transform.right * _movementAcceleration);
         }
+
+        // Max speed clamp.
+        if (Mathf.Abs(rb2d.velocity.x) > _maxMoveSpeed)
+        {
+            float newX = Mathf.Sign(rb2d.velocity.x) * _maxMoveSpeed;
+            rb2d.velocity = new Vector2(newX, rb2d.velocity.y);
+        }
+           
+    }
+
+    private void ApplyLinearDrag()
+    {
+        rb2d.drag = _linearDrag;
     }
 }

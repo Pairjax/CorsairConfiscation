@@ -1,0 +1,24 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 02 2022 17:55:37 GMT-0400 (Eastern Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* "Assets/Prefabs/Menus and UI/Toggle.prefab"
+* Assets/Scenes/MenuScene.unity
+* Assets/Scripts/Managers/SettingsManager.cs
+* "Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset"
+* "Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset"
+* "Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset"
+* "Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold SDF.asset"
+* "Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset"
+* "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset"
+
+
+Created files:
+* .autogit/logs/log-2-3-2022-17-25-24.txt
+
+
+Deleted files:
+
+
+Renamed files:

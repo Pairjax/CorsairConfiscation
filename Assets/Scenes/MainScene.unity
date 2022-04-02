@@ -299,7 +299,6 @@ MonoBehaviour:
   _maxMoveSpeed: 12
   _linearDrag: 1
   _rotateSpeed: 100
-  _rotateLinger: 0
   input: {fileID: 999936840}
   rb2d: {fileID: 999936841}
 --- !u!114 &999936840
@@ -630,6 +629,7 @@ GameObject:
   - component: {fileID: 2008719068}
   - component: {fileID: 2008719067}
   - component: {fileID: 2008719066}
+  - component: {fileID: 2008719069}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -672,7 +672,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -702,3 +702,16 @@ Transform:
   m_Father: {fileID: 977058151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2008719069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008719065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277538f69148e1e4d8b6f3c5f06f141a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 999936838}

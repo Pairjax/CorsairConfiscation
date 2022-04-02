@@ -10,7 +10,8 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private float _maxMoveSpeed;
     [SerializeField] private float _linearDrag;
     [SerializeField] private float _rotateSpeed;
-    [SerializeField] private float _rotateLinger;
+    
+    private float _horizontalDirection;
 
     public PlayerInput input;
     public Rigidbody2D rb2d;
@@ -34,14 +35,8 @@ public class PlayerShipController : MonoBehaviour
         // Turning right/left
         if(movement.x != 0f)
         {
-            _rotateLinger = _rotateSpeed * Time.fixedDeltaTime;
+            transform.Rotate(new Vector3(0f, 0f, -movement.x) * _rotateSpeed * Time.fixedDeltaTime);
         }
-        else
-        {
-            // _rotateLinger = _rotateLinger - (1 / 1000);
-        }
-
-        transform.Rotate(new Vector3(0f, 0f, -movement.x) * _rotateLinger);
 
         // Thrust up
         if (movement.y > 0f)

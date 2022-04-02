@@ -29,7 +29,7 @@ public class PlayerInput : MonoBehaviour
     private void handleGameInput()
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        tractorActive = Input.GetButton("Spacebar");
+        tractorActive = Input.GetKeyDown("space");
     }
 
     private void handleMenuInput()

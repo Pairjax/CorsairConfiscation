@@ -24,7 +24,6 @@ public class CopShipController : MonoBehaviour
     // Pursuit
     public Collider2D playerCheckCollider;
     public Spaceship playerShip;
-    Collider2D[] overlapResults = new Collider2D[16];
 
     private void Start()
     {

@@ -85,7 +85,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: AdjustFpsCounter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!114 &8592273855169982799
 MonoBehaviour:
@@ -273,7 +285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fullscreen
+  m_text: FPS COUNTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9739d2f8580e2d744bde9d9b554bc313, type: 2}
   m_sharedMaterial: {fileID: -414831292892822400, guid: 9739d2f8580e2d744bde9d9b554bc313, type: 2}

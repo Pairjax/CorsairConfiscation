@@ -44,6 +44,41 @@ public class SettingsManager : MonoBehaviour
             fpsToggle.isOn = false;
             fpsCounterObject.SetActive(false);
         }
+
+        //Check if there is a key for the playerprefs for the fullscreen and set the int depending on it
+        if (PlayerPrefs.HasKey("FullscreenToggleState"))
+            fullscreenInt = PlayerPrefs.GetInt("FullscreenToggleState");
+        else
+            fullscreenInt = 1;
+
+        if (fullscreenInt == 1)
+        {
+            fullscreenToggle.isOn = true;
+            Screen.fullScreen = true;
+        }
+        else
+        {
+            fullscreenToggle.isOn = false;
+            Screen.fullScreen = false;
+        }
+
+        //Check if there is a key for the playerprefs for the vsync and set the int depending on it
+        if (PlayerPrefs.HasKey("VsyncToggleState"))
+            vsyncInt = PlayerPrefs.GetInt("VsyncToggleState");
+        else
+            vsyncInt = 1;
+
+        if (vsyncInt == 1)
+        {
+            vSyncToggle.isOn = true;
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            fullscreenToggle.isOn = false;
+            QualitySettings.vSyncCount = 0;
+        }
+
     }
 
     void Start()
@@ -77,7 +112,56 @@ public class SettingsManager : MonoBehaviour
 
     void Update()
     {
+        //Calculating the FPS
+        float fps = 1 / Time.unscaledDeltaTime;
+        fpsText.text = "FPS: " + fps.ToString("F0");
+    }
 
+    public void AdjustFpsCounter(bool isFpsOn)
+    {
+        if (isFpsOn == false)
+        {
+            PlayerPrefs.SetInt("FpsToggleState", 0);
+            fpsCounterObject.SetActive(false);
+            Debug.Log("FPS Counter is Off");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("FpsToggleState", 1);
+            fpsCounterObject.SetActive(true);
+        }
+    }
+
+    public void AdjustFullscreen(bool isFullscreenOn)
+    {
+        Screen.fullScreen = isFullscreenOn;
+
+        if (isFullscreenOn == false)
+        {
+            isFullscreenOn = false;
+            PlayerPrefs.SetInt("FullscreenToggleState", 0);
+            Debug.Log("Exiting FullScreen");
+        }
+        else
+        {
+            isFullscreenOn = true;
+            PlayerPrefs.SetInt("FullscreenToggleState", 1);
+        }
+    }
+
+    public void AdjustVysnc(bool isVsyncOn)
+    {
+        if (isVsyncOn == false)
+        {
+            PlayerPrefs.SetInt("VsyncToggleState", 0);
+            QualitySettings.vSyncCount = 0;
+            Debug.Log("The Vsync is Off");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("VsyncToggleState", 1);
+            QualitySettings.vSyncCount = 1;
+        }
     }
 
     //Function to adjust the master volume by readjusting the value text and slider and setting the float for playerprefs

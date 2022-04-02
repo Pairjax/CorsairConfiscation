@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Sat Apr 02 2022 17:25:24 GMT-0400 (Eastern Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* "Assets/Prefabs/Menus and UI/Audio Slider.prefab"
+* Assets/Scenes/MenuScene.unity
+* Assets/Scripts/Managers/SettingsManager.cs
+
+
+Created files:
+* .autogit/logs/log-2-3-2022-16-55-18.txt
+* "Assets/Art/UI Art.meta"
+* "Assets/Art/UI Art/ToggleArt.png"
+* "Assets/Art/UI Art/ToggleArt.png.meta"
+* "Assets/Prefabs/Menus and UI/Toggle.prefab"
+* "Assets/Prefabs/Menus and UI/Toggle.prefab.meta"
+
+
+Deleted files:
+
+
+Renamed files:

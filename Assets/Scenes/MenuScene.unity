@@ -4829,7 +4829,6 @@ GameObject:
   - component: {fileID: 1485496354}
   - component: {fileID: 1485496357}
   - component: {fileID: 1485496356}
-  - component: {fileID: 1485496355}
   m_Layer: 0
   m_Name: Scroller
   m_TagString: Untagged
@@ -4856,21 +4855,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1485496355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485496353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b6a77adcb862849b5fc763ebd4f847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theImage: {fileID: 1485496356}
-  imageX: 0.01
-  imageY: 0.01
 --- !u!114 &1485496356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4891,7 +4875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b2600b2bf3ec14e4aaf74eeefa344682, type: 3}
+  m_Texture: {fileID: 2800000, guid: eedaf632ae699c44d9fc0e671116e92f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5563,7 +5547,6 @@ GameObject:
   - component: {fileID: 1655401204}
   - component: {fileID: 1655401207}
   - component: {fileID: 1655401206}
-  - component: {fileID: 1655401205}
   m_Layer: 0
   m_Name: Scroller
   m_TagString: Untagged
@@ -5590,21 +5573,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1655401205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655401203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b6a77adcb862849b5fc763ebd4f847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theImage: {fileID: 1655401206}
-  imageX: 0.01
-  imageY: 0.01
 --- !u!114 &1655401206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5625,7 +5593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b2600b2bf3ec14e4aaf74eeefa344682, type: 3}
+  m_Texture: {fileID: 2800000, guid: eedaf632ae699c44d9fc0e671116e92f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6639,7 +6607,6 @@ GameObject:
   - component: {fileID: 1824055406}
   - component: {fileID: 1824055409}
   - component: {fileID: 1824055408}
-  - component: {fileID: 1824055407}
   m_Layer: 0
   m_Name: Scroller
   m_TagString: Untagged
@@ -6666,21 +6633,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1824055407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824055405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b6a77adcb862849b5fc763ebd4f847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theImage: {fileID: 1824055408}
-  imageX: 0.01
-  imageY: 0.01
 --- !u!114 &1824055408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6701,7 +6653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b2600b2bf3ec14e4aaf74eeefa344682, type: 3}
+  m_Texture: {fileID: 2800000, guid: eedaf632ae699c44d9fc0e671116e92f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

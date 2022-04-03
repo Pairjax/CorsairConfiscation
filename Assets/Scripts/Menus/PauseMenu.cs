@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject resumeButton;
     public bool canPause = true;
 
-    [Header("Loadingt to Main Menu")]
+    [Header("Loading to Main Menu")]
     public string mainMenuScene;
 
     [Header("Pause Menu Variables")]

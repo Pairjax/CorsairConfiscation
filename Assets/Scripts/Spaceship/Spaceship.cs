@@ -16,10 +16,11 @@ public class Spaceship : MonoBehaviour
 
         if (spaceshipStats.hp <= 0)
         {
-            Debug.Log("Killed!");
+            //Display the game over screen when the player's health reaches 0
+            GameOverScreen.instance.ShowGameOver();
             Destroy(gameObject);
         }
     }
 
-    
+
 }

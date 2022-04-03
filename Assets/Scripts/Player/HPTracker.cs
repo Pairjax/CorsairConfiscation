@@ -25,6 +25,14 @@ public class HPTracker : MonoBehaviour
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / _chipSpeed;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
+
+            /*IF statement to fix the bug appearing due to the health bar neededing to lerp before the 
+            gameover screen is displayed*/
+            if (GameOverScreen.instance.isGameOver)
+            {
+                frontHealthBar.fillAmount = 0;
+                backHealthBar.fillAmount = 0;
+            }
         }
         /*else if (fillF < hFraction)
         {

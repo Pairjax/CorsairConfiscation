@@ -13,6 +13,7 @@ public class PlayerShipController : MonoBehaviour
     private float _horizontalDirection;
     public Animator animator;
     public GameObject[] tractorBeams;
+    public ParticleSystem pSystem;
 
     public PlayerStats stats;
     public PlayerInput input;
@@ -33,6 +34,7 @@ public class PlayerShipController : MonoBehaviour
         if (input.movementInput.y == 0)
         {
             animator.SetInteger("moveValue", 0);
+            pSystem.Stop();
         }
 
         if (input.tractorActive)
@@ -72,12 +74,14 @@ public class PlayerShipController : MonoBehaviour
         {
             rb2d.AddForce(transform.right * _movementAcceleration);
             animator.SetInteger("moveValue", 1);
+            pSystem.Play();
         }
         // Thrust down
         if (movement.y < 0f)
         {
             rb2d.AddForce(-transform.right * _movementAcceleration);
             animator.SetInteger("moveValue", -1);
+            pSystem.Stop();
         }
       
         // Max speed clamp.

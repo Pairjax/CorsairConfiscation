@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CopShipController : MonoBehaviour
 {
-    public enum ShipAIState { Wander, Pursue, Engage }
+    public enum ShipAIState { Wander, Pursue, Engage, Sleep}
     public ShipAIState shipAIState = ShipAIState.Wander;
 
     public enum ShipState { Moving, Idle, Shooting, Dying, Disabled }
@@ -32,6 +32,10 @@ public class CopShipController : MonoBehaviour
 
     private void Update()
     {
+        if (shipState.Equals(ShipState.Disabled))
+        {
+            SetAIState(ShipAIState.Sleep);
+        }
 
         if (shipAIState.Equals(ShipAIState.Wander))
         {

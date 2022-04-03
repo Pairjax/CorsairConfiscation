@@ -58,7 +58,12 @@ public class TractorBeam : MonoBehaviour
         if (!hasObject) return;
         hasObject = false;
         targetObj.transform.parent = environment;
-        targetObj = null;
 
+        CopShipController copShip = targetObj.GetComponent<CopShipController>();
+        if (copShip)
+        {
+            copShip.SetState(CopShipController.ShipState.Idle);
+        }
+        targetObj = null;
     }
 }

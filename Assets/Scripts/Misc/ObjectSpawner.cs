@@ -45,12 +45,12 @@ public class ObjectSpawner : MonoBehaviour
         GameObject spawnedAsteroid = null;
         if (side.Equals(CameraSide.Up) || side.Equals(CameraSide.Down))
         {
-            Instantiate(AsteroidPrefab, new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), colliderCenter.y), Quaternion.identity);
+            spawnedAsteroid = Instantiate(AsteroidPrefab, new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), colliderCenter.y), Quaternion.identity);
             spawnedAsteroid.GetComponent<Asteroid>().destination = new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), -colliderCenter.y);
         }
         else if (side.Equals(CameraSide.Right) || side.Equals(CameraSide.Left))
         {
-            Instantiate(AsteroidPrefab, new Vector2(colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)), Quaternion.identity);
+            spawnedAsteroid = Instantiate(AsteroidPrefab, new Vector2(colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)), Quaternion.identity);
             spawnedAsteroid.GetComponent<Asteroid>().destination = new Vector2(-colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter));
         }
     }

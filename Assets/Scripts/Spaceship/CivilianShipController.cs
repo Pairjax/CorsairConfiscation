@@ -33,7 +33,7 @@ public class CivilianShipController : MonoBehaviour
 
         if (transform.position.Equals(destination) && shipState.Equals(ShipState.Moving))
         {
-            SetState(ShipState.Idle);
+            Destroy(gameObject);
         }
     }
     public void SetState(ShipState state)

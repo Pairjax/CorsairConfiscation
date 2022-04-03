@@ -17,7 +17,6 @@ public class Bullet : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
-        Debug.Log("Hit Player!");
         chosenShip.Damage();
         Destroy(gameObject);
     }

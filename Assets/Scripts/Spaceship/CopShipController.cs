@@ -107,6 +107,7 @@ public class CopShipController : MonoBehaviour
     {
         Vector2 destination = Random.insideUnitSphere * dist;
         destination += origin;
+        destination = new Vector3(destination.x, destination.y, 0f);
         return destination;
     }
     float lastFire = 2f;
@@ -119,7 +120,5 @@ public class CopShipController : MonoBehaviour
             Instantiate(bulletPrefab.gameObject, bulletSpawn.position, transform.rotation, BulletHolder);
             lastFire = Time.time;
         }
-
     }
-    
 }

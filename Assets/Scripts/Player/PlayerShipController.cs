@@ -13,6 +13,7 @@ public class PlayerShipController : MonoBehaviour
     private float _horizontalDirection;
     public Animator animator;
     public GameObject tractorBeam;
+    //public GameObject[] tractorBeams = GameObject[3];
 
     public PlayerInput input;
     public Rigidbody2D rb2d;

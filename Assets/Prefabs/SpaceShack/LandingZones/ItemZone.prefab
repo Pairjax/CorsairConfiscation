@@ -64,7 +64,7 @@ MonoBehaviour:
   cost: 0
   cooldown: 120
   timeLeft: 0
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 6b396e2f1d1c1604fb0b7d4975526735, type: 2}
 --- !u!61 &6655969934810126284
 BoxCollider2D:
   m_ObjectHideFlags: 0

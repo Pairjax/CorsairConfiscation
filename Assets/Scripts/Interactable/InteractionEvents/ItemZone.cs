@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemZone : InteractionEvent
 {
-    public GameObject item;
+    public Item item;
     public override void Activate()
     {
         interactionMessage = $"ItemZone! Press E to purchase {item} for {cost} dabloons...";
@@ -12,8 +12,8 @@ public class ItemZone : InteractionEvent
 
         if (CanUse())
         {
-            Debug.Log("Item picked up!");
-
+            Debug.Log($"{item._name} picked up!");
+            item.effect.Enable();
             StartCountdown();
         }
         else

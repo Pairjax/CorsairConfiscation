@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shield : ItemEffect
+public class Shield : Powerup
 {
-    public override void Enable()
+    public override void ApplyPowerup()
     {
+        base.ApplyPowerup();
+        playerStats.speedUp = 1.5f;
+        playerStats.healthUp = .5f;
+    }
+
+    public override void DiscardPowerup()
+    {
+        base.DiscardPowerup();
     }
 }

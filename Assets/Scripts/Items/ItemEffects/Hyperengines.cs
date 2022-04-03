@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hyperengines : ItemEffect
+public class Hyperengines : Powerup
 {
-    public float speedIncrease = 1.5f;
-    public float healthDecrease = .5f;
-    public override void Enable()
+    public override void ApplyPowerup()
     {
-        playerStats.speedUp = speedIncrease;
-        stats.maxhp *= healthDecrease;
-        stats.hp *= healthDecrease;
+        base.ApplyPowerup();
+        playerStats.speedUp = 1.5f;
+        playerStats.healthUp = .5f;
+
+    }
+
+    public override void DiscardPowerup()
+    {
+        base.DiscardPowerup();
     }
 }

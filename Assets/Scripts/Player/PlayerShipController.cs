@@ -11,9 +11,16 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private float _rotateSpeed;
     
     private float _horizontalDirection;
+    public Animator animator;
+    
 
     public PlayerInput input;
     public Rigidbody2D rb2d;
+
+    void Start()
+    {
+        animator = transform.GetChild(0).GetComponent<Animator>();
+    }
 
     private void FixedUpdate()
     {
@@ -22,9 +29,15 @@ public class PlayerShipController : MonoBehaviour
             Move(input.movementInput);
         }
 
+        if (input.movementInput.y == 0)
+        {
+            animator.SetInteger("moveValue", 0);
+        }
+
+
         // BRANDON: Tractor beam can be called here!
         //if (input.tractorActive)
-            //EnableTractor();
+        //EnableTractor();
 
         ApplyLinearDrag();
     }
@@ -41,13 +54,15 @@ public class PlayerShipController : MonoBehaviour
         if (movement.y > 0f)
         {
             rb2d.AddForce(transform.right * _movementAcceleration);
+            animator.SetInteger("moveValue", 1);
         }
         // Thrust down
         if (movement.y < 0f)
         {
             rb2d.AddForce(-transform.right * _movementAcceleration);
+            animator.SetInteger("moveValue", -1);
         }
-
+      
         // Max speed clamp.
         if (Mathf.Abs(rb2d.velocity.x) > _maxMoveSpeed)
         {

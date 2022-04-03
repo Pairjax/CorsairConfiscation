@@ -3161,7 +3161,9 @@ MonoBehaviour:
 
     Rotate
 
-    SHOOT
+    use laser beam
+
+    interact
 
     PAUSE'
   m_isRightToLeft: 0
@@ -5037,7 +5039,9 @@ MonoBehaviour:
 
     a/d
 
-    left-click
+    space
+
+    e
 
     escape'
   m_isRightToLeft: 0
@@ -7746,6 +7750,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5789496695450681146, guid: 09a1759cfdfa0a94f82c0ad7fbdfff43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789496695450681147, guid: 09a1759cfdfa0a94f82c0ad7fbdfff43, type: 3}
+      propertyPath: isMenu
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789496695450681147, guid: 09a1759cfdfa0a94f82c0ad7fbdfff43, type: 3}
+      propertyPath: isLevel
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

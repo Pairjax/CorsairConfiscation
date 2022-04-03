@@ -8,8 +8,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Variables")]
     public AudioSource[] sfxEffects;
-    public AudioSource mainMenuMusic;
-    public bool isMenu;
+    public AudioSource mainMenuMusic, isLevelMusic;
+    public bool isMenu, isLevel;
 
     void Awake()
     {
@@ -23,6 +23,9 @@ public class AudioManager : MonoBehaviour
     {
         if (isMenu)
             mainMenuMusic.Play();
+
+        if (isLevel)
+            isLevelMusic.Play();
     }
 
     void Update()

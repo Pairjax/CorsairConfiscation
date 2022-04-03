@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5291491317635715341}
   m_Layer: 6
   m_Name: CivilianShip
-  m_TagString: Untagged
+  m_TagString: grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

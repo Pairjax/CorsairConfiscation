@@ -6,8 +6,6 @@ public class TriBeam : ItemEffect
 {
     public override void Enable()
     {
-        // Logic to enable other beams.
-        //player.tractorBeams
-
+        playerStats.beamCount = 3;
     }
 }

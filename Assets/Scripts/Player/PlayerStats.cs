@@ -20,6 +20,9 @@ public class PlayerStats : MonoBehaviour
     private void Update()
     {
         if (beamCount == 3)
+        {
+
             shipController.AddTractors();
+        }
     }
 }

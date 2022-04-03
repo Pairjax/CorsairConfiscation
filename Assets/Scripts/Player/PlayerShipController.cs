@@ -35,8 +35,6 @@ public class PlayerShipController : MonoBehaviour
             animator.SetInteger("moveValue", 0);
         }
 
-
-        // BRANDON: Tractor beam can be called here!
         if (input.tractorActive)
         {
             foreach(GameObject beam in tractorBeams)
@@ -56,7 +54,6 @@ public class PlayerShipController : MonoBehaviour
                     beam.SetActive(false);
                 }
             }
-            
         }
 
         ApplyLinearDrag();
@@ -94,6 +91,8 @@ public class PlayerShipController : MonoBehaviour
 
     public void AddTractors()
     {
+        Debug.Log("Adding tractors");
+
         tractorBeams[1] = transform.GetChild(2).gameObject;
         tractorBeams[2] = transform.GetChild(3).gameObject;
     }

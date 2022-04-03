@@ -7565,9 +7565,9 @@ MonoBehaviour:
   animator: {fileID: 18324944}
   tractorBeams:
   - {fileID: 1829775401}
-  - {fileID: 1829775401}
-  - {fileID: 1829775401}
-  stats: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stats: {fileID: 999936847}
   input: {fileID: 999936840}
   rb2d: {fileID: 999936841}
 --- !u!114 &999936840
@@ -7673,12 +7673,12 @@ MonoBehaviour:
   gotcha: 0
   maxGotcha: 100
   beamCount: 1
-  speedUp: 0
-  damageUp: 0
-  healthUp: 0
+  speedUp: 1
+  damageUp: 1
+  healthUp: 1
   beamLengthUp: 0
   beamPlus: 0
-  shipController: {fileID: 0}
+  shipController: {fileID: 999936839}
 --- !u!1001 &1004626330
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -39,12 +39,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3119700199863290692}
+  - component: {fileID: 3119700199863290688}
   - component: {fileID: 3119700199863290695}
   - component: {fileID: 3119700199863290694}
   - component: {fileID: 3119700199863290693}
-  - component: {fileID: 3119700199863290688}
   - component: {fileID: 3119700199863290689}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SPF Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,53 +67,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3119700199863290695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3119700199863290715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d188802e80b46241b6d9e9e123019da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lives: 0
---- !u!114 &3119700199863290694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3119700199863290715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9df4977712d90642b6b1adc238b97f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  category: 0
-  spaceshipStats: {fileID: 3119700199863290695}
---- !u!114 &3119700199863290693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3119700199863290715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988f40880fcf5c44595467199ec5a7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipAIState: 0
-  shipState: 1
-  bulletPrefab: {fileID: 8761442519010386335, guid: d49db9134347bf041842e4184be868e8, type: 3}
-  bulletSpawn: {fileID: 3119700199719367005}
-  BulletHolder: {fileID: 0}
-  destination: {x: 0, y: 0, z: 0}
-  playerCheckCollider: {fileID: 3119700200803689720}
-  playerShip: {fileID: 0}
 --- !u!212 &3119700199863290688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -165,6 +118,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3119700199863290695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119700199863290715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d188802e80b46241b6d9e9e123019da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  maxhp: 100
+--- !u!114 &3119700199863290694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119700199863290715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9df4977712d90642b6b1adc238b97f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  category: 0
+  spaceshipStats: {fileID: 3119700199863290695}
+--- !u!114 &3119700199863290693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119700199863290715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988f40880fcf5c44595467199ec5a7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipAIState: 0
+  shipState: 1
+  bulletPrefab: {fileID: 8761442519010386335, guid: d49db9134347bf041842e4184be868e8, type: 3}
+  bulletSpawn: {fileID: 3119700199719367005}
+  BulletHolder: {fileID: 0}
+  destination: {x: 0, y: 0, z: 0}
+  playerCheckCollider: {fileID: 3119700200803689720}
+  playerShip: {fileID: 0}
 --- !u!50 &3119700199863290689
 Rigidbody2D:
   serializedVersion: 4

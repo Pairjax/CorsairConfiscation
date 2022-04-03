@@ -54,7 +54,7 @@ public class CopShipController : MonoBehaviour
         }
 
     }
-    public virtual void MoveToPosition(Vector3 movePos)
+    public void MoveToPosition(Vector3 movePos)
     {
         SetState(ShipState.Moving);
         destination = movePos;
@@ -98,7 +98,6 @@ public class CopShipController : MonoBehaviour
     }
     private void LookAt()
     {
-        SpriteRenderer rend = GetComponent<SpriteRenderer>();
         Vector3 dir = (Vector3)destination - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);

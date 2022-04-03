@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class FluxCapacitor : ItemEffect
 {
-    public override void Enable()
-    {
-
-    }
+    
 }

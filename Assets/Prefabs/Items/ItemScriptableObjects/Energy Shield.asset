@@ -15,5 +15,5 @@ MonoBehaviour:
   cooldown: 20
   _name: Energy Shield
   description: Blocks one hit from any projectile. Recharges every 20 seconds..
-  sprite: {fileID: 0}
-  effect: {fileID: 8045963649880516488, guid: cddffeb98f62bc14ba45684a074d58ea, type: 3}
+  sprite: {fileID: 21300000, guid: e6504e1b08c82a74c9dea459ae864590, type: 3}
+  effect: {fileID: -9147566779270438077, guid: cddffeb98f62bc14ba45684a074d58ea, type: 3}

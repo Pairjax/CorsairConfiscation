@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SpaceshipStats : MonoBehaviour
 {
-    public int hp = 100;
-    public int maxhp = 100;
+    public float hp = 100;
+    public float maxhp = 100;
 }

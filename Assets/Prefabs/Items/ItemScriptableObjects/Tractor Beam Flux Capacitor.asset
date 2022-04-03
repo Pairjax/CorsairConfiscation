@@ -15,5 +15,5 @@ MonoBehaviour:
   cooldown: 0
   _name: Tractor Beam Flux Capacitor
   description: Increases range of your tractor beam..
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b2f2c080459a932449b284ddcefea400, type: 3}
   effect: {fileID: 3665387408763692611, guid: d4e15094a4b10454aa21fad56e6dbc49, type: 3}

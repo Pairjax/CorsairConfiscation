@@ -10,9 +10,16 @@ public class PlayerStats : MonoBehaviour
     public int beamCount = 1;
 
     // Booties
-    public int speedUp = 0;
+    public float speedUp = 0f;
     public int damageUp = 0;
-    public int healthUp = 0;
+    public float healthUp = 0f;
     public int beamLengthUp = 0;
     public int beamPlus = 0;
+
+    public PlayerShipController shipController;
+    private void Update()
+    {
+        if (beamCount == 3)
+            shipController.AddTractors();
+    }
 }

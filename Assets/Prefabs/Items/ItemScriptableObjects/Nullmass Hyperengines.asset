@@ -15,5 +15,5 @@ MonoBehaviour:
   cooldown: 0
   _name: Nullmass Hyperengines
   description: Doubles speed while halving ship health..
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0becd7335cdef284c9b513be2dbcc920, type: 3}
   effect: {fileID: 5699077912288329620, guid: 33cbb8b4b87244f48b123577564a88c4, type: 3}

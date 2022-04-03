@@ -11,13 +11,17 @@ public class CivilianShipController : MonoBehaviour
 
     private float shipSpeed = 1f;
     public Vector2 destination;
+    public Animator animator;
+    public SpriteRenderer rend;
     public void Awake()
     {
         PickRandomSprite();
     }
     private void PickRandomSprite()
     {
-        GetComponent<SpriteRenderer>().sprite = spriteOptions[Random.Range(0, spriteOptions.Length)];
+        int num = Random.Range(0, spriteOptions.Length);
+        rend.sprite = spriteOptions[num];
+        animator.SetInteger("sprite", num + 1);
     }
 
     private void Update()
@@ -52,10 +56,11 @@ public class CivilianShipController : MonoBehaviour
         destination = movePos;
         LookAt();
     }
+
     private void LookAt()
     {
         Vector3 dir = (Vector3)destination - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 }

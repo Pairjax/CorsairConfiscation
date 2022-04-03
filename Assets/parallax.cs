@@ -28,4 +28,24 @@ public class parallax : MonoBehaviour
             ParallaxScales[i] = Backgrounds[i].position.z * -1;
         }
     }
+
+    void Update()
+    {
+        PreCamPo = cam.position;
+
+        for (int i = 0; i < Backgrounds.Length; i++)
+        {
+            float parallax_x = (PreCamPo.x - cam.position.x) * ParallaxScales[i];
+            float parallax_y = (PreCamPo.y - cam.position.y) * ParallaxScales[i];
+
+            float BackgroundTargetPosX = Backgrounds[i].position.x + parallax_x;
+            float BackgroundTargetPosY = Backgrounds[i].position.y + parallax_y;
+
+            Vector3 BackgroundTargetPos = new Vector3(BackgroundTargetPosX, BackgroundTargetPosY, Backgrounds[i].position.z);
+
+            Backgrounds[i].position = Vector3.Lerp(Backgrounds[i].position, BackgroundTargetPos, Smoothing * Time.deltaTime);
+
+
+        }
+    }
 }

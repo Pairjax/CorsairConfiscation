@@ -6,14 +6,29 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+
     [Header("Fade Screen Variables")]
     public Image fadeScreen;
     public float fadeSpeed;
     [HideInInspector] public bool fadeFromBlack;
 
+    [Header("Gotcha Counter")]
+    public TMP_Text gotchaCounter;
+    [HideInInspector] public int gotchas;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         FadeFromBlack();
+        UpdateGotchaCounterUI(0);
     }
 
     void Update()
@@ -29,6 +44,12 @@ public class UIManager : MonoBehaviour
                 fadeFromBlack = false;
             }
         }
+    }
+
+    public void UpdateGotchaCounterUI(int gotchasToAdd)
+    {
+        gotchas += gotchasToAdd;
+        gotchaCounter.text = "Gotchas: " + gotchas.ToString("F0");
     }
 
     public void FadeFromBlack()

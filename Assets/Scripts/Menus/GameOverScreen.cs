@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOverScreen : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameOverScreen : MonoBehaviour
 
     [Header("Loading to Main Menu")]
     public string mainMenuScene;
+    public TMP_Text gotchaText;
 
     [Header("Game Over Menu Variables")]
     public float waitToShowGameOver;
@@ -45,6 +47,7 @@ public class GameOverScreen : MonoBehaviour
         gameOverScreen.SetActive(true);
         isGameOver = true;
         PauseMenu.instance.canPause = false;
+        gotchaText.text = "Gotchas: " + UIManager.instance.gotchas.ToString("F0");
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(restartButton);

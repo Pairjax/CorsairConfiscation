@@ -26,7 +26,7 @@ public class TractorBeam : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collider)
     {
-      
+
 
         GameObject parentObj = collider.gameObject;
         // ITS NOT DETECTING THE CIV SHIPS HERE AS HAVING GRABBALE
@@ -35,7 +35,7 @@ public class TractorBeam : MonoBehaviour
             Debug.Log("returned");
             return;
         }
-            
+
 
         Debug.Log(parentObj.name);
 
@@ -43,7 +43,7 @@ public class TractorBeam : MonoBehaviour
         if (controller != null) controller.shipState = CopShipController.ShipState.Disabled;
 
         Transform targetT = collider.gameObject.transform;
-       //   Debug.Log(targetT.gameObject.name);
+        //   Debug.Log(targetT.gameObject.name);
         if (hasObject)
         {
             Debug.Log("Ship pulled");
@@ -82,9 +82,10 @@ public class TractorBeam : MonoBehaviour
                 targetT.parent = tractorTip;
                 targetObj = parentObj;
                 hasObject = true;
+                UIManager.instance.UpdateGotchaCounterUI(1);
             }
         }
-    
+
     }
 
     public void Release()

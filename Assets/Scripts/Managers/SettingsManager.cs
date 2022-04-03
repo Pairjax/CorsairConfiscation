@@ -75,7 +75,7 @@ public class SettingsManager : MonoBehaviour
         }
         else
         {
-            fullscreenToggle.isOn = false;
+            vSyncToggle.isOn = false;
             QualitySettings.vSyncCount = 0;
         }
 

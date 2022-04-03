@@ -16,7 +16,7 @@ public class Asteroid : MonoBehaviour
     }
     void Update()
     {
-        transform.GetChild(0).transform.Rotate(0, 0, 3 * Time.deltaTime); //rotates 50 degrees per second around z axis
+        transform.GetChild(0).transform.Rotate(0, 0, rotateSpeed * Time.deltaTime); //rotates 50 degrees per second around z axis
     }
     private void LookAt()
     {

@@ -3484,6 +3484,12 @@ MonoBehaviour:
   dubloons: 0
   gotcha: 0
   maxGotcha: 100
+  beamCount: 1
+  speedUp: 0
+  damageUp: 0
+  healthUp: 0
+  beamLengthUp: 0
+  beamPlus: 0
 --- !u!1 &1007207880
 GameObject:
   m_ObjectHideFlags: 0
@@ -8236,7 +8242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051750950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1028598838}

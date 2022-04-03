@@ -56,6 +56,7 @@ public class TractorBeam : MonoBehaviour
             else
             {
                 Debug.Log("Ship gotchad");
+                UIManager.instance.UpdateGotchaCounterUI(1);
                 Destroy(collider.gameObject);
                 tractorTip.position = initTip.position;
             }
@@ -82,7 +83,6 @@ public class TractorBeam : MonoBehaviour
                 targetT.parent = tractorTip;
                 targetObj = parentObj;
                 hasObject = true;
-                UIManager.instance.UpdateGotchaCounterUI(1);
             }
         }
 

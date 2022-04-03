@@ -949,6 +949,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6655969934810126287, guid: b40bb7f8eeede1f49869fb4af133bfa4, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1637623889}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40bb7f8eeede1f49869fb4af133bfa4, type: 3}
 --- !u!4 &178636004 stripped
@@ -2270,6 +2274,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6655969934810126287, guid: b40bb7f8eeede1f49869fb4af133bfa4, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1637623889}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40bb7f8eeede1f49869fb4af133bfa4, type: 3}
 --- !u!4 &509085000 stripped
@@ -7959,6 +7967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530738692}
   - component: {fileID: 1530738693}
+  - component: {fileID: 1530738694}
   m_Layer: 0
   m_Name: Despawner
   m_TagString: Untagged
@@ -8006,6 +8015,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &1530738694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530738691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebb41cddc6859248893eef3952fdb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1549531219
 GameObject:
   m_ObjectHideFlags: 0
@@ -11562,6 +11583,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 837435094}
     m_Modifications:
+    - target: {fileID: 5718123805465485968, guid: 37e61def9ceee6143a309dd8cce8a01e, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1637623889}
     - target: {fileID: 5718123805465485970, guid: 37e61def9ceee6143a309dd8cce8a01e, type: 3}
       propertyPath: m_RootOrder
       value: 0

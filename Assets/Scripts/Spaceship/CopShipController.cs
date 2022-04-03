@@ -7,7 +7,7 @@ public class CopShipController : MonoBehaviour
     public enum ShipAIState { Wander, Pursue, Engage }
     public ShipAIState shipAIState = ShipAIState.Wander;
 
-    public enum ShipState { Moving, Idle, Shooting, Dying }
+    public enum ShipState { Moving, Idle, Shooting, Dying, Disabled }
     public ShipState shipState = ShipState.Idle;
 
     private float shipSpeed = 1.3f;
@@ -52,6 +52,7 @@ public class CopShipController : MonoBehaviour
             LookAt();
             FireBullet();
         }
+
 
     }
     public void MoveToPosition(Vector3 movePos)

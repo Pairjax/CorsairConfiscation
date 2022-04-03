@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour
     private void handleGameInput()
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        tractorActive = Input.GetKeyDown("space");
+        tractorActive = Input.GetKey("space");
         interacted = Input.GetKeyDown(KeyCode.E);
     }
 

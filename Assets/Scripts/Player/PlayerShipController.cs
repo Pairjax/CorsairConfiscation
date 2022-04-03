@@ -12,7 +12,7 @@ public class PlayerShipController : MonoBehaviour
     
     private float _horizontalDirection;
     public Animator animator;
-    
+    public GameObject tractorBeam;
 
     public PlayerInput input;
     public Rigidbody2D rb2d;
@@ -36,8 +36,15 @@ public class PlayerShipController : MonoBehaviour
 
 
         // BRANDON: Tractor beam can be called here!
-        //if (input.tractorActive)
-        //EnableTractor();
+        if (input.tractorActive)
+        {
+            tractorBeam.SetActive(true);
+            
+        }
+        else
+        {
+            tractorBeam.SetActive(false);
+        }
 
         ApplyLinearDrag();
     }

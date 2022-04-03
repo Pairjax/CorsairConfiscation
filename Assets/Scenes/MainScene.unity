@@ -3661,6 +3661,7 @@ MonoBehaviour:
   _linearDrag: 1
   _rotateSpeed: 100
   animator: {fileID: 18324944}
+  tractorBeam: {fileID: 1829775401}
   input: {fileID: 999936840}
   rb2d: {fileID: 999936841}
 --- !u!114 &999936840
@@ -7043,8 +7044,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1829775402}
   - component: {fileID: 1829775404}
-  - component: {fileID: 1829775403}
-  - component: {fileID: 1829775405}
   m_Layer: 0
   m_Name: TractorBeam
   m_TagString: Untagged
@@ -7066,22 +7065,6 @@ Transform:
   m_Father: {fileID: 999936838}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!58 &1829775403
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829775401}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00000019255926, y: 1.5}
-  serializedVersion: 2
-  m_Radius: 1.2
 --- !u!212 &1829775404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7133,18 +7116,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1829775405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829775401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8657f238ce0e146ab674898f971d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1840327933
 PrefabInstance:
   m_ObjectHideFlags: 0

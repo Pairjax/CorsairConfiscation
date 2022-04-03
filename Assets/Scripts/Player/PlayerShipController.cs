@@ -43,6 +43,7 @@ public class PlayerShipController : MonoBehaviour
         }
         else
         {
+            tractorBeam.GetComponent<TractorBeam>().Release();
             tractorBeam.SetActive(false);
         }
 

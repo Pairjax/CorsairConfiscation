@@ -46,6 +46,10 @@ public class GameOverScreen : MonoBehaviour
         isGameOver = true;
         PauseMenu.instance.canPause = false;
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(restartButton);
+
+
         //Open the game over menu by calling the function and setting the timescale to 0
         OpenGameOverMenu();
         Time.timeScale = 0;

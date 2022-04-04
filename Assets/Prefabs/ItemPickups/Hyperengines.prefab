@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6cc4486a5415149800d42cdb2bb475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 120
+  duration: Infinity
+  pickupSprite: {fileID: 0}
   spawnedSprite: {fileID: 0}
 --- !u!61 &4981090714984053668
 BoxCollider2D:

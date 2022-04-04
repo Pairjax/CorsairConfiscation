@@ -7,9 +7,9 @@ public class Hyperengines : Powerup
     public override void ApplyPowerup()
     {
         base.ApplyPowerup();
-        playerStats.speedUp = 1.5f;
+        playerStats.speedUp = 2f;
         playerStats.healthUp = .5f;
-
+        shipStats.UpdateHealth(playerStats.healthUp);
     }
 
     public override void DiscardPowerup()

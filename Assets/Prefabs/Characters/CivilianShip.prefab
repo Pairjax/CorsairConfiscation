@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -5291491317635715341}
   - component: {fileID: -2734250617143685363}
   - component: {fileID: -2760132296570776607}
+  - component: {fileID: -9100460374964778204}
   m_Layer: 6
   m_Name: CivilianShip
   m_TagString: grabbable
@@ -4957,3 +4958,24 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!50 &-9100460374964778204
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367058817412962813}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

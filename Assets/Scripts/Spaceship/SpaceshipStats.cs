@@ -6,4 +6,10 @@ public class SpaceshipStats : MonoBehaviour
 {
     public float hp = 100;
     public float maxhp = 100;
+
+    public void UpdateHealth(float healthMult)
+    {
+        hp *= healthMult;
+        maxhp *= healthMult;
+    }
 }

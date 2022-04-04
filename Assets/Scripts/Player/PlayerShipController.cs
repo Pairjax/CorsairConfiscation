@@ -72,14 +72,14 @@ public class PlayerShipController : MonoBehaviour
         // Thrust up
         if (movement.y > 0f)
         {
-            rb2d.AddForce(transform.right * _movementAcceleration);
+            rb2d.AddForce(transform.right * _movementAcceleration * stats.speedUp);
             animator.SetInteger("moveValue", 1);
             pSystem.Play();
         }
         // Thrust down
         if (movement.y < 0f)
         {
-            rb2d.AddForce(-transform.right * _movementAcceleration);
+            rb2d.AddForce(-transform.right * _movementAcceleration * stats.speedUp);
             animator.SetInteger("moveValue", -1);
             pSystem.Stop();
         }

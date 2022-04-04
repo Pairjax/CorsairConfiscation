@@ -15,8 +15,7 @@ public class Powerup : Pickup
         if (playerStats == null)
             playerStats = FindObjectOfType<PlayerStats>();
         if (shipStats == null)
-            shipStats = FindObjectOfType<SpaceshipStats>();
-
+            shipStats = playerStats.GetComponent<SpaceshipStats>();
     }
     public override void PickUp()
     {
@@ -25,8 +24,7 @@ public class Powerup : Pickup
 
     private IEnumerator ActivatePowerup()
     {
-        if(gameObject.name.Equals("Shield"))
-            spawnedSprite = Instantiate(pickupSprite.gameObject, FindObjectOfType<PlayerShipController>().gameObject.transform);
+        
         ApplyPowerup();
         yield return new WaitForSeconds(duration);
         DiscardPowerup();
@@ -35,12 +33,21 @@ public class Powerup : Pickup
 
     public virtual void ApplyPowerup()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        EnableEffect();
     }
     public virtual void DiscardPowerup()
     {
         Destroy(spawnedSprite);
         Destroy(gameObject);
+    }
+    public void EnableEffect()
+    {
+        if (pickupSprite == null) // No effect given, return.
+            return;
+
+        spawnedSprite = Instantiate(pickupSprite.gameObject, FindObjectOfType<PlayerShipController>().gameObject.transform);
+        Effect spriteEffect = spawnedSprite.GetComponent<Effect>();
     }
 }

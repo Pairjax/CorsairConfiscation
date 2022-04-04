@@ -8,7 +8,7 @@ public class PlayerCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Spaceship chosenShip = collision.GetComponent<Spaceship>();
-        if (parentShip.playerShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
+        if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
         parentShip.playerShip = chosenShip;

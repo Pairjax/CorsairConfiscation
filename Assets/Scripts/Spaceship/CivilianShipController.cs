@@ -6,13 +6,14 @@ public class CivilianShipController : MonoBehaviour
 {
     public Sprite[] spriteOptions = new Sprite[6];
 
-    public enum ShipState { Moving, Idle };
+    public enum ShipState { Moving, Idle, Disabled };
     public ShipState shipState = ShipState.Idle;
 
     private float shipSpeed = 1f;
     public Vector2 destination;
     public Animator animator;
     public SpriteRenderer rend;
+
     public void Awake()
     {
         PickRandomSprite();
@@ -26,7 +27,7 @@ public class CivilianShipController : MonoBehaviour
 
     private void Update()
     {
-        if (!destination.Equals(Vector2.zero))
+        if (!destination.Equals(Vector2.zero) && !shipState.Equals(ShipState.Disabled))
         {
             SetState(ShipState.Moving);
         }
@@ -40,10 +41,13 @@ public class CivilianShipController : MonoBehaviour
     {
         switch (state)
         {
+            case ShipState.Disabled:
+                break;
             case ShipState.Idle:
                 MoveToPosition(Vector2.zero);
                 break;
             case ShipState.Moving:
+                LookAt();
                 transform.position = Vector2.MoveTowards(transform.position, destination, shipSpeed * Time.deltaTime);
                 break;
         }

@@ -17,53 +17,49 @@ public class TractorBeam : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(hasObject);
         if (!hasObject) return;
 
         targetObj.transform.position = tractorTip.position;
-
     }
 
     public void OnTriggerStay2D(Collider2D collider)
     {
-
+        if (collider.name.Equals("Despawner")) return;
+        if (collider.name.Equals("Sprite")) return;
+        if (collider.name.Equals("PlayerCheck")) return;
+        if (collider.GetComponent<ObjectSpawner>()) return;
 
         GameObject parentObj = collider.gameObject;
-        // ITS NOT DETECTING THE CIV SHIPS HERE AS HAVING GRABBALE
         if (parentObj.tag != "grabbable" && collider.gameObject.tag != "grabbable")
         {
-            Debug.Log("returned");
+            Debug.Log($"Returned; {parentObj.tag}, {parentObj.name}, and {collider.gameObject.tag},  {collider.gameObject.name}");
             return;
         }
-
-
-        Debug.Log(parentObj.name);
 
         CopShipController controller = parentObj.GetComponent<CopShipController>();
         if (controller != null) controller.shipState = CopShipController.ShipState.Disabled;
 
+        CivilianShipController civController = parentObj.GetComponent<CivilianShipController>();
+        if (civController != null) civController.SetState(CivilianShipController.ShipState.Disabled);
+        
         Transform targetT = collider.gameObject.transform;
-        //   Debug.Log(targetT.gameObject.name);
         if (hasObject)
         {
-            Debug.Log("Ship pulled");
-            float distToShip = Vector3.Distance(targetT.position, playerLoc.position);
+            float distToShip = Vector2.Distance(targetT.position, playerLoc.position);
             if (distToShip > 1f)
             {
-                Debug.Log("Ship pulling");
                 tractorTip.position = Vector3.MoveTowards(tractorTip.position, playerLoc.position, 0.5f * Time.deltaTime);
             }
             else
             {
-                Debug.Log("Ship gotchad");
                 UIManager.instance.UpdateGotchaCounterUI(1);
                 Destroy(collider.gameObject);
                 tractorTip.position = initTip.position;
+                hasObject = false;
             }
             return;
         }
 
-        Debug.Log("ship grabbed");
         tractorLoc = new Vector2(tractorTip.position.x, tractorTip.position.y);
         shipLoc = new Vector2(targetT.position.x, targetT.position.y);
 
@@ -75,11 +71,10 @@ public class TractorBeam : MonoBehaviour
                 targetT.position = new Vector3(newLocation.x, newLocation.y, targetT.position.z);
             }
 
-            float distance = Vector3.Distance(targetT.position, tractorTip.position);
+            float distance = Vector2.Distance(targetT.position, tractorTip.position);
             print(distance);
             if (distance < 0.8f)
             {
-                Debug.Log("has object");
                 targetT.parent = tractorTip;
                 targetObj = parentObj;
                 hasObject = true;
@@ -95,10 +90,11 @@ public class TractorBeam : MonoBehaviour
         targetObj.transform.parent = environment;
 
         CopShipController copShip = targetObj.GetComponent<CopShipController>();
-        if (copShip)
-        {
-            copShip.SetState(CopShipController.ShipState.Idle);
-        }
+        if (copShip) copShip.ResetAI();
+
+        CivilianShipController civShip = targetObj.GetComponent<CivilianShipController>();
+        if (civShip) civShip.SetState(CivilianShipController.ShipState.Moving);
+            
         targetObj = null;
     }
 }

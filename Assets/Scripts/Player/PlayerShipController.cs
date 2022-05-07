@@ -12,7 +12,6 @@ public class PlayerShipController : MonoBehaviour
     
     private float _horizontalDirection;
     public Animator animator;
-    public GameObject[] tractorBeams;
     public ParticleSystem pSystem;
 
     public PlayerStats stats;
@@ -37,27 +36,6 @@ public class PlayerShipController : MonoBehaviour
             pSystem.Stop();
         }
 
-        if (input.tractorActive)
-        {
-            foreach(GameObject beam in tractorBeams)
-            {
-                if(beam)
-                    beam.SetActive(true);
-            }
-
-        }
-        else
-        {
-            foreach (GameObject beam in tractorBeams)
-            {
-                if (beam)
-                {
-                    beam.GetComponent<TractorBeam>().Release();
-                    beam.SetActive(false);
-                }
-            }
-        }
-
         ApplyLinearDrag();
     }
 
@@ -76,6 +54,7 @@ public class PlayerShipController : MonoBehaviour
             animator.SetInteger("moveValue", 1);
             pSystem.Play();
         }
+
         // Thrust down
         if (movement.y < 0f)
         {
@@ -91,14 +70,6 @@ public class PlayerShipController : MonoBehaviour
             rb2d.velocity = new Vector2(newX, rb2d.velocity.y);
         }
            
-    }
-
-    public void AddTractors()
-    {
-        Debug.Log("Adding tractors");
-
-        tractorBeams[1] = transform.GetChild(2).gameObject;
-        tractorBeams[2] = transform.GetChild(3).gameObject;
     }
 
     private void ApplyLinearDrag()

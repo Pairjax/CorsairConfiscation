@@ -15,13 +15,4 @@ public class PlayerStats : MonoBehaviour
     public float healthUp = 0f;
     public int beamLengthUp = 0;
     public int beamPlus = 0;
-
-    public PlayerShipController shipController;
-    private void Update()
-    {
-        if (beamCount == 3 && !shipController.tractorBeams[1] && !shipController.tractorBeams[2])
-        {
-            shipController.AddTractors();
-        }
-    }
 }

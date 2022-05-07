@@ -16,7 +16,6 @@ public class PlayerInput : MonoBehaviour
 
     public Vector2 movementInput { get; private set; }
 
-    public bool tractorActive { get; private set; }
     public bool interacted { get; private set; }
 
     public bool paused { get; private set; }
@@ -30,7 +29,6 @@ public class PlayerInput : MonoBehaviour
     private void handleGameInput()
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        tractorActive = Input.GetKey("space");
         interacted = Input.GetKeyDown(KeyCode.E);
     }
 

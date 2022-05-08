@@ -32,8 +32,8 @@ public class PlayerInput : MonoBehaviour
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         interacted = Input.GetKeyDown(KeyCode.E);
-        fire = Input.GetKeyDown(KeyCode.Mouse0);
-        detach = Input.GetKeyDown(KeyCode.Mouse1);
+        fire = Input.GetMouseButtonDown(0);
+        detach = Input.GetMouseButtonDown(1);
     }
 
     private void handleMenuInput()

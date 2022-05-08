@@ -26,18 +26,21 @@ public class PlayerShipController : MonoBehaviour
         animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (input.fire)
         {
             _harpoon.gameObject.SetActive(true);
         }
 
-        if(input.detach)
+        if (input.detach)
         {
             _harpoon.hook.UnhookObj();
         }
+    }
 
+    private void FixedUpdate()
+    {
         if (!input.movementInput.Equals(Vector2.zero))
         {
             Move(input.movementInput);

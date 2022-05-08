@@ -9,7 +9,10 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private float _maxMoveSpeed;
     [SerializeField] private float _linearDrag;
     [SerializeField] private float _rotateSpeed;
-    
+
+    [Header("Spaceship Abilities")]
+    [SerializeField] private Harpoon _harpoon;
+
     private float _horizontalDirection;
     public Animator animator;
     public ParticleSystem pSystem;
@@ -25,6 +28,16 @@ public class PlayerShipController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (input.fire)
+        {
+            _harpoon.gameObject.SetActive(true);
+        }
+
+        if(input.detach)
+        {
+            _harpoon.hook.UnhookObj();
+        }
+
         if (!input.movementInput.Equals(Vector2.zero))
         {
             Move(input.movementInput);

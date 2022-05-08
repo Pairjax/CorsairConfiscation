@@ -17,6 +17,8 @@ public class PlayerInput : MonoBehaviour
     public Vector2 movementInput { get; private set; }
 
     public bool interacted { get; private set; }
+    public bool fire { get; private set; }
+    public bool detach { get; private set; }
 
     public bool paused { get; private set; }
 
@@ -30,6 +32,8 @@ public class PlayerInput : MonoBehaviour
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         interacted = Input.GetKeyDown(KeyCode.E);
+        fire = Input.GetKeyDown(KeyCode.Mouse0);
+        detach = Input.GetKeyDown(KeyCode.Mouse1);
     }
 
     private void handleMenuInput()

@@ -5,9 +5,10 @@ using UnityEngine;
 public class Hook : MonoBehaviour
 {
     public GameObject hookedObj;
+    public GameObject grabbedObj;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag.Equals("grabbable") && transform.childCount == 0)
+        if(transform.childCount == 0)
         {
             HookObj(collision.gameObject);
         }
@@ -15,41 +16,33 @@ public class Hook : MonoBehaviour
 
     private void HookObj(GameObject selObj)
     {
-        // There needs to be a better system for this, since it's a prototype we can ignore for now. -Tyler
-        CopShipController controller = selObj.GetComponent<CopShipController>();
-        if (controller != null) controller.shipState = CopShipController.ShipState.Disabled;
+        Grabbable grabbableComp = selObj.GetComponent<Grabbable>();
 
-        CivilianShipController civController = selObj.GetComponent<CivilianShipController>();
-        if (civController != null) civController.SetState(CivilianShipController.ShipState.Disabled);
-        Debug.Log(selObj.name);
-        if (selObj.name.Equals("Sprite") && selObj.transform.parent.gameObject.GetComponent<Asteroid>() != null)
+        if(grabbableComp == null)
+        {
             selObj = selObj.transform.parent.gameObject;
-        
-        selObj.transform.SetParent(transform);
+            grabbableComp = selObj.GetComponent<Grabbable>();
+        }
+
+        if (selObj == null || grabbableComp == null)
+            return;
+
         hookedObj = selObj;
+        grabbedObj = Instantiate(grabbableComp.objectSprite, transform.position, hookedObj.transform.rotation, gameObject.transform).gameObject;
+        hookedObj.SetActive(false);
     }
 
     public void UnhookObj()
     {
-        if (hookedObj == null)
+        if(!hookedObj && !grabbedObj)
         {
-            // Sets whole harpoon to unactive.
             gameObject.transform.parent.gameObject.SetActive(false);
             return;
         }
-
-        // Same goes for unhooking.
-        CopShipController controller = hookedObj.GetComponent<CopShipController>();
-        if (controller != null) controller.ResetAI();
-
-        CivilianShipController civController = hookedObj.GetComponent<CivilianShipController>();
-        if (civController != null) civController.SetState(CivilianShipController.ShipState.Moving);
-
-        if (hookedObj)
-        {
-            hookedObj.transform.SetParent(null);
-            hookedObj = null;
-        }
+        Instantiate(grabbedObj.GetComponent<HookedObjectHolder>().thrownObject, transform.position, Quaternion.identity);
+        Destroy(grabbedObj);
+        hookedObj = null;
+        grabbedObj = null;
         // Sets whole harpoon to unactive.
         gameObject.transform.parent.gameObject.SetActive(false);
     }

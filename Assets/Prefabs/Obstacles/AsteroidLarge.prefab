@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6168395866992407523}
   - component: {fileID: 6168395866992407534}
   - component: {fileID: 6168395866992407533}
+  - component: {fileID: 1821492685708712955}
   m_Layer: 0
   m_Name: AsteroidLarge
   m_TagString: grabbable
@@ -70,6 +71,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1821492685708712955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168395866992407522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bb9c522ec3a1242933a259007ffe7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSalvagable: 0
+  isThrown: 0
+  objectSprite: {fileID: 4853166262499834683, guid: 78919af3a872c424e8d8d9a7832a6b5a, type: 3}
+  thrownObject: {fileID: 7738606476661149060, guid: 8b50c8f674846c042ad63f418fef956e, type: 3}
+  weight: 0
+  rb2d: {fileID: 0}
 --- !u!1 &6168395868507592212
 GameObject:
   m_ObjectHideFlags: 0

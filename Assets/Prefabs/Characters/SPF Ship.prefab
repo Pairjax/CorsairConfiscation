@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1709565743}
   - component: {fileID: 1709565740}
   - component: {fileID: 1709565739}
+  - component: {fileID: -7524675157937295702}
   m_Layer: 7
   m_Name: SPF Ship
   m_TagString: grabbable
@@ -4989,6 +4990,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-7524675157937295702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119700199863290715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bb9c522ec3a1242933a259007ffe7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSalvagable: 1
+  objectSprite: {fileID: 2151719494696176205, guid: 781dff9a8656fd54780636cce53fb663, type: 3}
+  weight: 0
 --- !u!1 &3119700200803689726
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public class PlayerInput : MonoBehaviour
     public bool interacted { get; private set; }
     public bool fire { get; private set; }
     public bool detach { get; private set; }
+    public bool extend { get; private set; }
+    public bool retract { get; private set; }
 
     public bool paused { get; private set; }
 
@@ -34,6 +36,8 @@ public class PlayerInput : MonoBehaviour
         interacted = Input.GetKeyDown(KeyCode.E);
         fire = Input.GetMouseButtonDown(0);
         detach = Input.GetMouseButtonDown(1);
+        extend = Input.GetKeyDown(KeyCode.Q);
+        retract = Input.GetKeyDown(KeyCode.R);
     }
 
     private void handleMenuInput()

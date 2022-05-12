@@ -11,17 +11,16 @@ public class PlayerCheck : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
-        parentShip.playerShip = chosenShip;
-        parentShip.SetAIState(CopShipController.ShipAIState.Pursue);
+        parentShip.BeginFollow(chosenShip.transform);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         Spaceship chosenShip = collision.GetComponent<Spaceship>();
-        
-        if (!chosenShip || chosenShip != parentShip.playerShip)
+        if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
-        parentShip.ResetAI();
+        Debug.Log("Stop persuing!");
+        parentShip.EndFollow();
     }
 }

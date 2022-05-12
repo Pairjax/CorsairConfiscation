@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8998434661345359608}
   - component: {fileID: 5480072317481447812}
   - component: {fileID: 7431875141358876979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AsteroidMedium
   m_TagString: grabbable
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 8998434662245313976}
   - component: {fileID: 8998434662245313975}
   - component: {fileID: 990333202504968693}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

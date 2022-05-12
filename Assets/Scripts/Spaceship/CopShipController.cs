@@ -1,128 +1,227 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class CopShipController : MonoBehaviour
 {
-    public enum ShipAIState { Wander, Pursue, Engage, Sleep}
-    public ShipAIState shipAIState = ShipAIState.Wander;
+    [Header("Movement Variables")]
+    [SerializeField] private float speed;
 
-    public enum ShipState { Moving, Idle, Shooting, Dying, Disabled }
-    public ShipState shipState = ShipState.Idle;
+    // AI Targets
+    private Transform followObject;
+    private Transform targetedObject;
 
-    private float shipSpeed = 1.3f;
+    // AI Triggers
+    public CircleCollider2D followCollider;
+    public CircleCollider2D targetCollider;
 
-    private float fireCooldown = .8f;
+    // Wandering
+    Vector2 wanderPoint;
+
+    // Pathfinding
+    public Path path;
+    int currentWaypoint = 0;
+    float nextWaypointDistance = 1f;
+    bool reachedEndOfPath = false;
+
+    // Seeking
+    private Seeker seeker;
+    Rigidbody2D rb2d;
+
+    // Cannon
+    float fireCooldown =.8f;
+    bool isFiring;
     public GameObject bulletPrefab;
+    public Transform turret;
     public Transform bulletSpawn;
-    public Transform BulletHolder;
-    // AI Vars
-    public Vector3 destination = Vector3.zero;
-    // Wander
-    private float wanderRadius = 3f;
-    private float wanderWaitTime = 1f;
-    // Pursuit
-    public Collider2D playerCheckCollider;
-    public Spaceship playerShip;
+    public int turretOffset = 20; // A Random range from [-x, x) angle offset the turret can make when firing
 
+   
+
+    public enum AIState {Engaged, Wandering, Sleep, Idle};
+    public AIState currentAIstate;
+    
     private void Start()
     {
-        ResetAI();
+        seeker = GetComponent<Seeker>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
-
     private void Update()
     {
-        if (shipState.Equals(ShipState.Disabled))
+        if(currentAIstate.Equals(AIState.Engaged))
         {
-            SetAIState(ShipAIState.Sleep);
-        }
-
-        if (shipAIState.Equals(ShipAIState.Wander))
-        {
-            if (!destination.Equals(Vector2.zero))
+            if (followObject)
             {
-                SetState(ShipState.Moving);
+                LookAt(followObject, this.transform, 0f);
             }
 
-            if (transform.position.Equals(destination) && shipState.Equals(ShipState.Moving))
+            if (!isFiring && targetedObject)
             {
-                SetState(ShipState.Idle);
+                LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z);
             }
         }
-
-        if (shipAIState.Equals(ShipAIState.Pursue))
+        else if (!currentAIstate.Equals(AIState.Wandering) && !followObject && !targetedObject)
         {
-            MoveToPosition(playerShip.transform.position);
-            LookAt();
-            FireBullet();
+            BeginWandering();
         }
 
-
-    }
-    public void MoveToPosition(Vector3 movePos)
-    {
-        SetState(ShipState.Moving);
-        destination = movePos;
-    }
-    public void ResetAI()
-    {
-        playerShip = null;
-        destination = Vector2.zero;
-        SetState(ShipState.Idle);
-        SetAIState(ShipAIState.Wander);
-        Invoke("Wander", wanderWaitTime);
-    }
-    private void Wander()
-    {
-        MoveToPosition(PickRandomWanderSpot(transform.position, wanderRadius));
-        LookAt();
+        
     }
 
-    public void SetState(ShipState state)
+    
+
+    private void FixedUpdate()
     {
-        switch (state)
+        if (path == null)
+            return;
+
+        if(currentWaypoint >= path.vectorPath.Count)
         {
-            case ShipState.Idle:
-                if (shipAIState.Equals(ShipAIState.Wander))
-                {
-                    MoveToPosition(Vector2.zero);
-                    SetAIState(ShipAIState.Wander);
-                    Invoke("Wander", wanderWaitTime);
-                }
-                break;
-            case ShipState.Moving:
-                transform.position = Vector2.MoveTowards(transform.position, destination, shipSpeed * Time.deltaTime);
-                break;
-            
+            reachedEndOfPath = true;
+            return;
+        }else
+        {
+            reachedEndOfPath = false;
         }
-        shipState = state;
+
+        Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb2d.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
+
+        rb2d.AddForce(force);
+
+        float distance = Vector2.Distance(rb2d.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < nextWaypointDistance)
+            currentWaypoint++;
     }
-    public void SetAIState(ShipAIState state)
+    private void SetAIState(AIState aiState)
     {
-        shipAIState = state;
+        switch (aiState)
+        {
+            case AIState.Sleep:
+                AISleep();
+                currentAIstate = AIState.Sleep;
+                break;
+            case AIState.Wandering:
+                currentAIstate = AIState.Wandering;
+                break;
+            case AIState.Engaged:
+                EndWandering();
+                currentAIstate = AIState.Engaged;
+                break;
+        }
     }
-    private void LookAt()
+
+    private void AISleep()
     {
-        Vector3 dir = (Vector3)destination - transform.position;
+        EndFiring();
+        EndFollow();
+    }
+
+    private void LookAt(Transform target, Transform obj, float offset)
+    {
+        Vector3 dir = target.position - obj.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        obj.localRotation = Quaternion.Euler(0f, 0f, angle + offset);
     }
-    private Vector2 PickRandomWanderSpot(Vector2 origin, float dist)
+    private void LookAt(Vector3 target, Transform obj, float offset)
     {
-        Vector2 destination = Random.insideUnitSphere * dist;
-        destination += origin;
-        destination = new Vector3(destination.x, destination.y, 0f);
-        return destination;
+        Vector3 dir = target - obj.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        obj.localRotation = Quaternion.Euler(0f, 0f, angle + offset);
     }
-    float lastFire = 2f;
-    private void FireBullet()
+
+    private float GetRandomOffset()
     {
-        if ((Time.time - lastFire > fireCooldown))
+        Random.InitState((int)System.DateTime.Now.Ticks);
+        float angleOffset = Random.Range(0, turretOffset) - (turretOffset / 2);
+        return angleOffset;
+    }
+
+    private void BeginWandering()
+    {
+        SetAIState(AIState.Wandering);
+        InvokeRepeating("UpdateWanderPath", 0f, 3f);
+    }
+
+    private void UpdateWanderPath()
+    {
+        if (seeker.IsDone())
         {
-            SetState(ShipState.Shooting);
-            
-            Instantiate(bulletPrefab.gameObject, bulletSpawn.position, transform.rotation, BulletHolder);
+            wanderPoint = GetPointInsideCircle();
+            LookAt(wanderPoint, this.transform, 0f);
+            seeker.StartPath(rb2d.position, wanderPoint, OnPathComplete);
+        }
+    }
+
+    private void EndWandering()
+    {
+        CancelInvoke("UpdateWanderPath");
+    }
+
+    private Vector2 GetPointInsideCircle()
+    {
+        Vector2 newPoint;
+        float angle = Random.Range(0.0F, 1.0F) * (Mathf.PI * 2);
+        float radius = Random.Range(0.0F, 1.0F) * targetCollider.radius;
+        newPoint.x = targetCollider.transform.position.x + radius * Mathf.Cos(angle);
+        newPoint.y = targetCollider.transform.position.y + radius * Mathf.Sin(angle);
+
+        return newPoint;
+    }
+
+    public void BeginFollow(Transform transform)
+    {
+        followObject = transform;
+        SetAIState(AIState.Engaged);
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    private void UpdatePath()
+    {
+        if (seeker.IsDone())
+            seeker.StartPath(rb2d.position, followObject.position, OnPathComplete);
+    }
+
+    public void EndFollow()
+    {
+        followObject = null;
+        CancelInvoke("UpdatePath");
+    }
+    public void BeginFiring(Transform transform)
+    {
+        targetedObject = transform;
+        SetAIState(AIState.Engaged);
+        InvokeRepeating("Fire", 0f, fireCooldown);
+    }
+
+    float lastFire = 2f;
+    private void Fire()
+    {
+        if (Time.time - lastFire > fireCooldown)
+        {
+            isFiring = true;
+            LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z + GetRandomOffset());
+            Instantiate(bulletPrefab.gameObject, bulletSpawn.position, bulletSpawn.rotation);
             lastFire = Time.time;
+            isFiring = false;
+        }
+    }
+
+    public void EndFiring()
+    {
+        isFiring = false;
+        targetedObject = null;
+        CancelInvoke("Fire");
+    }
+
+    public void OnPathComplete(Path p)
+    {
+        if(!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
         }
     }
 }

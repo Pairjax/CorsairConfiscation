@@ -31,13 +31,8 @@ public class PlayerShipController : MonoBehaviour
     {
         if (input.fire && !_harpoon.gameObject.activeInHierarchy)
         {
-            _harpoon.transform.position = gameObject.transform.position;
             _harpoon.gameObject.SetActive(true);
-        }
-
-        if (input.detach)
-        {
-            _harpoon.hook.UnhookObj();
+            _harpoon.Launch();
         }
     }
 

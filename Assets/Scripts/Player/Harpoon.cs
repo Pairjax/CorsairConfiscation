@@ -20,7 +20,7 @@ public class Harpoon : MonoBehaviour
 
     private void Start()
     {
-        length = stats.hookMaxLength;
+        length = 5;
 
         rootJoint = root.GetComponent<HingeJoint2D>();
         hookJoint = hook.GetComponent<HingeJoint2D>();
@@ -64,6 +64,11 @@ public class Harpoon : MonoBehaviour
         }
 
         hookJoint.connectedAnchor += Vector2.left * 2;
+    }
+
+    public void Launch()
+    {
+
     }
 
 }

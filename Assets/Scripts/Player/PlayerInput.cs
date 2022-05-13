@@ -36,8 +36,8 @@ public class PlayerInput : MonoBehaviour
         interacted = Input.GetKeyDown(KeyCode.E);
         fire = Input.GetMouseButtonDown(0);
         detach = Input.GetMouseButtonDown(1);
-        extend = Input.GetKeyDown(KeyCode.Q);
-        retract = Input.GetKeyDown(KeyCode.R);
+        extend = Input.GetAxisRaw("Mouse ScrollWheel") > 0f;
+        retract = Input.GetAxisRaw("Mouse ScrollWheel") < 0f;
     }
 
     private void handleMenuInput()

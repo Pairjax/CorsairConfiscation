@@ -9,6 +9,7 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private float _maxMoveSpeed;
     [SerializeField] private float _linearDrag;
     [SerializeField] private float _rotateSpeed;
+    [SerializeField] private float _maxRotateSpeed;
 
     [Header("Spaceship Abilities")]
     [SerializeField] private Harpoon _harpoon;
@@ -28,8 +29,9 @@ public class PlayerShipController : MonoBehaviour
 
     private void Update()
     {
-        if (input.fire)
+        if (input.fire && !_harpoon.gameObject.activeInHierarchy)
         {
+            _harpoon.transform.position = gameObject.transform.position;
             _harpoon.gameObject.SetActive(true);
         }
 
@@ -41,6 +43,8 @@ public class PlayerShipController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // _harpoon.transform.position = gameObject.transform.position;
+
         if (!input.movementInput.Equals(Vector2.zero))
         {
             Move(input.movementInput);
@@ -58,9 +62,10 @@ public class PlayerShipController : MonoBehaviour
     private void Move(Vector2 movement)
     {
         // Turning right/left
-        if(movement.x != 0f)
+        if(movement.x != 0f
+            || rb2d.rotation < _maxRotateSpeed)
         {
-            transform.Rotate(new Vector3(0f, 0f, -movement.x) * _rotateSpeed * Time.fixedDeltaTime);
+            rb2d.AddTorque(-movement.x * _rotateSpeed * Time.fixedDeltaTime);
         }
 
         // Thrust up

@@ -6,18 +6,24 @@ using System.Linq;
 public class Harpoon : MonoBehaviour
 {
     public PlayerInput input;
+    public PlayerStats stats;
 
     public GameObject root;
+    public HingeJoint2D rootJoint;
+
     public GameObject hookObj;
 
     public Hook hook;
+    public HingeJoint2D hookJoint;
 
-    public List<GameObject> rungs;
+    public int length;
 
     private void Start()
     {
-        rungs.Add(root);
-        rungs.Add(hookObj);
+        length = stats.hookMaxLength;
+
+        rootJoint = root.GetComponent<HingeJoint2D>();
+        hookJoint = hook.GetComponent<HingeJoint2D>();
     }
 
     private void Update()
@@ -34,50 +40,30 @@ public class Harpoon : MonoBehaviour
 
     public void Extend()
     {
-        // Create new rung.
-        GameObject newRung = Instantiate(root);
-        newRung.transform.parent = gameObject.transform;
+        length++;
 
-        // Reassemble joints in adjacent rungs.
-        HingeJoint2D joint = newRung.GetComponent<HingeJoint2D>();
-        Rigidbody2D rb = newRung.GetComponent<Rigidbody2D>();
-        joint.connectedBody = rungs[0].GetComponent<Rigidbody2D>();
-        rungs[1].GetComponent<HingeJoint2D>().connectedBody = rb;
-
-        joint.connectedAnchor = new Vector2(-1, 0);
-
-        // Reassemble list to track current rungs.
-        List<GameObject> newRungs = new List<GameObject>();
-
-        newRungs.Add(rungs[0]);
-        newRungs.Add(newRung);
-
-        for (int i = 1; i < rungs.Count; i++)
+        if (length > stats.hookMaxLength)
         {
-            newRungs.Add(rungs[i]);
+            length--;
+            Debug.Log("Maximum Length Harpoon Reached!");
+            return;
         }
 
-        rungs = newRungs;
+        hookJoint.connectedAnchor += Vector2.right * 2;
     }
 
     public void Retract()
     {
-        if (rungs.Count <= 2)
+        length--;
+
+        if (length == 0)
         {
-            hook.UnhookObj();
+            length = 1;
+            gameObject.SetActive(false);
             return;
         }
 
-        // Reassemble joints in adjacent rungs.
-        HingeJoint2D jointSecond = rungs[2].GetComponent<HingeJoint2D>();
-        Rigidbody2D rbFirst = rungs[0].GetComponent<Rigidbody2D>();
-
-        jointSecond.connectedBody = rbFirst;
-
-        GameObject undoRung = rungs[1];
-        rungs.Remove(undoRung);
-
-        Destroy(undoRung);
+        hookJoint.connectedAnchor += Vector2.left * 2;
     }
 
 }

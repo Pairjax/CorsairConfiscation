@@ -9,6 +9,7 @@ public class Harpoon : MonoBehaviour
     public PlayerStats stats;
 
     public GameObject root;
+    public Rigidbody2D rootRb;
     public HingeJoint2D rootJoint;
 
     public GameObject hookObj;
@@ -16,13 +17,12 @@ public class Harpoon : MonoBehaviour
     public Hook hook;
     public HingeJoint2D hookJoint;
 
-    public int length;
+    bool launchMode = false;
 
     private void Start()
     {
-        length = 5;
-
         rootJoint = root.GetComponent<HingeJoint2D>();
+        rootRb = root.GetComponent<Rigidbody2D>();
         hookJoint = hook.GetComponent<HingeJoint2D>();
     }
 
@@ -38,14 +38,24 @@ public class Harpoon : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        // If we are launching the hook.
+        if (launchMode)
+            Extend();
+    }
+
     public void Extend()
     {
-        length++;
+        float magnitude = hook.transform.localPosition.magnitude;
 
-        if (length > stats.hookMaxLength)
+        if (magnitude > stats.hookMaxLength)
         {
-            length--;
-            Debug.Log("Maximum Length Harpoon Reached!");
+            if (launchMode)
+            {
+                launchMode = false;
+                rootRb.bodyType = RigidbodyType2D.Dynamic;
+            }
             return;
         }
 
@@ -54,11 +64,11 @@ public class Harpoon : MonoBehaviour
 
     public void Retract()
     {
-        length--;
+        float magnitude = hook.transform.localPosition.magnitude;
 
-        if (length == 0)
+        // If the hook is fully retracted.
+        if (magnitude < stats.hookMinLength)
         {
-            length = 1;
             gameObject.SetActive(false);
             return;
         }
@@ -68,7 +78,9 @@ public class Harpoon : MonoBehaviour
 
     public void Launch()
     {
-
+        launchMode = true;
+        rootRb.SetRotation(stats.gameObject.transform.rotation);
+        rootRb.bodyType = RigidbodyType2D.Static;
     }
 
 }

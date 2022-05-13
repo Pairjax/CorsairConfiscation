@@ -8,7 +8,8 @@ public class PlayerStats : MonoBehaviour
     public int gotcha = 0;
     public int maxGotcha = 100;
     public int beamCount = 1;
-    public int hookMaxLength = 15;
+    public float hookMinLength = 2;
+    public float hookMaxLength = 15;
 
     // Booties
     public float speedUp = 0f;

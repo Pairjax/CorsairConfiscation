@@ -2747,6 +2747,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3119700199863290693, guid: b4bc524fc76a7eb40a2e0796b9ae7e93, type: 3}
+      propertyPath: currentAIstate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3119700199863290715, guid: b4bc524fc76a7eb40a2e0796b9ae7e93, type: 3}
       propertyPath: m_Name
       value: SPF Ship (3)

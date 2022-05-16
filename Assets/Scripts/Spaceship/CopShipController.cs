@@ -9,8 +9,8 @@ public class CopShipController : MonoBehaviour
     [SerializeField] private float speed;
 
     // AI Targets
-    private Transform followObject;
-    private Transform targetedObject;
+    public Transform followObject;
+    public Transform targetedObject;
 
     // AI Triggers
     public CircleCollider2D followCollider;
@@ -37,8 +37,6 @@ public class CopShipController : MonoBehaviour
     public Transform bulletSpawn;
     public int turretOffset = 20; // A Random range from [-x, x) angle offset the turret can make when firing
 
-   
-
     public enum AIState {Engaged, Wandering, Sleep, Idle};
     public AIState currentAIstate;
     
@@ -46,6 +44,8 @@ public class CopShipController : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
+        if (currentAIstate.Equals(AIState.Wandering) && !followObject && !targetedObject)
+            BeginWandering();
     }
     private void Update()
     {
@@ -61,15 +61,7 @@ public class CopShipController : MonoBehaviour
                 LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z);
             }
         }
-        else if (!currentAIstate.Equals(AIState.Wandering) && !followObject && !targetedObject)
-        {
-            BeginWandering();
-        }
-
-        
     }
-
-    
 
     private void FixedUpdate()
     {
@@ -139,7 +131,7 @@ public class CopShipController : MonoBehaviour
         return angleOffset;
     }
 
-    private void BeginWandering()
+    public void BeginWandering()
     {
         SetAIState(AIState.Wandering);
         InvokeRepeating("UpdateWanderPath", 0f, 3f);
@@ -214,6 +206,7 @@ public class CopShipController : MonoBehaviour
         isFiring = false;
         targetedObject = null;
         CancelInvoke("Fire");
+        BeginWandering();
     }
 
     public void OnPathComplete(Path p)

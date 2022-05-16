@@ -20,7 +20,7 @@ public class BulletRange : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
-        Debug.Log("Stop persuing!");
         parentShip.EndFiring();
+        parentShip.BeginWandering();
     }
 }

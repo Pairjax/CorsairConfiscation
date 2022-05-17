@@ -9,11 +9,13 @@ public class ObjectSpawner : MonoBehaviour
     public BoxCollider2D spawnBox;
     public GameObject CivilianPefab;
     public GameObject AsteroidPrefab;
-
+    public bool ignoreCollision;
     public float civilianSpawnTime = 5f;
     public float asteroidSpawnTime = 5f;
     public void Start()
     {
+        if (ignoreCollision)
+            spawnBox.isTrigger = true;
         InvokeRepeating("SpawnCivilians", 0f, civilianSpawnTime);
         InvokeRepeating("SpawnAsteroids", 0f, asteroidSpawnTime);
     }
@@ -35,6 +37,22 @@ public class ObjectSpawner : MonoBehaviour
             spawnedCivilian = Instantiate(CivilianPefab, new Vector2(colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)), Quaternion.identity);
             spawnedCivilian.GetComponent<CivilianShipController>().MoveToPosition(new Vector2(-colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)));
         }
+    }
+
+    public GameObject SpawnEnemy(GameObject enemyPrefab)
+    {
+        Bounds colliderBounds = spawnBox.bounds;
+        Vector3 colliderCenter = colliderBounds.center;
+
+        if (side.Equals(CameraSide.Up) || side.Equals(CameraSide.Down))
+        {
+            enemyPrefab = Instantiate(enemyPrefab, new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), colliderCenter.y), Quaternion.identity);
+        }
+        else if (side.Equals(CameraSide.Right) || side.Equals(CameraSide.Left))
+        {
+            enemyPrefab = Instantiate(enemyPrefab, new Vector2(colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)), Quaternion.identity);
+        }
+        return enemyPrefab;
     }
 
     private void SpawnAsteroids()

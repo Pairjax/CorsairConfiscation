@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ca2314d354ca4ca17b45de089f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.5
+  radius: 3
   origin: {fileID: 999936837}
   turnSensitivity: 0.5
   reboundIntensity: 0.98
@@ -1374,8 +1374,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.653165, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0.2909896, b: 0.016820943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2813,7 +2813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ca2314d354ca4ca17b45de089f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 2.5
   origin: {fileID: 999936837}
   turnSensitivity: 0.5
   reboundIntensity: 0.98
@@ -2886,8 +2886,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.653165, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0.2909896, b: 0.016820943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -7265,8 +7265,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.653165, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0.2909896, b: 0.016820943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -7312,7 +7312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ca2314d354ca4ca17b45de089f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
+  radius: 1
   origin: {fileID: 999936837}
   turnSensitivity: 0.5
   reboundIntensity: 0.98
@@ -7786,7 +7786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ca2314d354ca4ca17b45de089f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5
+  radius: 2
   origin: {fileID: 999936837}
   turnSensitivity: 0.5
   reboundIntensity: 0.98
@@ -7859,8 +7859,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.653165, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0.2909896, b: 0.016820943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9068,8 +9068,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.653165, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0.2909896, b: 0.016820943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9115,7 +9115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ca2314d354ca4ca17b45de089f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
+  radius: 0.5
   origin: {fileID: 999936837}
   turnSensitivity: 0.5
   reboundIntensity: 0.98
@@ -16261,8 +16261,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.653165, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0.2909896, b: 0.016820943, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -16308,7 +16308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1ca2314d354ca4ca17b45de089f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
+  radius: 1.5
   origin: {fileID: 999936837}
   turnSensitivity: 0.5
   reboundIntensity: 0.98
@@ -20747,7 +20747,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20791,8 +20791,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.7014861, b: 0, a: 1}
+      key1: {r: 0.6320754, g: 0.42674577, b: 0.014907437, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

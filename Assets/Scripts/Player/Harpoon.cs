@@ -17,6 +17,8 @@ public class Harpoon : MonoBehaviour
     public Hook hook;
     public HingeJoint2D hookJoint;
 
+    private LineRenderer rope;
+
     bool launchMode = false;
 
     private void Start()
@@ -24,6 +26,7 @@ public class Harpoon : MonoBehaviour
         rootJoint = root.GetComponent<HingeJoint2D>();
         rootRb = root.GetComponent<Rigidbody2D>();
         hookJoint = hook.GetComponent<HingeJoint2D>();
+        rope = GetComponent<LineRenderer>();
     }
 
     private void Update()
@@ -43,6 +46,10 @@ public class Harpoon : MonoBehaviour
         // If we are launching the hook.
         if (launchMode)
             Extend();
+
+        rope.SetPosition(0, transform.position);
+        rope.SetPosition(1, root.transform.position);
+        rope.SetPosition(2, hook.transform.position);
     }
 
     public void Extend()

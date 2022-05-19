@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d887c8e2d5cbf24e8010241674618c2, type: 3}
+  m_Name: StarSystem
+  m_EditorClassIdentifier: 
+  sceneName: StarSystem
+  description: Generic level; sets the "norm" for our levels.
+  song: {fileID: 0}
+  musicVolume: 0
+  levelType: 2
+  enemyTypes:
+  - {fileID: 3119700199863290715, guid: b4bc524fc76a7eb40a2e0796b9ae7e93, type: 3}
+  civilianTypes:
+  - {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
+  minSpawnTime: 3
+  maxSpawnTime: 8

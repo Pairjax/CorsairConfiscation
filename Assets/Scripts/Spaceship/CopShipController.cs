@@ -5,16 +5,22 @@ using Pathfinding;
 
 public class CopShipController : MonoBehaviour
 {
+    public int bountyPoints;
+    static BountyManager bountyManager;
+
     [Header("Movement Variables")]
     [SerializeField] private float speed;
 
     // AI Targets
-    public Transform followObject;
-    public Transform targetedObject;
+    private Transform followObject;
+    private Transform targetedObject;
 
-    // AI Triggers
-    public CircleCollider2D followCollider;
-    public CircleCollider2D targetCollider;
+    [Header("Ship AI")]
+    [SerializeField] private CircleCollider2D followCollider;
+    [SerializeField] private CircleCollider2D targetCollider;
+
+    public enum AIState { Engaged, Wandering, Sleep, Idle };
+    public AIState currentAIState;
 
     // Wandering
     Vector2 wanderPoint;
@@ -29,27 +35,28 @@ public class CopShipController : MonoBehaviour
     private Seeker seeker;
     Rigidbody2D rb2d;
 
-    // Cannon
     float fireCooldown =.8f;
     bool isFiring;
+
+    [Header("Cannon")]
     public GameObject bulletPrefab;
     public Transform turret;
     public Transform bulletSpawn;
     public int turretOffset = 20; // A Random range from [-x, x) angle offset the turret can make when firing
 
-    public enum AIState {Engaged, Wandering, Sleep, Idle};
-    public AIState currentAIstate;
+    
     
     private void Start()
     {
+        bountyManager = FindObjectOfType<BountyManager>();
         seeker = GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
-        if (currentAIstate.Equals(AIState.Wandering) && !followObject && !targetedObject)
+        if (currentAIState.Equals(AIState.Wandering) && !followObject && !targetedObject)
             BeginWandering();
     }
     private void Update()
     {
-        if(currentAIstate.Equals(AIState.Engaged))
+        if(currentAIState.Equals(AIState.Engaged))
         {
             if (followObject)
             {
@@ -93,14 +100,14 @@ public class CopShipController : MonoBehaviour
         {
             case AIState.Sleep:
                 AISleep();
-                currentAIstate = AIState.Sleep;
+                currentAIState = AIState.Sleep;
                 break;
             case AIState.Wandering:
-                currentAIstate = AIState.Wandering;
+                currentAIState = AIState.Wandering;
                 break;
             case AIState.Engaged:
                 EndWandering();
-                currentAIstate = AIState.Engaged;
+                currentAIState = AIState.Engaged;
                 break;
         }
     }
@@ -216,5 +223,10 @@ public class CopShipController : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+
+    public void OnDestroy()
+    {
+        bountyManager.AddBounty(bountyPoints);
     }
 }

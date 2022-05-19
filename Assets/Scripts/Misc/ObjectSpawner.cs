@@ -7,21 +7,16 @@ public class ObjectSpawner : MonoBehaviour
     public enum CameraSide { Left, Right, Up, Down};
     public CameraSide side;
     public BoxCollider2D spawnBox;
-    public GameObject CivilianPefab;
     public GameObject AsteroidPrefab;
-    public bool ignoreCollision;
-    public float civilianSpawnTime = 5f;
-    public float asteroidSpawnTime = 5f;
+    
     public void Start()
     {
-        if (ignoreCollision)
-            spawnBox.isTrigger = true;
-        InvokeRepeating("SpawnCivilians", 0f, civilianSpawnTime);
-        InvokeRepeating("SpawnAsteroids", 0f, asteroidSpawnTime);
+        //InvokeRepeating("SpawnCivilians", 0f, civilianSpawnTime);
+        //InvokeRepeating("SpawnAsteroids", 0f, asteroidSpawnTime);
     }
 
     
-    private void SpawnCivilians()
+    public GameObject SpawnCivilian(GameObject civ)
     {
         Bounds colliderBounds = spawnBox.bounds;
         Vector3 colliderCenter = colliderBounds.center;
@@ -29,14 +24,16 @@ public class ObjectSpawner : MonoBehaviour
         GameObject spawnedCivilian = null;
         if (side.Equals(CameraSide.Up) || side.Equals(CameraSide.Down))
         {
-            spawnedCivilian = Instantiate(CivilianPefab, new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), colliderCenter.y), Quaternion.identity);
+            spawnedCivilian = Instantiate(civ, new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), colliderCenter.y), Quaternion.identity);
             spawnedCivilian.GetComponent<CivilianShipController>().MoveToPosition(new Vector2(DetermineSpawnPointX(colliderBounds, colliderCenter), -colliderCenter.y));
         }
         else if (side.Equals(CameraSide.Right) || side.Equals(CameraSide.Left))
         {
-            spawnedCivilian = Instantiate(CivilianPefab, new Vector2(colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)), Quaternion.identity);
+            spawnedCivilian = Instantiate(civ, new Vector2(colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)), Quaternion.identity);
             spawnedCivilian.GetComponent<CivilianShipController>().MoveToPosition(new Vector2(-colliderCenter.x, DetermineSpawnPointY(colliderBounds, colliderCenter)));
         }
+
+        return spawnedCivilian;
     }
 
     public GameObject SpawnEnemy(GameObject enemyPrefab)

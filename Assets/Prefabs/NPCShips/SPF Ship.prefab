@@ -164,14 +164,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988f40880fcf5c44595467199ec5a7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bountyPoints: 75
   speed: 300
   followCollider: {fileID: 3119700200803689720}
   targetCollider: {fileID: 3053530310928979933}
+  currentAIState: 1
   bulletPrefab: {fileID: 8761442519010386335, guid: d49db9134347bf041842e4184be868e8, type: 3}
   turret: {fileID: 3119700199719367005}
   bulletSpawn: {fileID: 6772881982482282866}
   turretOffset: 20
-  currentAIstate: 1
 --- !u!114 &953469698517627225
 MonoBehaviour:
   m_ObjectHideFlags: 0

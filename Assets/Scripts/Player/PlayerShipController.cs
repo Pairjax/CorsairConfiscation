@@ -29,12 +29,69 @@ public class PlayerShipController : MonoBehaviour
         {
             Move(input.movementInput);
         }
+        #region //animation & particles (By Jack)
 
-        if (input.movementInput.y == 0)
+        switch (input.movementInput.y)
         {
-            animator.SetInteger("moveValue", 0);
-            pSystem.Stop();
+            case 0:
+                // Not Forward/Backward
+                if (input.movementInput.x > 0)
+                {   // left
+                    animator.SetInteger("moveValue", 1);
+                }
+                else if (input.movementInput.x < 0)
+                {   // right
+                    animator.SetInteger("moveValue", 2);
+                }
+                else
+                {   //default
+                    animator.SetInteger("moveValue", 0);
+                    pSystem.Stop();
+                }
+            break;
+
+            case 1:
+                {
+                    pSystem.Play();
+                    if (input.movementInput.x > 0)
+                    {
+                        //forwardleft
+                        animator.SetInteger("moveValue", 4);
+                    }
+                    else if (input.movementInput.x < 0)
+                    {   //forwardright
+                        animator.SetInteger("moveValue", 3);
+                    }
+                    else
+                    {  //forward
+                        animator.SetInteger("moveValue", 5);
+                    }
+
+                }
+           break;
+
+           case -1:
+                pSystem.Stop();
+                if (input.movementInput.x > 0)
+                {
+                    //backleft
+                    animator.SetInteger("moveValue", 7);
+                }
+                else if(input.movementInput.x < 0)
+                {   //backright
+                    animator.SetInteger("moveValue", 8);
+                }
+                else
+                {   //backwards
+                    animator.SetInteger("moveValue", 6);
+                }
+                break;
+
+
         }
+        #endregion
+
+        if (input.movementInput.y > 0)
 
         ApplyLinearDrag();
     }
@@ -51,16 +108,15 @@ public class PlayerShipController : MonoBehaviour
         if (movement.y > 0f)
         {
             rb2d.AddForce(transform.right * _movementAcceleration * stats.speedUp);
-            animator.SetInteger("moveValue", 1);
-            pSystem.Play();
+
+            
         }
 
         // Thrust down
         if (movement.y < 0f)
         {
             rb2d.AddForce(-transform.right * _movementAcceleration * stats.speedUp);
-            animator.SetInteger("moveValue", -1);
-            pSystem.Stop();
+            
         }
       
         // Max speed clamp.

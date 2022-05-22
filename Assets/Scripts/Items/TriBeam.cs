@@ -7,7 +7,7 @@ public class TriBeam : Powerup
     public override void ApplyPowerup()
     {
         base.ApplyPowerup();
-        playerStats.beamCount = 3;
+        //playerStats.beamCount = 3;
     }
 
     public override void DiscardPowerup()

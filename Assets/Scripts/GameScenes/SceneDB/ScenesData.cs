@@ -12,7 +12,10 @@ public class ScenesData : ScriptableObject
 
     public Level currentLevel;
 
-    // Levels
+    public void Awake()
+    {
+        currentLevelName = currentLevel.sceneName;
+    }
 
     public void LoadLevel(string sceneName)
     {

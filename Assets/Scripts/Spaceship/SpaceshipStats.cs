@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
-public class SpaceshipStats : MonoBehaviour
+[CreateAssetMenu(fileName = "Character", menuName = "Characters / ShipStats")]
+public class SpaceshipStats : ScriptableObject
 {
-    public float hp = 100;
-    public float maxhp = 100;
+    [Header("Health")]
+    public float hp;
+    public float maxhp;
 
-    public void UpdateHealth(float healthMult)
-    {
-        hp *= healthMult;
-        maxhp *= healthMult;
-    }
+    [Header("Score")]
+    public int bountyPoints;
+
+    [Header("Movement")]
+    public float speed;
+    public float linDrag;
+
+    [Header("Appearance")]
+    public Sprite[] spriteSelection = null;
 }

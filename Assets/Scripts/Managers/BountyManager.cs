@@ -10,6 +10,7 @@ public class BountyManager : MonoBehaviour
     
     [Header("General Stats")]
     public int bounty;
+    public int bountyIncrement;
     public bool hasStarted;
 
     [Header("Enemy Spawn Stats")]
@@ -27,6 +28,7 @@ public class BountyManager : MonoBehaviour
     [Header("Spawned Objects")]
     private List<GameObject> spawnedEnemies = new List<GameObject>();
     private List<GameObject> spawnedCivilians = new List<GameObject>();
+    private List<GameObject> spawnedSpecialEnemies = new List<GameObject>();
 
 
     public void Initialize()
@@ -125,12 +127,12 @@ public class BountyManager : MonoBehaviour
     private float timeNeededToSpawnSpecialEnemy = 0;
     private void HandleSpecialEnemySpawning()
     {
-        spawnTimer += Time.deltaTime;
+        specialEnemySpawnTimer += Time.deltaTime;
         maxSpecialEnemiesAtOnce = Mathf.Clamp((int)(bounty * 0.00005f), 1, 20);
-        if (spawnTimer >= timeNeededToSpawn && enemiesToSpawn > 0 && spawnedEnemies.Count(x => x != null) < maxEnemiesAtOnce)
+        if (spawnTimer >= timeNeededToSpawnSpecialEnemy && specialEnemiesToSpawn > 0 && spawnedSpecialEnemies.Count(x => x != null) < maxSpecialEnemiesAtOnce)
         {
             enemiesToSpawn--;
-            spawnTimer = 0;
+            specialEnemySpawnTimer = 0;
             ObjectSpawner spawnEdge = enemySpawners[UnityEngine.Random.Range(0, enemySpawners.Length)];
 
             spawnedEnemies.Add(spawnEdge.SpawnEnemy(sceneDB.currentLevel.PickRandomEnemy()));
@@ -140,7 +142,7 @@ public class BountyManager : MonoBehaviour
         {
             Debug.Log("Reallocating!");
             AllocateSpecialEnemies();
-            spawnTimer = 0;
+            specialEnemySpawnTimer = 0;
         }
     }
 
@@ -156,7 +158,7 @@ public class BountyManager : MonoBehaviour
         gameTime += Time.deltaTime;
         if (gameTime >= 1)
         {
-            AddBounty(100);
+            AddBounty(bounty);
             gameTime = 0;
         }
     }

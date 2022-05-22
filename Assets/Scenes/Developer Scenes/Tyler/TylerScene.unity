@@ -1280,8 +1280,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneDB: {fileID: 11400000, guid: d91d06a5e6a06b74aaba00fe74bd3b3a, type: 2}
   bounty: 0
-  maxEnemiesAtOnce: 0
+  bountyIncrement: 100
   hasStarted: 0
+  maxEnemiesAtOnce: 0
+  enemiesToSpawn: 0
+  maxSpecialEnemiesAtOnce: 0
+  specialEnemiesToSpawn: 0
   enemySpawners:
   - {fileID: 1620270975}
   - {fileID: 2133948309}
@@ -1292,7 +1296,6 @@ MonoBehaviour:
   - {fileID: 1875012834}
   - {fileID: 1549531222}
   - {fileID: 1393748277}
-  enemiesToSpawn: 0
 --- !u!1 &150625317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +2971,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 1
   spawnBox: {fileID: 320788664}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &321362210
 GameObject:
@@ -3976,7 +3978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+tOGcOJgQIAADsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoXxBzGmt9YQ0kMSJrSTiy/CWmMNtuSR5ADJ8N+7km3s0hPi7e7T27crfxEudA2ZkWqjOHuWDMj3CbFn8m0yBJ/gTA9S7Pgn9DnvnJnCJlGX80YNl4j7tkzLCozi2Q9xKG2yh2AjeC5VtWYHSKQ2GuGclhowpKSx1QKhrwk54890aUsueAoW9vSJp6U3ueIxA2FAjVIXsyhYhsv5Q7ieelFXNg1nD4soWMTzqEMtRTDzfD+K/fXUDxxZI7KSVjUw29nA6Yc9Txy5PIFNdym2wUyWJdedYmIutXMkobVusF9MYJyiA06mPwsRKIAfCmMljMtf81yD6QxS9LLiCq1seclP2fpbUX1spX3QsrE3PXTqW9Ln/+JT34VzJaun/l7fs3eYgmfHN3rJqDajAYzh1Ui6c+hEyyPdl/BegHiRGyUbwTBoVGNLGw3Bavh7ay0pIDsOeCv1DmzqwfJ+3v20cdhX1/w5KXm1t8hs3gK7UjrD3Y6AwtH8Qr1ug3THgKgV8UfDb3oYr1oXeORKGwx1TQqrbi8bZVPJ2llmm2lMIpUAB3eaaxC0NJct0pj7Cd7FRtfeRR6pfVTd5V2sfyt3JQ4e8j3vLrSVp9usdCFPz6CL18aUXMAg2gZe0KdECtEu2NiTvmzXqJxmo7JDw9m/m0WyMPDyOI7zBaPRPg+n0Txifp7Hy5wtPZRH3OpxgX3SctsK7ezBqYmBXOCa9d+ayUbR2i07U/S04Z+VHFnORS53mQIQry3DTTgovASfJVszjgbtwBgu3LzJV0pKmR2BpTei1HW6PhtF04ElJTX/kMYiKUncxyUlFr6t8lbBB4eTvbwnu5LrX1BLAwQUAAAICAAAmJ/rNnoADG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UrKxkUGahYVFmnlKollSmrGumYlZimFamoVlWoqlgaGBgVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAmJ/rThnDiYECAAA7BQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/rNnoADG0AAAB4AAAACQAkAAAAAAAAAAAAAADOAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAIYDAAAAAA==
+    dataString: UEsDBBQAAAgIAACYn+tRdGZWgAIAADoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMFy2jAQ/RVG58LYhhjTW2sI6SEJE9rJxRdhrbEGIXkkOUAy/HtXso1dekK83X16+3blL8KlqSC3Sq81Z8+KAfk+Iu5Mvo364BOc6V7JLf+ELuedM1u6JOpz3qjlCvHQlRl1BKt5/kPuhUsOEKwlL5Q+rtgeUmWsQbigwgCGtLKuWiL0NSJn/BkvXMkFT9HcnT7xtAhGVzzmIC3oQep8EkeL6WL2MF2Ng7gtG08nD/M4miezuEUdRTQJwjBOwtU4jDxZLXNBjxUw11nPGU47niT2eRKbblNcg7kSgptWMbGXyjuS0srU2C8mME7RAS8zdPpL4PvSOgXD6teiMGBbfzS9LLlGJxta8lM19h6pOTTKPqio3UUPrfiG9Pm/+Dj04UKr41N3bxi4O2zJ88MbveTU2IH/Q3g5UO4NOlFxoDsB7yXIF7XWqpYMg1bXrrQ2EC37v7fW0hLyQ483Uu/Auuod78bdDRtnffXNn1PBjzuHTGYNsBXK++1XBDRO5hfq9QtkWgZEnYg/Bn7T/XDT2sAj18ZiqG1SOnU7VWuXSlbeMtdMbVOlJXi41VyBpMJeNkhj7yd4Fxtcexd5pO5NtZe3se6p3JV4uM8PgrvQRp1uszKlOj2DKV9rK7iEXrQLvKBPqZKyWbChJ13ZttYFzQdl+5qzfzeL5NMoKJIkKeaMxrtiOo5nMQuLIlkUbBGgPOJXj0vsk4pNI7S1B6cme3KJa9Z9akZrTSu/7EzT05p/HtXAci4Ltc01gHxtGG7CQeMl+CrZinE0aAvWcunnTb4yIlR+AJbdiDLf6epsNc16loxU/ENZh2Qk9d+WjDj4tsobDR8cTu7yjuxKrn8BUEsDBBQAAAgIAACYn+s2egAMbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSsrGRQZqFhUWaeUqiWVKasa6ZiVmKYVqahWVaiqWBoYGBUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+tRdGZWgAIAADoFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+s2egAMbQAAAHgAAAAJACQAAAAAAAAAAAAAAM0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAhQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -4673,7 +4675,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.5, y: 0}
@@ -4703,7 +4705,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 3
   spawnBox: {fileID: 516266316}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &531497753
 GameObject:
@@ -8320,7 +8321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 0
   spawnBox: {fileID: 908668004}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &928356736
 GameObject:
@@ -8992,7 +8992,6 @@ GameObject:
   - component: {fileID: 999936841}
   - component: {fileID: 999936839}
   - component: {fileID: 999936845}
-  - component: {fileID: 999936844}
   - component: {fileID: 999936847}
   - component: {fileID: 999936846}
   - component: {fileID: 999936843}
@@ -9036,9 +9035,8 @@ MonoBehaviour:
   _maxMoveSpeed: 20
   _linearDrag: 1
   _rotateSpeed: 100
-  animator: {fileID: 18324944}
   pSystem: {fileID: 999936843}
-  stats: {fileID: 999936847}
+  player: {fileID: 999936845}
   input: {fileID: 1637623889}
   rb2d: {fileID: 999936841}
 --- !u!50 &999936841
@@ -13834,20 +13832,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &999936844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999936837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d188802e80b46241b6d9e9e123019da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  maxhp: 100
 --- !u!114 &999936845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13857,11 +13841,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 999936837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9df4977712d90642b6b1adc238b97f6, type: 3}
+  m_Script: {fileID: 11500000, guid: db49f2d4b00b7e9428df2343ad3186b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   category: 1
-  spaceshipStats: {fileID: 999936844}
+  spaceshipStats: {fileID: 11400000, guid: d04535920f73681479eb2ac77f187968, type: 2}
+  stats: {fileID: 999936847}
 --- !u!61 &999936846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13900,15 +13885,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d86bfafccc0cd54fa1d0a5ea02fa587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dubloons: 0
-  gotcha: 0
-  maxGotcha: 100
-  beamCount: 1
   speedUp: 1
   damageUp: 1
   healthUp: 1
   beamLengthUp: 0
   beamPlus: 0
+  hp: 0
+  maxhp: 0
 --- !u!1001 &1004626330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17871,7 +17854,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
@@ -17901,7 +17884,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 1
   spawnBox: {fileID: 1393748276}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &1409376964
 GameObject:
@@ -19168,7 +19150,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.5, y: 0.5}
@@ -19198,7 +19180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 0
   spawnBox: {fileID: 1549531221}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &1549846224
 GameObject:
@@ -20263,7 +20244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 3
   spawnBox: {fileID: 1620270974}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &1628342180
 GameObject:
@@ -22534,7 +22514,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.5, y: 0}
@@ -22564,7 +22544,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 2
   spawnBox: {fileID: 1875012833}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1001 &1878350621
 PrefabInstance:
@@ -24417,7 +24396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontHealthBar: {fileID: 1675935194}
   backHealthBar: {fileID: 734391334}
-  stats: {fileID: 999936844}
+  stats: {fileID: 999936847}
   _chipSpeed: 2
 --- !u!1 &2033602037
 GameObject:
@@ -25301,7 +25280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 2
   spawnBox: {fileID: 2133948308}
-  CivilianPefab: {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   AsteroidPrefab: {fileID: 2100010600363415364, guid: 8ce4263a623fbcc49aac5f227172490b, type: 3}
 --- !u!1 &2138244845
 GameObject:

@@ -5,9 +5,6 @@ using Pathfinding;
 
 public class CopShipController : MonoBehaviour
 {
-    public int bountyPoints;
-    static BountyManager bountyManager;
-
     [Header("Movement Variables")]
     [SerializeField] private float speed;
 
@@ -29,7 +26,6 @@ public class CopShipController : MonoBehaviour
     public Path path;
     int currentWaypoint = 0;
     float nextWaypointDistance = 1f;
-    bool reachedEndOfPath = false;
 
     // Seeking
     private Seeker seeker;
@@ -44,11 +40,8 @@ public class CopShipController : MonoBehaviour
     public Transform bulletSpawn;
     public int turretOffset = 20; // A Random range from [-x, x) angle offset the turret can make when firing
 
-    
-    
     private void Start()
     {
-        bountyManager = FindObjectOfType<BountyManager>();
         seeker = GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
         if (currentAIState.Equals(AIState.Wandering) && !followObject && !targetedObject)
@@ -70,6 +63,7 @@ public class CopShipController : MonoBehaviour
         }
     }
 
+    bool reachedEndOfPath = false;
     private void FixedUpdate()
     {
         if (path == null)
@@ -79,10 +73,9 @@ public class CopShipController : MonoBehaviour
         {
             reachedEndOfPath = true;
             return;
-        }else
-        {
-            reachedEndOfPath = false;
         }
+        
+        reachedEndOfPath = false;
 
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb2d.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
@@ -93,6 +86,7 @@ public class CopShipController : MonoBehaviour
 
         if (distance < nextWaypointDistance)
             currentWaypoint++;
+
     }
     private void SetAIState(AIState aiState)
     {
@@ -225,8 +219,5 @@ public class CopShipController : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
-    {
-        bountyManager.AddBounty(bountyPoints);
-    }
+    
 }

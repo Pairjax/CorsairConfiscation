@@ -27,6 +27,7 @@ public class Swingable : MonoBehaviour
 
     public float currentAngle;
     public float maxAngle;
+
     void Start()
     {
         originRb = origin.GetComponent<Rigidbody2D>();

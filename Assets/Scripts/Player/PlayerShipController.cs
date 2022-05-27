@@ -14,6 +14,7 @@ public class PlayerShipController : MonoBehaviour
     private float _horizontalDirection;
     public Animator animator;
     public ParticleSystem pSystem;
+    public Harpoon harpoon;
 
     public PlayerStats stats;
     public PlayerInput input;
@@ -26,7 +27,9 @@ public class PlayerShipController : MonoBehaviour
 
     private void Update()
     {
-
+        if (input.fire) harpoon.OnLaunchHook();
+        if (input.retract) harpoon.OnRetract();
+        if (input.extend) harpoon.OnExtend();
     }
 
     private void FixedUpdate()

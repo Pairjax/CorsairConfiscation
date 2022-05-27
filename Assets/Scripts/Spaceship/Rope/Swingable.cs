@@ -6,7 +6,7 @@ public class Swingable : MonoBehaviour
 {
     public float radius;
 
-    [SerializeField] private GameObject origin;
+    [SerializeField] public GameObject origin;
     private Rigidbody2D originRb;
 
     [Range(0.0f, 2.0f)]
@@ -19,7 +19,7 @@ public class Swingable : MonoBehaviour
     [SerializeField] private float initialForce;
 
     [Range(0.0f, 50.0f)]
-    [SerializeField] private float angleLimit = 30f;
+    [SerializeField] public float angleLimit = 30f;
     
     public float lastRotation;
 
@@ -51,7 +51,7 @@ public class Swingable : MonoBehaviour
         float currentRotation = originRb.rotation;
 
         // Calculate angle change
-        float angularVel = originRb.angularVelocity * Time.fixedDeltaTime;
+        float angularVel = -originRb.angularVelocity * Time.fixedDeltaTime;
 
         acceleration += (angularVel * turnSensitivity) * 0.01f;
         maxAngle = Mathf.Abs(angleLimit * (acceleration)) * 0.5f;

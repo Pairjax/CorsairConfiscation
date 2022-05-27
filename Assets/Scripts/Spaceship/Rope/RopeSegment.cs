@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class RopeSegment : MonoBehaviour
 {
-    [SerializeField] private GameObject target;
+    [SerializeField] public GameObject target;
     [SerializeField] private LineRenderer lineRenderer;
 
     void Start()

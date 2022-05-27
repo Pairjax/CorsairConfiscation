@@ -17,6 +17,10 @@ public class PlayerInput : MonoBehaviour
     public Vector2 movementInput { get; private set; }
 
     public bool interacted { get; private set; }
+    public bool fire { get; private set; }
+    public bool detach { get; private set; }
+    public bool extend { get; private set; }
+    public bool retract { get; private set; }
 
     public bool paused { get; private set; }
 
@@ -30,6 +34,10 @@ public class PlayerInput : MonoBehaviour
     {
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         interacted = Input.GetKeyDown(KeyCode.E);
+        fire = Input.GetMouseButtonDown(0);
+        detach = Input.GetMouseButtonDown(1);
+        extend = Input.GetAxisRaw("Mouse ScrollWheel") > 0f;
+        retract = Input.GetAxisRaw("Mouse ScrollWheel") < 0f;
     }
 
     private void handleMenuInput()

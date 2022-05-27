@@ -10,6 +10,8 @@ public class Asteroid : MonoBehaviour
     public Vector3 destination;
     private void Start()
     {
+        if (GetComponent<Grabbable>().isThrown)
+            return;
         LookAt();
         rb2d.isKinematic = true;
         rb2d.velocity = transform.TransformDirection(Vector3.right * speed);

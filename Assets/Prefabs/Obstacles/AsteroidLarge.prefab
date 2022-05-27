@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6168395866992407523}
   - component: {fileID: 6168395866992407534}
   - component: {fileID: 6168395866992407533}
+  - component: {fileID: 2622971104198338464}
   m_Layer: 9
   m_Name: AsteroidLarge
   m_TagString: grabbable
@@ -43,8 +44,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f041594b55441464381150b48c848640, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   rb2d: {fileID: 6168395866992407533}
   speed: 3
   rotateSpeed: 1
@@ -70,7 +71,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1821492685708712955
+--- !u!114 &2622971104198338464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,14 +81,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2bb9c522ec3a1242933a259007ffe7b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isSalvagable: 0
-  isThrown: 0
-  objectSprite: {fileID: 4853166262499834683, guid: 78919af3a872c424e8d8d9a7832a6b5a, type: 3}
+  isThrown: 1
+  objectSprite: {fileID: 6168395868507592212}
   thrownObject: {fileID: 7738606476661149060, guid: 8b50c8f674846c042ad63f418fef956e, type: 3}
   weight: 0
-  rb2d: {fileID: 0}
+  rb2d: {fileID: 6168395866992407533}
 --- !u!1 &6168395868507592212
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +102,7 @@ GameObject:
   - component: {fileID: 7101127939952114716}
   m_Layer: 9
   m_Name: Sprite
-  m_TagString: grabbable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

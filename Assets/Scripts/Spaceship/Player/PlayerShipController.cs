@@ -10,6 +10,8 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private float _linearDrag;
     [SerializeField] private float _rotateSpeed;
 
+    [SerializeField] private Harpoon harpoon;
+
     private float _horizontalDirection;
     public ParticleSystem pSystem;
 
@@ -22,8 +24,16 @@ public class PlayerShipController : MonoBehaviour
         player.animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (input.fire) harpoon.OnLaunchHook();
+        if (input.retract) harpoon.OnRetract();
+        if (input.extend) harpoon.OnExtend();
+    }
+
     private void FixedUpdate()
     {
+
         if (!input.movementInput.Equals(Vector2.zero))
         {
             Move(input.movementInput);
@@ -100,7 +110,7 @@ public class PlayerShipController : MonoBehaviour
         // Turning right/left
         if(movement.x != 0f)
         {
-            transform.Rotate(new Vector3(0f, 0f, -movement.x) * _rotateSpeed * Time.fixedDeltaTime);
+            rb2d.AddTorque(-movement.x * _rotateSpeed * Time.fixedDeltaTime);
         }
 
         // Thrust up

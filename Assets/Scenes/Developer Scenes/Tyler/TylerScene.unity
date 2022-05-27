@@ -278,7 +278,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &18324944
@@ -291,7 +291,7 @@ Animator:
   m_GameObject: {fileID: 18324941}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02ad4f065de951147ad1424a4d7f93d7, type: 2}
+  m_Controller: {fileID: 9100000, guid: c56ce3dfb7b20894aa9c6b762caf502d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1823,7 +1823,7 @@ SpriteRenderer:
   m_Size: {x: 112.5, y: 63.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &181628277 stripped
@@ -14278,7 +14278,7 @@ SpriteRenderer:
   m_Size: {x: 112.5, y: 63.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1013252676
@@ -22231,7 +22231,7 @@ SpriteRenderer:
   m_Size: {x: 22.007427, y: 14.119999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1856757226

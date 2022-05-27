@@ -34,4 +34,9 @@ public class Level : GameScene
     {
         return UnityEngine.Random.Range(minSpawnTime, maxSpawnTime);
     }
+
+    public double GenerateRandomWeight()
+    {
+        return UnityEngine.Random.Range(0, 100);
+    }
 }

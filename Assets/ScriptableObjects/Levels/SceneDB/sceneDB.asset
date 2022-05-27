@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 11400000, guid: a12bcdc0a3f2df0429819e0486883686, type: 2}
-  currentLevelName: 
+  - {fileID: 11400000, guid: a94bebbf6a0b7b84bacd63021050ea31, type: 2}
+  - {fileID: 11400000, guid: 6e7e60a8fbd1ad549905891f3622bf8b, type: 2}
+  - {fileID: 11400000, guid: eb9c90f4e7a4de443a92d4d86609e19a, type: 2}
+  - {fileID: 11400000, guid: 27d049502ff81a64ba46dd3c7c964452, type: 2}
+  - {fileID: 11400000, guid: 854185b8753d26144ac1fcc7f390080e, type: 2}
+  currentLevelName: StarSystem
   currentLevel: {fileID: 11400000, guid: a12bcdc0a3f2df0429819e0486883686, type: 2}

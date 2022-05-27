@@ -9,7 +9,7 @@ public class Armor : Powerup
         base.ApplyPowerup();
         playerStats.speedUp = .5f;
         playerStats.healthUp = 2f;
-        shipStats.UpdateHealth(playerStats.healthUp);
+        //shipStats.UpdateHealth(playerStats.healthUp);
     }
 
     public override void DiscardPowerup()

@@ -7,7 +7,7 @@ public class HPTracker : MonoBehaviour
 {
     public Image frontHealthBar;
     public Image backHealthBar;
-    public SpaceshipStats stats;
+    public PlayerStats stats;
 
     [SerializeField] private float _chipSpeed = 1.75f;
     private float lerpTimer;

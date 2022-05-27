@@ -9,12 +9,15 @@ public class CopShipController : MonoBehaviour
     [SerializeField] private float speed;
 
     // AI Targets
-    public Transform followObject;
-    public Transform targetedObject;
+    private Transform followObject;
+    private Transform targetedObject;
 
-    // AI Triggers
-    public CircleCollider2D followCollider;
-    public CircleCollider2D targetCollider;
+    [Header("Ship AI")]
+    [SerializeField] private CircleCollider2D followCollider;
+    [SerializeField] private CircleCollider2D targetCollider;
+
+    public enum AIState { Engaged, Wandering, Sleep, Idle };
+    public AIState currentAIState;
 
     // Wandering
     Vector2 wanderPoint;
@@ -23,33 +26,30 @@ public class CopShipController : MonoBehaviour
     public Path path;
     int currentWaypoint = 0;
     float nextWaypointDistance = 1f;
-    bool reachedEndOfPath = false;
 
     // Seeking
     private Seeker seeker;
     Rigidbody2D rb2d;
 
-    // Cannon
     float fireCooldown =.8f;
     bool isFiring;
+
+    [Header("Cannon")]
     public GameObject bulletPrefab;
     public Transform turret;
     public Transform bulletSpawn;
     public int turretOffset = 20; // A Random range from [-x, x) angle offset the turret can make when firing
 
-    public enum AIState {Engaged, Wandering, Sleep, Idle};
-    public AIState currentAIstate;
-    
     private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
-        if (currentAIstate.Equals(AIState.Wandering) && !followObject && !targetedObject)
+        if (currentAIState.Equals(AIState.Wandering) && !followObject && !targetedObject)
             BeginWandering();
     }
     private void Update()
     {
-        if(currentAIstate.Equals(AIState.Engaged))
+        if(currentAIState.Equals(AIState.Engaged))
         {
             if (followObject)
             {
@@ -63,6 +63,7 @@ public class CopShipController : MonoBehaviour
         }
     }
 
+    bool reachedEndOfPath = false;
     private void FixedUpdate()
     {
         if (path == null)
@@ -72,10 +73,9 @@ public class CopShipController : MonoBehaviour
         {
             reachedEndOfPath = true;
             return;
-        }else
-        {
-            reachedEndOfPath = false;
         }
+        
+        reachedEndOfPath = false;
 
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb2d.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
@@ -86,6 +86,7 @@ public class CopShipController : MonoBehaviour
 
         if (distance < nextWaypointDistance)
             currentWaypoint++;
+
     }
     private void SetAIState(AIState aiState)
     {
@@ -93,14 +94,14 @@ public class CopShipController : MonoBehaviour
         {
             case AIState.Sleep:
                 AISleep();
-                currentAIstate = AIState.Sleep;
+                currentAIState = AIState.Sleep;
                 break;
             case AIState.Wandering:
-                currentAIstate = AIState.Wandering;
+                currentAIState = AIState.Wandering;
                 break;
             case AIState.Engaged:
                 EndWandering();
-                currentAIstate = AIState.Engaged;
+                currentAIState = AIState.Engaged;
                 break;
         }
     }
@@ -217,4 +218,6 @@ public class CopShipController : MonoBehaviour
             currentWaypoint = 0;
         }
     }
+
+    
 }

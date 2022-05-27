@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static ScenesData sceneDB;
     public static AudioManager instance;
 
     [Header("Audio Variables")]

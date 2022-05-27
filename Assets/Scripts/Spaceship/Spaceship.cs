@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpaceshipStats))]
-public class Spaceship : MonoBehaviour
+public abstract class Spaceship : MonoBehaviour
 {
+    static BountyManager bountyManager;
     public enum SpaceshipCategory { Cop, Player, Civilian }
     public SpaceshipCategory category;
 
+    private int bountyPoints;
     public SpaceshipStats spaceshipStats;
+    internal SpriteRenderer rend;
+    internal Animator animator;
+    internal Rigidbody2D rb2d;
 
-    public void Damage()
+    private void Awake()
     {
-        spaceshipStats.hp -= 10;
-
-        if (spaceshipStats.hp <= 0)
-        {
-            //Display the game over screen when the player's health reaches 0
-            GameOverScreen.instance.ShowGameOver();
-            Destroy(gameObject);
-        }
+        if(!bountyManager)
+            bountyManager = FindObjectOfType<BountyManager>();
+        SetupStats();
+    }
+    public abstract void SetupStats();
+    public abstract void Damage();
+    
+    public void OnDestroy()
+    {
+        bountyManager.AddBounty(spaceshipStats.bountyPoints);
     }
 
 

@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "com.nol1fe.delaunator": {
-      "version": "file:C:/Users/Tyler/Downloads/delaunator-sharp-master/DelaunatorSharp.Unity",
+      "version": "https://github.com/nol1fe/delaunator-sharp.git?path=DelaunatorSharp.Unity",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "738722b63eb2d3a742403673855498fc1c70e037"
     },
     "com.unity.2d.animation": {
       "version": "5.1.1",

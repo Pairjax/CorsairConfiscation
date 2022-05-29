@@ -27,6 +27,4 @@ public abstract class Spaceship : MonoBehaviour
     {
         bountyManager.AddBounty(spaceshipStats.bountyPoints);
     }
-
-
 }

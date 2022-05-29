@@ -6,7 +6,7 @@ public class PlayerShipController : MonoBehaviour
 {
     [Header("Movement Variables")]
     [SerializeField] private float _movementAcceleration;
-    [SerializeField] private float _maxMoveSpeed;
+    [SerializeField] private float _maxSpeed;
     [SerializeField] private float _linearDrag;
     [SerializeField] private float _rotateSpeed;
 
@@ -15,13 +15,16 @@ public class PlayerShipController : MonoBehaviour
     private float _horizontalDirection;
     public ParticleSystem pSystem;
 
-    public Player player;
-    public PlayerInput input;
+    [SerializeField] private Player player;
+    [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
+    private PlayerStats playerStats;
 
     void Start()
     {
         player.animator = transform.GetChild(0).GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
+        playerStats = player.stats;
     }
 
     private void Update()
@@ -110,25 +113,25 @@ public class PlayerShipController : MonoBehaviour
         // Turning right/left
         if(movement.x != 0f)
         {
-            rb2d.AddTorque(-movement.x * _rotateSpeed * Time.fixedDeltaTime);
+            rb2d.AddTorque(-movement.x * _rotateSpeed);
         }
 
         // Thrust up
         if (movement.y > 0f)
         {
-            rb2d.AddForce(transform.right * _movementAcceleration * player.stats.speedUp);
+            rb2d.AddForce(transform.right * _movementAcceleration);
         }
 
         // Thrust down
         if (movement.y < 0f)
         {
-            rb2d.AddForce(-transform.right * _movementAcceleration * player.stats.speedUp);
+            rb2d.AddForce(-transform.right * _movementAcceleration);
         }
 
         // Max speed clamp.
-        if (Mathf.Abs(rb2d.velocity.x) > _maxMoveSpeed * player.stats.speedUp)
+        if (Mathf.Abs(rb2d.velocity.x) > _maxSpeed)
         {
-            float newX = Mathf.Sign(rb2d.velocity.x) * _maxMoveSpeed;
+            float newX = Mathf.Sign(rb2d.velocity.x) * _maxSpeed;
             rb2d.velocity = new Vector2(newX, rb2d.velocity.y);
         }
 

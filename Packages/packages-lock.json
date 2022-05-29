@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.nol1fe.delaunator": {
+      "version": "file:C:/Users/Tyler/Downloads/delaunator-sharp-master/DelaunatorSharp.Unity",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "5.1.1",
       "depth": 0,

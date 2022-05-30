@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     // Looties
     public Dictionary<Loot, int> loot;
 
-    public void AddScrap()
+    public void AddScrap(Droppable drop)
     {
 
     }

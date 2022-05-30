@@ -18,3 +18,4 @@ MonoBehaviour:
   speed: 125
   linDrag: 1
   spriteSelection: []
+  drops: []

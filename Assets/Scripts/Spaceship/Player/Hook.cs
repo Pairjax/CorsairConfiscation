@@ -29,22 +29,18 @@ public class Hook : MonoBehaviour
             return;
 
         hookedObj = selObj;
-        grabbedObj = Instantiate(grabbableComp.objectSprite, transform.position, hookedObj.transform.rotation, gameObject.transform).gameObject;
+        grabbedObj = Instantiate(grabbableComp.objectSprite, 
+            transform.position, hookedObj.transform.rotation, 
+            gameObject.transform).gameObject;
         hookedObj.SetActive(false);
     }
 
     public void UnhookObj()
     {
-        if (!hookedObj && !grabbedObj)
-        {
-            // gameObject.transform.parent.gameObject.SetActive(false);
-            return;
-        }
-        Instantiate(grabbedObj.GetComponent<HookedObjectHolder>().thrownObject, transform.position, Quaternion.identity);
+        // Instantiate(grabbedObj.GetComponent<HookedObjectHolder>().thrownObject, transform.position, Quaternion.identity);
+        Destroy(hookedObj);
         Destroy(grabbedObj);
         hookedObj = null;
         grabbedObj = null;
-        // Sets whole harpoon to unactive.
-        // gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

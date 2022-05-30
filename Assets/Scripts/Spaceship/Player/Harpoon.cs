@@ -35,6 +35,12 @@ public class Harpoon : MonoBehaviour
         rope = GetComponent<RopeSegment>();
     }
 
+    private void Update()
+    {
+        transform.position = player.transform.position;
+        transform.rotation = player.transform.rotation;
+    }
+
     private void FixedUpdate()
     {
         UpdateRope();

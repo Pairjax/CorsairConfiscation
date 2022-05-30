@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1034629916231444040}
   - component: {fileID: -4513272165200038676}
-  - component: {fileID: 8058242075536824046}
   - component: {fileID: 973981542388542430}
+  - component: {fileID: 5331774395229478853}
   m_Layer: 0
-  m_Name: Armor
+  m_Name: Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fd6834f11c3a2cf45aee48555823a883, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc3520fcd73ec4141a93e34b01952f47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,20 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8058242075536824046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316282063186176045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af45add3ce9a32741bf0517b6cbd0d7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0
-  spawnedSprite: {fileID: 0}
 --- !u!61 &973981542388542430
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5331774395229478853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316282063186176045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0a87a915afae944972001609552db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}

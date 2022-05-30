@@ -24,3 +24,4 @@ MonoBehaviour:
   - {fileID: 635975237372303863, guid: 55843cc76dc16074b858708804dacd36, type: 3}
   - {fileID: 2329924544593625676, guid: 10a47b0cd4cb8e04d8ce81ec8f9f1b05, type: 3}
   - {fileID: 8360691802890335989, guid: 3858c081686c83c4e93391f1b60c3a30, type: 3}
+  drops: []

@@ -21,17 +21,21 @@ public class SpaceshipStats : ScriptableObject
     public Sprite[] spriteSelection = null;
 
     [Header("Drops")]
-    public List<DropParameters> quantity;
+    public List<DropParameters> drops;
+}
 
-    [System.Serializable]
-    public struct DropParameters
-    {
-        [SerializeField]
-        Droppable drop;
+[System.Serializable]
+public struct DropParameters
+{
+    [SerializeField]
+    public Droppable drop;
 
-        [SerializeField]
-        int minQuantity;
-        [SerializeField]
-        int maxQuantity;
-    }
+    [SerializeField]
+    public int minQuantity;
+    [SerializeField]
+    public int maxQuantity;
+
+    // Percentile
+    [SerializeField]
+    public float dropChance;
 }

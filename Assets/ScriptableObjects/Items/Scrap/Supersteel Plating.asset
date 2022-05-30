@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2b43b40bd232744b870b48fe0370f2, type: 3}
   m_Name: Supersteel Plating
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: dc3520fcd73ec4141a93e34b01952f47, type: 3}
   type: 0

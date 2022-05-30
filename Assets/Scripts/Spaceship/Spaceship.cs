@@ -14,9 +14,13 @@ public abstract class Spaceship : MonoBehaviour
     internal Animator animator;
     internal Rigidbody2D rb2d;
 
+    private GameObject dropReference;
+
     private void Awake()
     {
-        if(!bountyManager)
+        dropReference = (GameObject) Resources.Load("Prefabs/ItemPickups/Collectible",
+            typeof(GameObject));
+        if (!bountyManager)
             bountyManager = FindObjectOfType<BountyManager>();
         SetupStats();
     }
@@ -33,6 +37,15 @@ public abstract class Spaceship : MonoBehaviour
 
     private void DropLoot(SpaceshipStats stats)
     {
+        foreach (DropParameters drop in stats.drops)
+        {
+            GameObject dropObj = Instantiate(dropReference);
+            dropObj.SetActive(false);
 
+            Collectible dropC = dropObj.AddComponent<Collectible>();
+            dropC.drop = drop.drop;
+
+            dropObj.SetActive(true);
+        }
     }
 }

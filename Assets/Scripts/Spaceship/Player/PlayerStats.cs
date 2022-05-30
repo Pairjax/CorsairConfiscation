@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     public PlayerShipClass baseClass;
 
     // Booties
-    public Dictionary<Scrap, int> scrap;
+    public Dictionary<Droppable, int> scrap;
 
     // Looties
     public Dictionary<Loot, int> loot;

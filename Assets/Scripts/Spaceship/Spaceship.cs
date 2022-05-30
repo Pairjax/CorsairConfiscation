@@ -25,6 +25,14 @@ public abstract class Spaceship : MonoBehaviour
     
     public void OnDestroy()
     {
+        if (category != SpaceshipCategory.Civilian)
+            DropLoot(spaceshipStats);
+
         bountyManager.AddBounty(spaceshipStats.bountyPoints);
+    }
+
+    private void DropLoot(SpaceshipStats stats)
+    {
+
     }
 }

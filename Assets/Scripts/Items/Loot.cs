@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "Items/Loot")]
 public abstract class Loot
 {
     public Sprite sprite;

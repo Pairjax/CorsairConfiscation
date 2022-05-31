@@ -7,6 +7,11 @@ using DelaunatorSharp;
 
 public class Graph : ScriptableObject
 {
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
+
     [SerializeField]
     private List<LevelNode> nodes;
     private List<LevelNode> Nodes

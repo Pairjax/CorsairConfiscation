@@ -37,6 +37,7 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
+        gameObject.name = "SystemMap";
         if (mapGenerated)
             return;
 

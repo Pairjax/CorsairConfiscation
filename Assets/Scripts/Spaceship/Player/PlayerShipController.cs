@@ -18,12 +18,14 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
+    [SerializeField] private Collider2D collider;
     private PlayerStats playerStats;
 
     void Start()
     {
         player.animator = transform.GetChild(0).GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        collider = GetComponent<Collider2D>();
         playerStats = player.stats;
     }
 
@@ -32,6 +34,13 @@ public class PlayerShipController : MonoBehaviour
         if (input.fire) harpoon.OnLaunchHook();
         if (input.retract) harpoon.OnRetract();
         if (input.extend) harpoon.OnExtend();
+    }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponentInParent<Hook>() != null)
+            Physics2D.IgnoreCollision(collision.collider, collider);
     }
 
     private void FixedUpdate()

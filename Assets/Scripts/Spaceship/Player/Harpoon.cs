@@ -47,36 +47,47 @@ public class Harpoon : MonoBehaviour
 
         if (hState == HookState.Unlaunched)
             return;
-        else if (hState == HookState.Launching)
+
+        float distance = Vector3.Distance(hookT.position, transform.position);
+
+        if (hState == HookState.Launched
+            || hState == HookState.Retracting)
         {
-            if (hook.hookedObj != null
-                || hook.grabbedObj != null)
+            if (distance < 0.2f)
             {
-                ActivateRope();
-                hState = HookState.Launched; 
+                DisableRope();
+                hState = HookState.Unlaunched;
                 return;
             }
+        }
+        if (hState == HookState.Launched)
+        {
+            if (distance > ropeLength)
+                hookSwing.radius = ropeLength;
 
-            hookSwing.radius += 4 * Time.fixedDeltaTime;
+            return;
+        }
+        if (hState == HookState.Launching)
+        {
+            if (distance > ropeLength)
+                hState = HookState.Retracting;
+            else
+                hookSwing.radius += 4 * Time.fixedDeltaTime;
         }
         else if (hState == HookState.Retracting)
         {
             hookSwing.radius -= 4 * Time.fixedDeltaTime;
         }
 
-        float distance = Vector3.Distance(hookT.position, transform.position);
-        if (distance < 0.2f
-            && hState != HookState.Launching)
+        if (hook.hookedObj != null
+                || hook.grabbedObj != null)
         {
-            DisableRope();
-            hState = HookState.Unlaunched;
+            ActivateRope();
+            hState = HookState.Launched;
+            return;
         }
-        if (distance > ropeLength
-            && hState == HookState.Launching)
-            hState = HookState.Retracting;
-        if (distance > ropeLength
-            && hState == HookState.Launched)
-            hookSwing.radius = ropeLength;
+
+        
     }
 
     public void OnRetract()

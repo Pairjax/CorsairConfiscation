@@ -5,7 +5,7 @@ using UnityEngine;
 public class Grabbable : MonoBehaviour
 {
     public bool isSalvagable;
-    public bool isThrown;
+    public bool isThrown = false;
     public GameObject objectSprite;
     public GameObject thrownObject;
     public float weight;
@@ -13,10 +13,17 @@ public class Grabbable : MonoBehaviour
 
     public void Start()
     {
-        if(isThrown)
-        {
-            // throw in direction
-        }
+        rb2d = GetComponent<Rigidbody2D>();
     }
+
+    /*public void OnThrow()
+    {
+        isThrown = true;
+
+        gameObject.AddComponent<Collectible>();
+
+        rb2d.SetRotation(Random.rotation);
+        rb2d.AddForce(Vector2.left * Random.value);
+    }*/
 
 }

@@ -38,6 +38,10 @@ public class Hook : MonoBehaviour
     public void UnhookObj()
     {
         // Instantiate(grabbedObj.GetComponent<HookedObjectHolder>().thrownObject, transform.position, Quaternion.identity);
+        Salvagable s;
+        if (grabbedObj.TryGetComponent<Salvagable>(out s))
+            s.OnSalvage();
+
         Destroy(hookedObj);
         Destroy(grabbedObj);
         hookedObj = null;

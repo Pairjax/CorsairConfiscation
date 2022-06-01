@@ -18,4 +18,8 @@ MonoBehaviour:
   speed: 700
   linDrag: 1
   spriteSelection: []
-  drops: []
+  drops:
+  - drop: {fileID: 11400000, guid: 1fa8214b5fbb6f7438c51643736df8c7, type: 2}
+    minQuantity: 2
+    maxQuantity: 2
+    dropChance: 1

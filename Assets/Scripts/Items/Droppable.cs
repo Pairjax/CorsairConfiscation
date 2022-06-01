@@ -7,7 +7,7 @@ public class Droppable : ScriptableObject
 {
     public Sprite sprite;
     public DropType type;
-    // Room for other features?
+    public string scriptName;
 }
 
 public enum DropType

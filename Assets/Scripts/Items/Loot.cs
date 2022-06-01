@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public abstract class Loot
 {
-    public Sprite sprite;
-    public Player target;
-
-    public void Effect()
-    {
-
-    }
+    public abstract void Effect();
 }

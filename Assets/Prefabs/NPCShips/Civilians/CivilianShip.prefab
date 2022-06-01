@@ -5015,6 +5015,7 @@ GameObject:
   - component: {fileID: 5950450473436848855}
   - component: {fileID: 2946010848801380089}
   - component: {fileID: 922870425075675391}
+  - component: {fileID: 6358630530805645375}
   m_Layer: 6
   m_Name: sprite
   m_TagString: Untagged
@@ -5101,3 +5102,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 128ab58400964d245a6633801cf2efbe, type: 2}
   dropReference: {fileID: 8316282063186176045, guid: cc0080480af62de48820bf318c7e9d8f, type: 3}
+--- !u!61 &6358630530805645375
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341401105128320904}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

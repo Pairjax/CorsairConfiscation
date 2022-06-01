@@ -14,11 +14,17 @@ public class Collectible : MonoBehaviour
         icon.sprite = drop.sprite;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerStats stats;
-        bool isPlayer = collision.collider.TryGetComponent<PlayerStats>(out stats);
+        bool isPlayer = collision.gameObject.TryGetComponent<PlayerStats>(out stats);
         if (isPlayer)
-           stats.AddScrap(drop);
+        {
+            if (drop.type == DropType.Scrap)
+                stats.AddScrap(drop);
+            else if (drop.type == DropType.Loot)
+                stats.AddLoot(drop);
+            Destroy(gameObject);
+        }
     }
 }

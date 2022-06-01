@@ -22,7 +22,11 @@ public class MapGenerator : MonoBehaviour
     public List<GameObject> levelNodePoints = new List<GameObject>();
     public Graph objGraph;
     public bool mapGenerated;
-    
+
+    [SerializeField]
+    private int numShops;
+    private int startingThreshold = 4;
+
     private Transform MSTTrianglesContainer;
     private Transform MSTPointsContainer;
 
@@ -66,6 +70,8 @@ public class MapGenerator : MonoBehaviour
         ConvertToMST();
         AddEdges();
         CreateGraphScriptableObj();
+        PlaceRestStations();
+        LabelPoints();
     }
     #region GRAPH CREATION
 
@@ -236,6 +242,37 @@ public class MapGenerator : MonoBehaviour
             objGraph.AddNode(nodeQ);
         }
     }
+
+    private void PlaceRestStations()
+    {
+        int startingIndex = startingThreshold;
+        int increment = (levelNodePoints.Count - startingThreshold) / numShops;
+        int count = 0;
+
+        for (int i = startingThreshold; i < levelNodePoints.Count; i += increment)
+        {
+            Debug.Log($"{count}, {numShops}");
+            Debug.Log($"Current index: {i}, Max Index: {i+increment}, # Points {levelNodePoints.Count}");
+            if (count >= numShops)
+                return;
+            objGraph.SearchForNode(levelNodePoints[UnityEngine.Random.Range(i, i + increment)].transform.position).level = scenes.levels.Last();
+            count++;
+        }
+    }
+
+    private void LabelPoints()
+    {
+        foreach(GameObject point in levelNodePoints)
+        {
+            LevelNode node = objGraph.SearchForNode(point.transform.position);
+            switch (node.level.sceneName)
+            {
+                case "RestStation":
+                    point.GetComponent<SpriteRenderer>().color = Color.yellow;
+                    break;
+            }
+        }
+    }
     #endregion GRAPH CREATION
     #region NAVIGATION SETUP
     private void SetupNavigation()
@@ -245,14 +282,20 @@ public class MapGenerator : MonoBehaviour
     GameObject startingLevel;
     private void PickStartingNode()
     {
-        startingLevel = levelNodePoints[UnityEngine.Random.Range(0, 4)];
-        startingLevel.GetComponent<SpriteRenderer>().color = Color.green;
+        startingLevel = levelNodePoints[UnityEngine.Random.Range(0, startingThreshold)];
+        startingLevel.GetComponent<SpriteRenderer>().color = Color.blue;
         objGraph.SetCurrentNode(startingLevel.transform.position);
+    }
+    public void MarkNodeAsTraveled()
+    {
+        GameObject node = GetCurrentPoint();
+        node.GetComponent<SpriteRenderer>().color = Color.green;
+        objGraph.MarkTraveled(objGraph.currentNode);
     }
 
     public void UpdateCurrentNode()
     {
-        GetCurrentPoint().GetComponent<SpriteRenderer>().color = Color.green;
+        GetCurrentPoint().GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     public GameObject GetCurrentPoint()

@@ -26,9 +26,8 @@ public class Graph : ScriptableObject
             return nodes;
         }
     }
-
+    public List<LevelNode> traveledNodes = new List<LevelNode>();
     public LevelNode currentNode;
-    public LevelNode selectedNode;
     public static Graph Create(string name)
     {
         Graph graph = CreateInstance<Graph>();
@@ -45,7 +44,11 @@ public class Graph : ScriptableObject
         AssetDatabase.AddObjectToAsset(node, this);
         AssetDatabase.SaveAssets();
     }
-
+    public void MarkTraveled(LevelNode node)
+    {
+        if(!traveledNodes.Contains(node))
+            traveledNodes.Add(node);
+    }
     public LevelNode SearchForNode(IPoint point)
     {
         return nodes.Find((x) => x.point == point);

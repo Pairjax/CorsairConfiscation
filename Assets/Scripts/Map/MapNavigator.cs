@@ -36,11 +36,15 @@ public class MapNavigator : MonoBehaviour
             return;
         if (!systemMap.currentNode.isNeighbor(clickedNode))
             return;
+        
 
         Debug.Log("Clicked nieghbor node!");
+        mapGenerator.MarkNodeAsTraveled();
         systemMap.currentNode = clickedNode;
         mapGenerator.UpdateCurrentNode();
         MapManager.instance.SaveMapAsPrefab(mapGenerator.gameObject);
-        mapGenerator.scenes.LoadLevel(systemMap.currentNode.level.sceneName);
+
+        if (!systemMap.traveledNodes.Contains(clickedNode))
+            mapGenerator.scenes.LoadLevel(systemMap.currentNode.level.sceneName);
     }
 }

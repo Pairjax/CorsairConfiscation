@@ -31,7 +31,7 @@ public class ScenesData : ScriptableObject
 
     public Level PickRandomLevel()
     {
-        return levels.ElementAt(UnityEngine.Random.Range(0, levels.Count));
+        return levels.ElementAt(UnityEngine.Random.Range(0, levels.Count - 1));
     }
 
 }

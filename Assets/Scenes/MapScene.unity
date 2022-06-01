@@ -158,6 +158,8 @@ MonoBehaviour:
   scenes: {fileID: 11400000, guid: d91d06a5e6a06b74aaba00fe74bd3b3a, type: 2}
   levelNodePoints: []
   objGraph: {fileID: 0}
+  mapGenerated: 0
+  numShops: 4
   triangleEdgeWidth: 0.01
   triangleEdgeColor: {r: 0, g: 0, b: 0, a: 1}
   lineMaterial: {fileID: 2100000, guid: fe60369f18361df418fb98a1ee9d6ea5, type: 2}

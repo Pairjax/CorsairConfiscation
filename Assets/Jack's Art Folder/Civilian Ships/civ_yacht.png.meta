@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 5b76b3db053cff74798bc15d85b6aaa4
+guid: e989e1d8b5ebda74ea5c2b55fc86a3a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7214182626464854660
-    second: player_rotateRight_0
+      213: -306034792617014503
+    second: civ_yacht_0
   - first:
-      213: 8517317754614646234
-    second: player_rotateRight_1
+      213: 6005093508625870360
+    second: civ_yacht_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,43 +97,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_rotateRight_0
+      name: civ_yacht_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.53, y: 0.5}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4827b3b50eced1460800000000000000
-      internalID: 7214182626464854660
+      spriteID: 91b07214afeb0cbf0800000000000000
+      internalID: -306034792617014503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_rotateRight_1
+      name: civ_yacht_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 0
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.53, y: 0.5}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad50fe20f57933670800000000000000
-      internalID: 8517317754614646234
+      spriteID: 81e26a0dab0665350800000000000000
+      internalID: 6005093508625870360
       vertices: []
       indices: 
       edges: []

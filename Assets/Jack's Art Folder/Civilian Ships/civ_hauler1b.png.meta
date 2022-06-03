@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 5b76b3db053cff74798bc15d85b6aaa4
+guid: c53ef1b9940f70044bdcb7626cabfd42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7214182626464854660
-    second: player_rotateRight_0
+      213: -4648645828556511566
+    second: civ_hauler1b_0
   - first:
-      213: 8517317754614646234
-    second: player_rotateRight_1
+      213: 6639285281005506811
+    second: civ_hauler1b_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,43 +97,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_rotateRight_0
+      name: civ_hauler1b_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.53, y: 0.5}
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4827b3b50eced1460800000000000000
-      internalID: 7214182626464854660
+      spriteID: 2b6a94e9f31bc7fb0800000000000000
+      internalID: -4648645828556511566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_rotateRight_1
+      name: civ_hauler1b_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.53, y: 0.5}
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad50fe20f57933670800000000000000
-      internalID: 8517317754614646234
+      spriteID: bf010d069ca732c50800000000000000
+      internalID: 6639285281005506811
       vertices: []
       indices: 
       edges: []

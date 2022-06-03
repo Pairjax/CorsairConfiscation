@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 5b76b3db053cff74798bc15d85b6aaa4
+guid: f2c6d211a5449a546a7e561f2af82d7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7214182626464854660
-    second: player_rotateRight_0
+      213: 7866670107046167158
+    second: civ_drone_0
   - first:
-      213: 8517317754614646234
-    second: player_rotateRight_1
+      213: 2350992114912817500
+    second: civ_drone_1
+  - first:
+      213: 1704526715424653918
+    second: civ_drone_2
+  - first:
+      213: 4088783709455280537
+    second: civ_drone_3
+  - first:
+      213: 4486702504444570173
+    second: civ_drone_4
+  - first:
+      213: 1202889146425998489
+    second: civ_drone_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,43 +109,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_rotateRight_0
+      name: civ_drone_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
         height: 16
-      alignment: 9
-      pivot: {x: 0.53, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4827b3b50eced1460800000000000000
-      internalID: 7214182626464854660
+      spriteID: 672cbaf68c60c2d60800000000000000
+      internalID: 7866670107046167158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_rotateRight_1
+      name: civ_drone_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
         height: 16
-      alignment: 9
-      pivot: {x: 0.53, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad50fe20f57933670800000000000000
-      internalID: 8517317754614646234
+      spriteID: c517f175fd660a020800000000000000
+      internalID: 2350992114912817500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: civ_drone_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52cc074402b7a710800000000000000
+      internalID: 1704526715424653918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: civ_drone_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9996c75de174eb830800000000000000
+      internalID: 4088783709455280537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: civ_drone_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a264ef728f34e30800000000000000
+      internalID: 4486702504444570173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: civ_drone_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99cf4e43e4581b010800000000000000
+      internalID: 1202889146425998489
       vertices: []
       indices: 
       edges: []

@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class PlayerShipController : MonoBehaviour
 {
-    [Header("Movement Variables")]
-    [SerializeField] private float _movementAcceleration;
-    [SerializeField] private float _maxSpeed;
-    [SerializeField] private float _linearDrag;
-    [SerializeField] private float _rotateSpeed;
-
     [SerializeField] private Harpoon harpoon;
 
-    private float _horizontalDirection;
     public ParticleSystem pSystem;
 
     [SerializeField] private Player player;
+    [SerializeField] private PlayerStats pStats;
     [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
     [SerializeField] private Collider2D collider;
@@ -31,7 +25,10 @@ public class PlayerShipController : MonoBehaviour
 
     private void Update()
     {
-        if (input.fire) harpoon.OnLaunchHook();
+        if (input.fire)
+        {
+            harpoon.OnLaunchHook();
+        }
         if (input.retract) harpoon.OnRetract();
         if (input.extend) harpoon.OnExtend();
     }
@@ -122,25 +119,25 @@ public class PlayerShipController : MonoBehaviour
         // Turning right/left
         if(movement.x != 0f)
         {
-            rb2d.AddTorque(-movement.x * _rotateSpeed);
+            rb2d.AddTorque(-movement.x * pStats._rotateSpeed);
         }
 
         // Thrust up
         if (movement.y > 0f)
         {
-            rb2d.AddForce(transform.right * _movementAcceleration);
+            rb2d.AddForce(transform.right * pStats._acceleration);
         }
 
         // Thrust down
         if (movement.y < 0f)
         {
-            rb2d.AddForce(-transform.right * _movementAcceleration);
+            rb2d.AddForce(-transform.right * pStats._acceleration);
         }
 
         // Max speed clamp.
-        if (Mathf.Abs(rb2d.velocity.x) > _maxSpeed)
+        if (Mathf.Abs(rb2d.velocity.x) > pStats._maxSpeed)
         {
-            float newX = Mathf.Sign(rb2d.velocity.x) * _maxSpeed;
+            float newX = Mathf.Sign(rb2d.velocity.x) * pStats._maxSpeed;
             rb2d.velocity = new Vector2(newX, rb2d.velocity.y);
         }
 
@@ -148,6 +145,6 @@ public class PlayerShipController : MonoBehaviour
 
     private void ApplyLinearDrag()
     {
-        rb2d.drag = _linearDrag;
+        rb2d.drag = pStats._linearDrag;
     }
 }

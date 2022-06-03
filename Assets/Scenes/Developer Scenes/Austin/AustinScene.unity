@@ -4779,10 +4779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 999936837}
   hookObj: {fileID: 352539892}
-  ropeRungs: []
   rungPrefab: {fileID: 4104931045275833742, guid: 7072cd600f93f214db73f356a5bc6fb3, type: 3}
-  hState: 0
-  ropeLength: 5
 --- !u!114 &499622718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8950,6 +8947,7 @@ Transform:
   - {fileID: 2051750951}
   - {fileID: 1530738692}
   - {fileID: 423535718}
+  - {fileID: 1409376965}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9269,7 +9267,7 @@ GameObject:
   - component: {fileID: 999936842}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9301,15 +9299,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3e1552ed77f642a258e739f56e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementAcceleration: 7
-  _maxSpeed: 3
-  _linearDrag: 1
-  _rotateSpeed: 0.99
   harpoon: {fileID: 499622717}
   pSystem: {fileID: 999936843}
   player: {fileID: 999936845}
+  pStats: {fileID: 999936847}
   input: {fileID: 1637623889}
   rb2d: {fileID: 999936841}
+  collider: {fileID: 0}
 --- !u!50 &999936841
 Rigidbody2D:
   serializedVersion: 4
@@ -14156,9 +14152,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d86bfafccc0cd54fa1d0a5ea02fa587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
-  maxhp: 5
-  baseClass: {fileID: 0}
+  baseClass: {fileID: 11400000, guid: a18b4712c5972ab4faa231240a19e7f4, type: 2}
+  _hp: 0
+  _maxHP: 0
+  _acceleration: 0
+  _maxSpeed: 0
+  _linearDrag: 0
+  _rotateSpeed: 0
+  _weight: 0
+  _hookMaxLength: 0
+  _hookSwingMax: 0
+  _hookCooldown: 0
+  _scrapBonus: 0
+  _lootBonus: 0
+  _shopPriceModifier: 0
+  _cameraSize: 0
+  _bountyMultiplier: 0
+  _collisionMultiplier: 0
 --- !u!1001 &1004626330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18176,7 +18186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409376964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.69, y: -33.66, z: 0}
+  m_LocalPosition: {x: -54.191956, y: -33.332127, z: 0.46626282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1352221878}
@@ -18251,7 +18261,7 @@ Transform:
   - {fileID: 1303261006}
   - {fileID: 466145593}
   - {fileID: 2145681331}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 977058151}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1433093739

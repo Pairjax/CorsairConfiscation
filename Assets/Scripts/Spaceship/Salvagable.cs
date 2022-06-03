@@ -9,12 +9,6 @@ public class Salvagable : MonoBehaviour
 
     public void OnSalvage()
     {
-        if (GetComponentInParent<Hook>() == null)
-        {
-            print("What?");
-            return;
-        }
-
         foreach (DropParameters drop in stats.drops)
         {
             GameObject dropObj = Instantiate(dropReference);
@@ -29,7 +23,7 @@ public class Salvagable : MonoBehaviour
 
             dropObj.SetActive(true);
 
-            dropRb2d.AddForce(Random.insideUnitCircle * Random.value * 80);
+            dropRb2d.AddForce(Random.insideUnitCircle * ((Random.value * 80) + 40));
         }
     }
 }

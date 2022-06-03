@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802b38fd54a97804b99aadd6357a424b, type: 3}
   m_Name: BasePlayerShip
   m_EditorClassIdentifier: 
-  baseAcceleration: 7
-  baseMaxSpeed: 3
-  baseLinearDrag: 1
-  baseRotateSpeed: 1.75
+  hp: 50
+  acceleration: 1
+  maxSpeed: 20
+  linearDrag: 2
+  rotateSpeed: 2
+  numHooks: 1
+  hookMaxLength: 7
+  hookSwingMax: 3
+  hookCooldown: 1
+  scrapBonus: 1
+  lootBonus: 1
+  shopPriceModifier: 1
+  cameraSize: 1
+  bountyMultiplier: 1
+  collisionMultiplier: 1

@@ -79,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 2f68db76cba4b094e88d9bc1351a2d45, type: 3}
-  m_Color: {r: 0.745283, g: 0.7304117, b: 0, a: 1}
+  m_Sprite: {fileID: 8410689047980945356, guid: 93124b9d4ebce064e89ebd9727c3442b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipState: 1
-  speed: 200
   destination: {x: 0, y: 0}
 --- !u!61 &-6183378184701116401
 BoxCollider2D:
@@ -135,7 +134,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.53, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -155,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 4367058817412962813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a7067446c92ec54ba22d0722e19d091, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

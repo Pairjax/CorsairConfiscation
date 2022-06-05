@@ -19,6 +19,7 @@ public class PlayerShipClass : ScriptableObject
     public int numHooks;
     public float hookMaxLength;
     public float hookSwingMax;
+    public float hookLaunchSpeed;
     public float hookCooldown;
 
     [Header("Econ")]

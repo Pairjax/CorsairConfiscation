@@ -18,8 +18,10 @@ public class PlayerStats : MonoBehaviour
     public float _weight;
 
     [Header("Harpoon")]
+    public int numHooks;
     public float _hookMaxLength;
     public float _hookSwingMax;
+    public float _hookLaunchSpeed;
     public float _hookCooldown;
 
     [Header("Econ")]
@@ -74,6 +76,7 @@ public class PlayerStats : MonoBehaviour
 
         _hookMaxLength = baseClass.hookMaxLength;
         _hookSwingMax = baseClass.hookSwingMax;
+        _hookLaunchSpeed = baseClass.hookLaunchSpeed;
         _hookCooldown = baseClass.hookCooldown;
 
         _scrapBonus = baseClass.scrapBonus;

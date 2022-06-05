@@ -12,14 +12,14 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private PlayerStats pStats;
     [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
-    [SerializeField] private Collider2D collider;
+    [SerializeField] private Collider2D shipCollider;
     private PlayerStats playerStats;
 
     void Start()
     {
         player.animator = transform.GetChild(0).GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        shipCollider = GetComponent<Collider2D>();
         playerStats = player.stats;
     }
 
@@ -29,15 +29,15 @@ public class PlayerShipController : MonoBehaviour
         {
             harpoon.OnLaunchHook();
         }
-        if (input.retract) harpoon.OnRetract();
-        if (input.extend) harpoon.OnExtend();
+        if (input.retract) harpoon.Retract();
+        if (input.extend) harpoon.Extend();
     }
 
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponentInParent<Hook>() != null)
-            Physics2D.IgnoreCollision(collision.collider, collider);
+            Physics2D.IgnoreCollision(collision.collider, shipCollider);
     }
 
     private void FixedUpdate()

@@ -33,6 +33,7 @@ public class Harpoon : MonoBehaviour
         hookT = hookObj.GetComponent<Transform>();
         hook = hookObj.GetComponent<Hook>();
         hookSwing = hookObj.GetComponent<Swingable>();
+
         pStats = player.GetComponent<PlayerStats>();
 
         harpoonRope = GetComponent<RopeSegment>();
@@ -46,8 +47,25 @@ public class Harpoon : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateRope();
+        if (hState == HookState.Launched)
+            UpdateRopeStretch();
+        HandleState();
+    }
 
+    private void UpdateRopeStretch()
+    {
+        float distance = Vector3.Distance(hookT.position, transform.position);
+        float newIncrement = distance / (float)Mathf.Max(1, ropeRungs.Count);
+
+        for (int i = 0; i < ropeRungs.Count; i++)
+        {
+            Swingable rung = ropeRungs[i].GetComponent<Swingable>();
+            rung.radius = newIncrement * (i + 1);
+        }
+    }
+
+    private void HandleState()
+    {
         if (hState == HookState.Unlaunched)
             return;
 
@@ -75,38 +93,42 @@ public class Harpoon : MonoBehaviour
             if (distance > pStats._hookMaxLength)
                 hState = HookState.Retracting;
             else
-                hookSwing.radius += 4 * Time.fixedDeltaTime;
+                Extend();
         }
         else if (hState == HookState.Retracting)
         {
-            hookSwing.radius -= 4 * Time.fixedDeltaTime;
+            Retract();
         }
 
         if (hook.hookedObj != null
                 || hook.grabbedObj != null)
         {
-            ActivateRope();
+            ConvertToSwingable();
             hState = HookState.Launched;
             return;
         }
     }
 
-    public void OnRetract()
+    public void Retract()
     {
-        hookSwing.radius -= 0.05f;
+        hookSwing.radius -= pStats._hookLaunchSpeed * Time.fixedDeltaTime;
     }
 
-    public void OnExtend()
+    public void Extend()
     {
-        hookSwing.radius += 0.05f;
+        hookSwing.radius += pStats._hookLaunchSpeed * Time.fixedDeltaTime;
     }
 
+    /// <summary>
+    /// Launches the hook when the ability is available.
+    /// </summary>
+    /// <returns>If the harpoon successfuly launched.</returns>
     public bool OnLaunchHook()
     {
         if (onCooldown) return false;
         if (hState != HookState.Unlaunched) return false;
 
-        StartCoroutine(TimerRoutine());
+        StartCoroutine(StartHookCooldown());
 
         hState = HookState.Launching;
         hookObj.SetActive(true);
@@ -114,26 +136,19 @@ public class Harpoon : MonoBehaviour
 
         return true;
     }
-    private IEnumerator TimerRoutine()
+
+    private IEnumerator StartHookCooldown()
     {
         onCooldown = true;
         yield return new WaitForSeconds(pStats._hookCooldown);
         onCooldown = false;
     }
 
-    private void UpdateRope()
-    {
-        float distance = Vector3.Distance(hookT.position, transform.position);
-        float newIncrement = distance / (float)Mathf.Max(1, ropeRungs.Count);
-
-        for (int i = 0; i < ropeRungs.Count; i++)
-        {
-            Swingable rung = ropeRungs[i].GetComponent<Swingable>();
-            rung.radius = newIncrement * (i + 1);
-        }
-    }
-
-    private void ActivateRope()
+    /// <summary>
+    /// Activates when the rope has caught a Grabbable.
+    /// Converts simple rope into a set of Swingable rungs.
+    /// </summary>
+    private void ConvertToSwingable()
     {
         foreach (GameObject rope in ropeRungs)
             Destroy(rope);
@@ -170,7 +185,7 @@ public class Harpoon : MonoBehaviour
         StartCoroutine(VisualizeRope());
     }
 
-    // Gives time for ropeSegments to move into proper place before rendering
+    // Necessary to let rope rungs move into place before being rendered.
     private IEnumerator VisualizeRope()
     {
         yield return new WaitForSeconds(0.02f);

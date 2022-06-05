@@ -21,7 +21,7 @@ MonoBehaviour:
   numHooks: 1
   hookMaxLength: 7
   hookSwingMax: 3
-  hookLaunchSpeed: 0.1
+  hookLaunchSpeed: 5
   hookCooldown: 8
   scrapBonus: 1
   lootBonus: 1

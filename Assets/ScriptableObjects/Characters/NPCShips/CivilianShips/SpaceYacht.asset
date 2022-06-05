@@ -19,7 +19,23 @@ MonoBehaviour:
   linDrag: 1
   spriteSelection: []
   drops:
-  - drop: {fileID: 11400000, guid: b62ce30983717aa49b71dbec5fef4101, type: 2}
-    minQuantity: 1
-    maxQuantity: 2
+  - drop: {fileID: 11400000, guid: 65f231e658a25ea4299e6db01d9bcf2a, type: 2}
+    minQuantity: 8
+    maxQuantity: 15
     dropChance: 1
+  - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
+    minQuantity: 2
+    maxQuantity: 6
+    dropChance: 0.8
+  - drop: {fileID: 11400000, guid: 99f1744b6614a3e4091d1e7e98eda55d, type: 2}
+    minQuantity: 3
+    maxQuantity: 3
+    dropChance: 0.4
+  - drop: {fileID: 11400000, guid: b62ce30983717aa49b71dbec5fef4101, type: 2}
+    minQuantity: 2
+    maxQuantity: 2
+    dropChance: 0.4
+  - drop: {fileID: 11400000, guid: 1fa8214b5fbb6f7438c51643736df8c7, type: 2}
+    minQuantity: 2
+    maxQuantity: 2
+    dropChance: 0.4

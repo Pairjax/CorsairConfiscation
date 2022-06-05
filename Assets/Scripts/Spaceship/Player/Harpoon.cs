@@ -22,7 +22,7 @@ public class Harpoon : MonoBehaviour
 
     public bool onCooldown { private set; get; }
 
-    private RopeSegment rope;
+    private RopeSegment harpoonRope;
     private List<GameObject> ropeRungs = new List<GameObject>();
     [SerializeField] private GameObject rungPrefab;
 
@@ -35,7 +35,7 @@ public class Harpoon : MonoBehaviour
         hookSwing = hookObj.GetComponent<Swingable>();
         pStats = player.GetComponent<PlayerStats>();
 
-        rope = GetComponent<RopeSegment>();
+        harpoonRope = GetComponent<RopeSegment>();
     }
 
     private void Update()
@@ -89,8 +89,6 @@ public class Harpoon : MonoBehaviour
             hState = HookState.Launched;
             return;
         }
-
-        
     }
 
     public void OnRetract()
@@ -112,7 +110,7 @@ public class Harpoon : MonoBehaviour
 
         hState = HookState.Launching;
         hookObj.SetActive(true);
-        rope.target = hookObj;
+        harpoonRope.target = hookObj;
 
         return true;
     }
@@ -150,7 +148,7 @@ public class Harpoon : MonoBehaviour
             rung.SetActive(false);
             Swingable rungSwing = rung.GetComponent<Swingable>();
 
-            rungSwing.radius = (i + 1) * 0.5f;
+            rungSwing.radius = i * 0.5f;
             rungSwing.angleLimit = angleIncrement * (i + 1);
             rungSwing.origin = player;
 
@@ -159,19 +157,31 @@ public class Harpoon : MonoBehaviour
             ropeRungs.Add(rung);
         }
 
-        GetComponent<RopeSegment>().target = ropeRungs[0];
+        harpoonRope.target = gameObject;
+        foreach (GameObject r in ropeRungs)
+        {
+            RopeSegment rSegment = r.GetComponent<RopeSegment>();
+            rSegment.target = r;
+            r.SetActive(true);
+        }
 
+        hookObj.SetActive(true);
+
+        StartCoroutine(VisualizeRope());
+    }
+
+    // Gives time for ropeSegments to move into proper place before rendering
+    private IEnumerator VisualizeRope()
+    {
+        yield return new WaitForSeconds(0.02f);
+
+        harpoonRope.target = ropeRungs[0];
         for (int i = 0; i < ropeRungs.Count - 1; i++)
         {
             RopeSegment rSegment = ropeRungs[i].GetComponent<RopeSegment>();
             rSegment.target = ropeRungs[i + 1];
-            ropeRungs[i].SetActive(true);
         }
-
         ropeRungs[ropeRungs.Count - 1].GetComponent<RopeSegment>().target = hookObj;
-        ropeRungs[ropeRungs.Count - 1].SetActive(true);
-
-        hookObj.SetActive(true);
     }
 
     private void DisableRope()
@@ -185,9 +195,9 @@ public class Harpoon : MonoBehaviour
                 || hook.grabbedObj != null)
             hook.UnhookObj();
 
-        rope.target = hookObj;
+        harpoonRope.target = hookObj;
         hookObj.SetActive(false);
 
-        rope.target = gameObject;
+        harpoonRope.target = gameObject;
     }
 }

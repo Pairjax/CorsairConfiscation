@@ -17,10 +17,11 @@ MonoBehaviour:
   maxSpeed: 20
   linearDrag: 2
   rotateSpeed: 2
+  weight: 0
   numHooks: 1
   hookMaxLength: 7
   hookSwingMax: 3
-  hookCooldown: 1
+  hookCooldown: 8
   scrapBonus: 1
   lootBonus: 1
   shopPriceModifier: 1

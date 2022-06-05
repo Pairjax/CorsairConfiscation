@@ -37,5 +37,6 @@ public struct DropParameters
 
     // Percentile
     [SerializeField]
+    [Range(0, 1)]
     public float dropChance;
 }

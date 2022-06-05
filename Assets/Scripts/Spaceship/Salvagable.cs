@@ -11,19 +11,32 @@ public class Salvagable : MonoBehaviour
     {
         foreach (DropParameters drop in stats.drops)
         {
-            GameObject dropObj = Instantiate(dropReference);
-            dropObj.SetActive(false);
+            bool willDrop = drop.dropChance >= Random.value;
 
-            Collectible dropC = dropObj.AddComponent<Collectible>();
-            dropC.drop = drop.drop;
+            if (!willDrop)
+                continue;
 
-            Rigidbody2D dropRb2d = dropObj.AddComponent<Rigidbody2D>();
+            int numDropped = Random.Range(drop.minQuantity, drop.maxQuantity);
 
-            dropObj.transform.position = gameObject.transform.position;
-
-            dropObj.SetActive(true);
-
-            dropRb2d.AddForce(Random.insideUnitCircle * ((Random.value * 80) + 40));
+            for (int i = 0; i < numDropped; i++)
+                handleDrop(drop);
         }
+    }
+
+    public void handleDrop(DropParameters drop)
+    {
+        GameObject dropObj = Instantiate(dropReference);
+        dropObj.SetActive(false);
+
+        Collectible dropC = dropObj.AddComponent<Collectible>();
+        dropC.drop = drop.drop;
+
+        Rigidbody2D dropRb2d = dropObj.AddComponent<Rigidbody2D>();
+
+        dropObj.transform.position = gameObject.transform.position;
+
+        dropObj.SetActive(true);
+
+        dropRb2d.AddForce(Random.insideUnitCircle * ((Random.value * 80) + 40));
     }
 }

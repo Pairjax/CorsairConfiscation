@@ -40,6 +40,9 @@ public class PlayerStats : MonoBehaviour
     // Looties
     public Dictionary<Droppable, int> loot = new Dictionary<Droppable, int>();
 
+    // Componenties
+    public ComponentSlots components;
+
     void Start()
     {
         UpdateEffects();
@@ -62,6 +65,31 @@ public class PlayerStats : MonoBehaviour
             loot.Add(drop, 1);
 
         LootEffects.ApplyEffect(this, drop);
+    }
+
+    public void AddComponent(ShipComponent c)
+    {
+        switch (c.type)
+        {
+            case ComponentType.Hull:
+                components.hullSlot = c;
+                break;
+            case ComponentType.Top_Mount:
+                components.mountSlot = c;
+                break;
+            case ComponentType.Thruster:
+                components.thrustSlot = c;
+                break;
+            case ComponentType.Harpoon:
+                components.harpoonSlot = c;
+                break;
+            case ComponentType.Auxiliary:
+                components.auxSlot = c;
+                break;
+            default:
+                Debug.LogError("Invalid type found. Is the ShipComponent null?");
+                break;
+        }
     }
 
     public void UpdateEffects()
@@ -93,5 +121,16 @@ public class PlayerStats : MonoBehaviour
 
             LootEffects.ApplyEffect(this, d);
         }
+    }
+
+    [System.Serializable]
+    public struct ComponentSlots
+    {
+        public List<ShipComponent> storage;
+        public ShipComponent hullSlot;
+        public ShipComponent mountSlot;
+        public ShipComponent thrustSlot;
+        public ShipComponent harpoonSlot;
+        public ShipComponent auxSlot;
     }
 }

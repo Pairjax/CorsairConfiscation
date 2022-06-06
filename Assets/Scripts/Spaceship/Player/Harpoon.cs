@@ -43,7 +43,7 @@ public class Harpoon : MonoBehaviour
     {
         transform.position = player.transform.position;
         transform.rotation = player.transform.rotation;
-    }
+    } 
 
     private void FixedUpdate()
     {

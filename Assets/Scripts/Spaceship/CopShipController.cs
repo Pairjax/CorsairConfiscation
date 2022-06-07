@@ -8,9 +8,11 @@ public class CopShipController : MonoBehaviour
     [Header("Movement Variables")]
     [SerializeField] private float speed;
 
-    // AI Targets
-    private Transform followObject;
-    private Transform targetedObject;
+    [Header("AI Targets")]
+    public Transform followObject;
+    public Transform targetedObject;
+
+    public bool begunChase;
 
     [Header("Ship AI")]
     [SerializeField] private CircleCollider2D followCollider;
@@ -19,9 +21,11 @@ public class CopShipController : MonoBehaviour
     public enum AIState { Engaged, Wandering, Sleep, Idle };
     public AIState currentAIState;
 
+    public enum EnemyType { Cruiser, Brute, Seeker };
+    public EnemyType enemyType;
     // Wandering
     Vector2 wanderPoint;
-
+    Vector2 targetPoint;
     // Pathfinding
     public Path path;
     int currentWaypoint = 0;
@@ -49,16 +53,27 @@ public class CopShipController : MonoBehaviour
     }
     private void Update()
     {
-        if(currentAIState.Equals(AIState.Engaged))
+        if (enemyType.Equals(EnemyType.Cruiser))
         {
-            if (followObject)
+            if (currentAIState.Equals(AIState.Engaged))
             {
-                LookAt(followObject, this.transform, 0f);
-            }
+                if (followObject)
+                {
+                    LookAt(followObject, this.transform, 0f);
+                }
 
-            if (!isFiring && targetedObject)
+                if (!isFiring && targetedObject)
+                {
+                    LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z);
+                }
+            }
+        }
+        else if (enemyType.Equals(EnemyType.Brute))
+        {
+            if (currentAIState.Equals(AIState.Engaged))
             {
-                LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z);
+                if (ReachedPoint(targetPoint))
+                    EndChase();
             }
         }
     }
@@ -87,6 +102,12 @@ public class CopShipController : MonoBehaviour
         if (distance < nextWaypointDistance)
             currentWaypoint++;
 
+    }
+
+    private bool ReachedPoint(Vector2 targetPos)
+    {
+        float distance = Vector2.Distance(rb2d.position, targetPos);
+        return (distance < .8f);
     }
     private void SetAIState(AIState aiState)
     {
@@ -132,6 +153,33 @@ public class CopShipController : MonoBehaviour
         return angleOffset;
     }
 
+    public void FlyTowards(Transform transform)
+    {
+        if (begunChase)
+            return;
+
+        Debug.Log("Flying towards!");
+        followObject = transform;
+        targetedObject = transform;
+        targetPoint = followObject.position;
+
+        LookAt(targetPoint, this.transform, 0f);
+        
+        followObject = null;
+
+        if(!currentAIState.Equals(AIState.Engaged))
+            SetAIState(AIState.Engaged);
+
+        UpdatePathByPoint(targetPoint);
+
+        begunChase = true;
+    }
+
+    public void EndFollow()
+    {
+        followObject = null;
+        targetCollider = null;
+    }
     public void BeginWandering()
     {
         SetAIState(AIState.Wandering);
@@ -164,11 +212,14 @@ public class CopShipController : MonoBehaviour
         return newPoint;
     }
 
-    public void BeginFollow(Transform transform)
+    public void BeginFollow(Transform transform, float time)
     {
         followObject = transform;
         SetAIState(AIState.Engaged);
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        if (time != 0f)
+            InvokeRepeating("UpdatePath", 0f, time);
+        else
+            UpdatePath();
     }
 
     private void UpdatePath()
@@ -177,10 +228,26 @@ public class CopShipController : MonoBehaviour
             seeker.StartPath(rb2d.position, followObject.position, OnPathComplete);
     }
 
-    public void EndFollow()
+    private void UpdatePathByPoint(Vector3 position)
     {
+       seeker.StartPath(rb2d.position, position, OnPathComplete);
+    }
+
+    public void EndChase()
+    {
+        Debug.Log("Ending chase");
         followObject = null;
-        CancelInvoke("UpdatePath");
+        targetedObject = null;
+        begunChase = false;
+    }
+
+    public void Abort()
+    {
+        Debug.Log("Abort!");
+        followObject = null;
+        targetedObject = null;
+        begunChase = false;
+        BeginWandering();
     }
     public void BeginFiring(Transform transform)
     {

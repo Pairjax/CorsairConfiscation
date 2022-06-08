@@ -24,3 +24,20 @@ MonoBehaviour:
   - {fileID: 635975237372303863, guid: 55843cc76dc16074b858708804dacd36, type: 3}
   - {fileID: 2329924544593625676, guid: 10a47b0cd4cb8e04d8ce81ec8f9f1b05, type: 3}
   - {fileID: 8360691802890335989, guid: 3858c081686c83c4e93391f1b60c3a30, type: 3}
+  drops:
+  - drop: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
+    minQuantity: 2
+    maxQuantity: 3
+    dropChance: 1
+  - drop: {fileID: 11400000, guid: 65f231e658a25ea4299e6db01d9bcf2a, type: 2}
+    minQuantity: 1
+    maxQuantity: 2
+    dropChance: 0.7
+  - drop: {fileID: 11400000, guid: d0e6d2880dc26e74c87b45dbfde001e4, type: 2}
+    minQuantity: 1
+    maxQuantity: 1
+    dropChance: 0.5
+  - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
+    minQuantity: 1
+    maxQuantity: 1
+    dropChance: 0.5

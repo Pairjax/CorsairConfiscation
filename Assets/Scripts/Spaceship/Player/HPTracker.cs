@@ -16,7 +16,7 @@ public class HPTracker : MonoBehaviour
     {
         float fillF = frontHealthBar.fillAmount;
         float fillB = backHealthBar.fillAmount;
-        float hFraction = (float)stats.hp / (float)stats.maxhp;
+        float hFraction = (float)stats._hp / (float)stats._maxHP;
 
         if (fillB > hFraction)
         {

@@ -11,9 +11,9 @@ public class Player : Spaceship
 
     public override void Damage()
     {
-        stats.hp -= 10;
+        stats._hp -= 10;
 
-        if (stats.hp <= 0)
+        if (stats._hp <= 0)
         {
             //display the game over screen when the player's health reaches 0
             GameOverScreen.instance.ShowGameOver();

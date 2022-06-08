@@ -14,9 +14,10 @@ public abstract class Spaceship : MonoBehaviour
     internal Animator animator;
     internal Rigidbody2D rb2d;
 
+
     private void Awake()
     {
-        if(!bountyManager)
+        if (!bountyManager)
             bountyManager = FindObjectOfType<BountyManager>();
         SetupStats();
     }
@@ -27,6 +28,5 @@ public abstract class Spaceship : MonoBehaviour
     {
         bountyManager.AddBounty(spaceshipStats.bountyPoints);
     }
-
 
 }

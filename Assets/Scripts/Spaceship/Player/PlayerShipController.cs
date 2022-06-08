@@ -4,31 +4,40 @@ using UnityEngine;
 
 public class PlayerShipController : MonoBehaviour
 {
-    [Header("Movement Variables")]
-    [SerializeField] private float _movementAcceleration;
-    [SerializeField] private float _maxMoveSpeed;
-    [SerializeField] private float _linearDrag;
-    [SerializeField] private float _rotateSpeed;
-
     [SerializeField] private Harpoon harpoon;
 
-    private float _horizontalDirection;
     public ParticleSystem pSystem;
 
-    public Player player;
-    public PlayerInput input;
+    [SerializeField] private Player player;
+    [SerializeField] private PlayerStats pStats;
+    [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
+    [SerializeField] private Collider2D shipCollider;
+    private PlayerStats playerStats;
 
     void Start()
     {
         player.animator = transform.GetChild(0).GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
+        shipCollider = GetComponent<Collider2D>();
+        playerStats = player.stats;
     }
 
     private void Update()
     {
-        if (input.fire) harpoon.OnLaunchHook();
-        if (input.retract) harpoon.OnRetract();
-        if (input.extend) harpoon.OnExtend();
+        if (input.fire)
+        {
+            harpoon.OnLaunchHook();
+        }
+        if (input.retract) harpoon.Retract();
+        if (input.extend) harpoon.Extend();
+    }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponentInParent<Hook>() != null)
+            Physics2D.IgnoreCollision(collision.collider, shipCollider);
     }
 
     private void FixedUpdate()
@@ -110,25 +119,25 @@ public class PlayerShipController : MonoBehaviour
         // Turning right/left
         if(movement.x != 0f)
         {
-            rb2d.AddTorque(-movement.x * _rotateSpeed * Time.fixedDeltaTime);
+            rb2d.AddTorque(-movement.x * pStats._rotateSpeed);
         }
 
         // Thrust up
         if (movement.y > 0f)
         {
-            rb2d.AddForce(transform.right * _movementAcceleration * player.stats.speedUp);
+            rb2d.AddForce(transform.right * pStats._acceleration);
         }
 
         // Thrust down
         if (movement.y < 0f)
         {
-            rb2d.AddForce(-transform.right * _movementAcceleration * player.stats.speedUp);
+            rb2d.AddForce(-transform.right * pStats._acceleration);
         }
 
         // Max speed clamp.
-        if (Mathf.Abs(rb2d.velocity.x) > _maxMoveSpeed * player.stats.speedUp)
+        if (Mathf.Abs(rb2d.velocity.x) > pStats._maxSpeed)
         {
-            float newX = Mathf.Sign(rb2d.velocity.x) * _maxMoveSpeed;
+            float newX = Mathf.Sign(rb2d.velocity.x) * pStats._maxSpeed;
             rb2d.velocity = new Vector2(newX, rb2d.velocity.y);
         }
 
@@ -136,6 +145,6 @@ public class PlayerShipController : MonoBehaviour
 
     private void ApplyLinearDrag()
     {
-        rb2d.drag = _linearDrag;
+        rb2d.drag = pStats._linearDrag;
     }
 }

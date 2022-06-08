@@ -18,3 +18,28 @@ MonoBehaviour:
   speed: 150
   linDrag: 1
   spriteSelection: []
+  drops:
+  - drop: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
+    minQuantity: 5
+    maxQuantity: 8
+    dropChance: 1
+  - drop: {fileID: 11400000, guid: d0e6d2880dc26e74c87b45dbfde001e4, type: 2}
+    minQuantity: 1
+    maxQuantity: 3
+    dropChance: 0.55
+  - drop: {fileID: 11400000, guid: 99f1744b6614a3e4091d1e7e98eda55d, type: 2}
+    minQuantity: 3
+    maxQuantity: 3
+    dropChance: 0.3
+  - drop: {fileID: 11400000, guid: b62ce30983717aa49b71dbec5fef4101, type: 2}
+    minQuantity: 1
+    maxQuantity: 1
+    dropChance: 0.3
+  - drop: {fileID: 11400000, guid: 1fa8214b5fbb6f7438c51643736df8c7, type: 2}
+    minQuantity: 2
+    maxQuantity: 2
+    dropChance: 0.3
+  - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
+    minQuantity: 3
+    maxQuantity: 3
+    dropChance: 0.3

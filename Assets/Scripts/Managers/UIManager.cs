@@ -13,10 +13,6 @@ public class UIManager : MonoBehaviour
     public float fadeSpeed;
     [HideInInspector] public bool fadeFromBlack;
 
-    [Header("Gotcha Counter")]
-    public TMP_Text gotchaCounter;
-    [HideInInspector] public int gotchas;
-
     void Awake()
     {
         if (instance == null)
@@ -28,7 +24,6 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         FadeFromBlack();
-        UpdateGotchaCounterUI(0);
     }
 
     void Update()
@@ -44,12 +39,6 @@ public class UIManager : MonoBehaviour
                 fadeFromBlack = false;
             }
         }
-    }
-
-    public void UpdateGotchaCounterUI(int gotchasToAdd)
-    {
-        gotchas += gotchasToAdd;
-        gotchaCounter.text = "Gotchas: " + gotchas.ToString("F0");
     }
 
     public void FadeFromBlack()

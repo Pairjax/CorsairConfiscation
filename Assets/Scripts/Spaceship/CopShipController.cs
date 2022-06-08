@@ -23,6 +23,7 @@ public class CopShipController : MonoBehaviour
 
     public enum EnemyType { Cruiser, Brute, Seeker };
     public EnemyType enemyType;
+
     // Wandering
     Vector2 wanderPoint;
     Vector2 targetPoint;
@@ -67,6 +68,10 @@ public class CopShipController : MonoBehaviour
                     LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z);
                 }
             }
+            else if (!currentAIState.Equals(AIState.Wandering) && !followObject && !targetedObject)
+            {
+                BeginWandering();
+            }
         }
         else if (enemyType.Equals(EnemyType.Brute))
         {
@@ -74,6 +79,20 @@ public class CopShipController : MonoBehaviour
             {
                 if (ReachedPoint(targetPoint))
                     EndChase();
+            }
+        }
+        else if (enemyType.Equals(EnemyType.Seeker))
+        {
+            if (currentAIState.Equals(AIState.Engaged))
+            {
+                if (followObject)
+                {
+                    LookAt(followObject, this.transform, 0f);
+                }
+            }
+            else if (!currentAIState.Equals(AIState.Wandering) && !followObject && !targetedObject)
+            {
+                BeginWandering();
             }
         }
     }

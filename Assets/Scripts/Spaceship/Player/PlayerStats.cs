@@ -21,4 +21,10 @@ public class PlayerStats : MonoBehaviour
     // Stats
     public float hp;
     public float maxhp;
+
+    public void SetupStats(SpaceshipStats stats)
+    {
+        hp = stats.hp;
+        maxhp = stats.maxhp;
+    }
 }

@@ -36,7 +36,7 @@ public class CopShipController : MonoBehaviour
     private Seeker seeker;
     Rigidbody2D rb2d;
 
-    float fireCooldown =.8f;
+    float fireCooldown = .8f;
     bool isFiring;
 
     [Header("Cannon")]
@@ -44,7 +44,7 @@ public class CopShipController : MonoBehaviour
     public Transform turret;
     public Transform bulletSpawn;
     public int turretOffset = 20; // A Random range from [-x, x) angle offset the turret can make when firing
-
+    public List<GameObject> spawnedBullets = new List<GameObject>();
     private void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -197,7 +197,6 @@ public class CopShipController : MonoBehaviour
     public void EndFollow()
     {
         followObject = null;
-        targetCollider = null;
     }
     public void BeginWandering()
     {
@@ -243,18 +242,17 @@ public class CopShipController : MonoBehaviour
 
     private void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (seeker.IsDone() && followObject != null)
             seeker.StartPath(rb2d.position, followObject.position, OnPathComplete);
     }
 
     private void UpdatePathByPoint(Vector3 position)
     {
-       seeker.StartPath(rb2d.position, position, OnPathComplete);
+        seeker.StartPath(rb2d.position, position, OnPathComplete);
     }
 
     public void EndChase()
     {
-        Debug.Log("Ending chase");
         followObject = null;
         targetedObject = null;
         begunChase = false;
@@ -262,7 +260,6 @@ public class CopShipController : MonoBehaviour
 
     public void Abort()
     {
-        Debug.Log("Abort!");
         followObject = null;
         targetedObject = null;
         begunChase = false;
@@ -278,11 +275,24 @@ public class CopShipController : MonoBehaviour
     float lastFire = 2f;
     private void Fire()
     {
-        if (Time.time - lastFire > fireCooldown)
+        if (Time.time - lastFire > fireCooldown && spawnedBullets.Count < 4)
         {
             isFiring = true;
             LookAt(targetedObject, turret, -45f - transform.rotation.eulerAngles.z + GetRandomOffset());
-            Instantiate(bulletPrefab.gameObject, bulletSpawn.position, bulletSpawn.rotation);
+
+            GameObject spawnedBullet = Instantiate(bulletPrefab.gameObject, bulletSpawn.position, bulletSpawn.rotation);
+            HomingMissile missile = spawnedBullet.GetComponent<HomingMissile>();
+            if (missile)
+                missile.SetParent(this);
+
+            if (enemyType.Equals(CopShipController.EnemyType.Seeker))
+                spawnedBullets.Add(spawnedBullet);
+            
+            RestartCooldown();
+        }
+
+        void RestartCooldown()
+        {
             lastFire = Time.time;
             isFiring = false;
         }

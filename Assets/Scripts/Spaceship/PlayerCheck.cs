@@ -16,6 +16,9 @@ public class PlayerCheck : MonoBehaviour
             case CopShipController.EnemyType.Cruiser:
                 parentShip.BeginFollow(chosenShip.transform, .5f);
                 break;
+            case CopShipController.EnemyType.Seeker:
+                parentShip.BeginFollow(chosenShip.transform, .5f);
+                break;
             case CopShipController.EnemyType.Brute:
                 parentShip.FlyTowards(chosenShip.transform);
                 break;
@@ -46,6 +49,9 @@ public class PlayerCheck : MonoBehaviour
         switch (parentShip.enemyType)
         {
             case CopShipController.EnemyType.Cruiser:
+                parentShip.EndFollow();
+                break;
+            case CopShipController.EnemyType.Seeker:
                 parentShip.EndFollow();
                 break;
             case CopShipController.EnemyType.Brute:

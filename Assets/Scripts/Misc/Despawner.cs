@@ -11,6 +11,9 @@ public class Despawner : MonoBehaviour
             case "Bullet(Clone)":
                 Destroy(other.gameObject);
                 break;
+            case "Missile(Clone)":
+                Destroy(other.gameObject);
+                break;
             case "Sprite":
                 Destroy(other.gameObject.transform.parent.gameObject);
                 break;

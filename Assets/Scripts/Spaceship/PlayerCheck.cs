@@ -11,7 +11,30 @@ public class PlayerCheck : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
-        parentShip.BeginFollow(chosenShip.transform);
+        switch(parentShip.enemyType)
+        {
+            case CopShipController.EnemyType.Cruiser:
+                parentShip.BeginFollow(chosenShip.transform, .5f);
+                break;
+            case CopShipController.EnemyType.Brute:
+                parentShip.FlyTowards(chosenShip.transform);
+                break;
+
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Spaceship chosenShip = collision.GetComponent<Spaceship>();
+        if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
+            return;
+
+        switch (parentShip.enemyType)
+        {
+            case CopShipController.EnemyType.Brute:
+                parentShip.FlyTowards(chosenShip.transform);
+                break;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -20,7 +43,15 @@ public class PlayerCheck : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
             return;
 
-        Debug.Log("Stop persuing!");
-        parentShip.EndFollow();
+        switch (parentShip.enemyType)
+        {
+            case CopShipController.EnemyType.Cruiser:
+                parentShip.EndFollow();
+                break;
+            case CopShipController.EnemyType.Brute:
+                parentShip.Abort();
+                break;
+
+        }
     }
 }

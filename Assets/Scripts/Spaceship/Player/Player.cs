@@ -7,6 +7,7 @@ public class Player : Spaceship
     public PlayerStats stats;
     public override void SetupStats()
     {
+        stats.SetupStats(spaceshipStats);
     }
 
     public override void Damage()

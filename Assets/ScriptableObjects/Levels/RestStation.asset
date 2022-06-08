@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d887c8e2d5cbf24e8010241674618c2, type: 3}
   m_Name: RestStation
   m_EditorClassIdentifier: 
-  sceneName: Rest Station
+  sceneName: RestStation
   description: 'Opens the crafting, repair and ship module menus. '
   song: {fileID: 0}
   musicVolume: 0
   levelType: 0
   enemyTypes: []
+  specialEnemyTypes: []
+  civilianTypes: []
+  minSpawnTime: 0
+  maxSpawnTime: 0

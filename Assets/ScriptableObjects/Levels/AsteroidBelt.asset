@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d887c8e2d5cbf24e8010241674618c2, type: 3}
   m_Name: AsteroidBelt
   m_EditorClassIdentifier: 
-  sceneName: Asteroid Belt
+  sceneName: AsteroidBelt
   description: Asteroids are more abundant, drawing in mining ships and dangerous
     obstacles.
   song: {fileID: 0}
   musicVolume: 0
   levelType: 1
   enemyTypes: []
+  specialEnemyTypes: []
+  civilianTypes: []
+  minSpawnTime: 0
+  maxSpawnTime: 0

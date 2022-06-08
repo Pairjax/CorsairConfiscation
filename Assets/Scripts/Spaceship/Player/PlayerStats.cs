@@ -121,7 +121,7 @@ public class PlayerStats : MonoBehaviour
 
             LootEffects.ApplyEffect(this, d);
         }
-        
+
         // Component slot effects updated
         ComponentEffects.ApplyEffect(this, components.hullSlot);
         ComponentEffects.ApplyEffect(this, components.mountSlot);

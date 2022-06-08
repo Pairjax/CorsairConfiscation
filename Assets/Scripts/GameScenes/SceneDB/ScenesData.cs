@@ -26,12 +26,12 @@ public class ScenesData : ScriptableObject
         }
 
         else
-            Debug.Log("Specified scene does not exist and could not be loaded! Double check the name");
+            Debug.Log($"Specified scene {sceneName} does not exist and could not be loaded! Double check the name");
     }
 
     public Level PickRandomLevel()
     {
-        return levels.ElementAt(UnityEngine.Random.Range(0, levels.Count));
+        return levels.ElementAt(UnityEngine.Random.Range(0, levels.Count - 1));
     }
 
 }

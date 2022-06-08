@@ -9,6 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 1879a72b6c7b66e47ba38dbd636d0432
+    path: Assets/Scenes/MapScene.unity
+    guid: a0fc0652a76f61c4aa3085dc584fd6ba
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/AsteroidBelt.unity
+    guid: 88f8f10b5f360d1458a904bac25e6f7f
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/DeadSystem.unity
+    guid: 3c6117b27787582489b7274c848c5148
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/DefenseStationSystem.unity
+    guid: 0f0290eb1251e9f4a8d47f1e50674e0a
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/HiveSystem.unity
+    guid: d86db64ab74a2ae47b37668ed85fcf45
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/RestStation.unity
+    guid: 00f251b8cc5055c45a18c6f0e6787004
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/StarSystem.unity
+    guid: 6fe9311ff1605fc4da10578df5ec1be7
   m_configObjects: {}

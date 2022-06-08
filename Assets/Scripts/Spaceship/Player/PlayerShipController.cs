@@ -26,8 +26,8 @@ public class PlayerShipController : MonoBehaviour
     private void Update()
     {
         if (input.fire) harpoon.OnLaunchHook();
-        if (input.retract) harpoon.OnRetract();
-        if (input.extend) harpoon.OnExtend();
+        if (input.retract) harpoon.Retract();
+        if (input.extend) harpoon.Extend();
         if (input.loadMap) MapManager.instance.LoadMapScene();
     }
 

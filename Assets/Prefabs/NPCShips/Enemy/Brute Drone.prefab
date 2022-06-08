@@ -61,6 +61,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentShip: {fileID: 3119700199863290693}
+--- !u!1 &3055153403816282476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 511202845332868049}
+  m_Layer: 7
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &511202845332868049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055153403816282476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3119700199863290692}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3119700199863290715
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +128,7 @@ Transform:
   - {fileID: 3119700200803689727}
   - {fileID: 7959172873846099409}
   - {fileID: 590772072515189604}
+  - {fileID: 511202845332868049}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -114,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+  followObject: {fileID: 0}
+  targetedObject: {fileID: 0}
+  begunChase: 0
   followCollider: {fileID: 3119700200803689720}
   targetCollider: {fileID: 124796845550698828}
   currentAIState: 1

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3157150977366990776}
   m_Layer: 0
   m_Name: PlayerCheck (1)
-  m_TagString: Untagged
+  m_TagString: Pathing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   turret: {fileID: 0}
   bulletSpawn: {fileID: 0}
   turretOffset: 20
+  spawnedBullets: []
 --- !u!114 &953469698517627225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5034,7 +5035,7 @@ GameObject:
   - component: {fileID: 3119700200803689721}
   m_Layer: 0
   m_Name: PlayerCheck
-  m_TagString: Untagged
+  m_TagString: Pathing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

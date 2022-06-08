@@ -6,6 +6,7 @@ TagManager:
   tags:
   - grabbable
   - MapNode
+  - Pathing
   layers:
   - Default
   - TransparentFX

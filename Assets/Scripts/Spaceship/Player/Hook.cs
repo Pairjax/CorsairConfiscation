@@ -17,6 +17,9 @@ public class Hook : MonoBehaviour
 
     private void HookObj(GameObject selObj)
     {
+        if (selObj.tag == "Pathing")
+            return;
+
         Grabbable grabbableComp = selObj.GetComponent<Grabbable>();
 
         if (grabbableComp == null)

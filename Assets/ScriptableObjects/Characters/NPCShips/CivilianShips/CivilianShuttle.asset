@@ -18,12 +18,12 @@ MonoBehaviour:
   speed: 200
   linDrag: 1
   spriteSelection:
-  - {fileID: -5717521122613887934, guid: f4ac39589033222448f2608ec256401d, type: 3}
-  - {fileID: -1650100948341166747, guid: 012f85565ceb9274dbdf7f1b7c169eda, type: 3}
-  - {fileID: -1715018364581635059, guid: 270749afceba75f49a789708734157d3, type: 3}
-  - {fileID: 635975237372303863, guid: 55843cc76dc16074b858708804dacd36, type: 3}
-  - {fileID: 2329924544593625676, guid: 10a47b0cd4cb8e04d8ce81ec8f9f1b05, type: 3}
-  - {fileID: 8360691802890335989, guid: 3858c081686c83c4e93391f1b60c3a30, type: 3}
+  - {fileID: -8953770966066585566, guid: 871369af654aa504883d45690cdc0fe0, type: 3}
+  - {fileID: 5261086460269977572, guid: 33c4982ad8e0d404cb9fbd5437b58faa, type: 3}
+  - {fileID: 6822244249342486154, guid: f3ca3c7c2f677f345919cec8a6c85fb3, type: 3}
+  - {fileID: -3582445284066374503, guid: 587ee51a956f7054eb95021838165d80, type: 3}
+  - {fileID: -7802947010897459142, guid: e9a3095c198504b4c8d75505867510db, type: 3}
+  - {fileID: 3550783058452895898, guid: c48010b9652e00b49ae43e819b4f79db, type: 3}
   drops:
   - drop: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
     minQuantity: 2

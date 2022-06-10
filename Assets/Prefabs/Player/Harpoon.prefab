@@ -295,6 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f76c2782f8c3e1438feb6e2c390a8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3526964833912674140, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
   hookObj: {fileID: 735578377714604291}
   rungPrefab: {fileID: 4104931045275833742, guid: 7072cd600f93f214db73f356a5bc6fb3, type: 3}

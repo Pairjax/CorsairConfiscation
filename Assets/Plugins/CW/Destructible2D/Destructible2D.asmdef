@@ -1,5 +1,6 @@
 {
     "name": "Destructible2D",
+    "rootNamespace": "D2D",
     "references": [
         "CW.Common"
     ],

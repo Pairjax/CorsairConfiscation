@@ -7,6 +7,7 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private Harpoon harpoon;
 
     public ParticleSystem pSystem;
+    public ParticleSystem pSystem2;
 
     [SerializeField] private Player player;
     [SerializeField] private PlayerStats pStats;
@@ -62,13 +63,24 @@ public class PlayerShipController : MonoBehaviour
                 else
                 {   //default
                     player.animator.SetInteger("moveValue", 0);
-                    pSystem.Stop();
+                    Debug.Log("not moving");
+                    if (pSystem.isPlaying)
+                    {
+                        pSystem.Stop();
+                        pSystem2.Stop();
+                    }
+                    
                 }
             break;
 
             case 1:
                 {
-                    pSystem.Play();
+                    if (!pSystem.isPlaying)
+                    {
+                        pSystem.Play();
+                        pSystem2.Play();
+                    }
+                    Debug.Log("moving");
                     if (input.movementInput.x > 0)
                     {
                         //forwardleft
@@ -82,12 +94,17 @@ public class PlayerShipController : MonoBehaviour
                     {  //forward
                         player.animator.SetInteger("moveValue", 5);
                     }
-
                 }
            break;
 
            case -1:
-                pSystem.Stop();
+                if (pSystem.isPlaying)
+                {
+                    pSystem.Stop();
+                    pSystem2.Stop();
+                }
+              
+                Debug.Log("not moving");
                 if (input.movementInput.x > 0)
                 {
                     //backleft

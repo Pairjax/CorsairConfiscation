@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802b38fd54a97804b99aadd6357a424b, type: 3}
   m_Name: BasePlayerShip
   m_EditorClassIdentifier: 
-  hp: 50
-  acceleration: 1
-  maxSpeed: 20
+  hp: 100
+  acceleration: 25
+  maxSpeed: 500
   linearDrag: 2
-  rotateSpeed: 2
+  rotateSpeed: 1
   weight: 0
   numHooks: 1
   hookMaxLength: 7

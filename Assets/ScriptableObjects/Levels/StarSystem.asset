@@ -21,11 +21,12 @@ MonoBehaviour:
   - {fileID: 3119700199863290715, guid: b4bc524fc76a7eb40a2e0796b9ae7e93, type: 3}
   specialEnemyTypes: []
   civilianTypes:
-  - {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   - {fileID: 4367058817412962813, guid: 57f0c11c65fea0a48a1f5e8ba1ead75b, type: 3}
   - {fileID: 4367058817412962813, guid: ad90f7676acfb0d4297dd73d1c7b0887, type: 3}
-  - {fileID: 4367058817412962813, guid: b8cb6839a55c44542b3f84173a6cb61c, type: 3}
-  - {fileID: 4367058817412962813, guid: cbfc88d13e7d6694ab5c0708fb1b4649, type: 3}
+  - {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
   - {fileID: 4367058817412962813, guid: 7af20da4a2ccea84bb1a1d64ab46685e, type: 3}
+  - {fileID: 4367058817412962813, guid: 926d37e99c7c73c46a96a82a0b868808, type: 3}
+  - {fileID: 4367058817412962813, guid: cbfc88d13e7d6694ab5c0708fb1b4649, type: 3}
+  - {fileID: 4367058817412962813, guid: b8cb6839a55c44542b3f84173a6cb61c, type: 3}
   minSpawnTime: 3
   maxSpawnTime: 8

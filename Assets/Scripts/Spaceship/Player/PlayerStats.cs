@@ -96,7 +96,7 @@ public class PlayerStats : MonoBehaviour
     {
         _maxHP = baseClass.hp;
 
-        _acceleration = baseClass.hp;
+        _acceleration = baseClass.acceleration;
         _maxSpeed = baseClass.maxSpeed;
         _linearDrag = baseClass.linearDrag;
         _rotateSpeed = baseClass.rotateSpeed;

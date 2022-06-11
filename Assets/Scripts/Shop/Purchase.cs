@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Purchase : MonoBehaviour, IPointerClickHandler
+public class Purchase : MonoBehaviour
 {
-    public ShipComponent item;
-    public PlayerStats pStats;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        pStats.AddComponent(item);
-    }
 }

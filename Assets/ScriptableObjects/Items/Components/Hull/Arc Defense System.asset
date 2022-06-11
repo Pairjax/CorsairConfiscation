@@ -19,3 +19,5 @@ MonoBehaviour:
     quantity: 15
   - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
     quantity: 10
+  description: 'Usually mounted on cargo ships traveling through space-bug infested
+    systems.  '

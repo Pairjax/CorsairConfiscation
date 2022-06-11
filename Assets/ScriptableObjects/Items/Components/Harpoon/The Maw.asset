@@ -21,3 +21,7 @@ MonoBehaviour:
     quantity: 20
   - drop: {fileID: 11400000, guid: 1fa8214b5fbb6f7438c51643736df8c7, type: 2}
     quantity: 4
+  description: 'Like the jaws of a space shark.  '
+  effect: 'The Harpoon can no longer be fired, if the front of the ship hits a ship
+    and would be destroyed, the ship gets scrapped instead and the player takes no
+    damage from the collision.  '

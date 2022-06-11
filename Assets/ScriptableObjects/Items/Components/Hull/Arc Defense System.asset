@@ -21,3 +21,5 @@ MonoBehaviour:
     quantity: 10
   description: 'Usually mounted on cargo ships traveling through space-bug infested
     systems.  '
+  effect: 'Objects that collide with the player are electrocuted, taking an additional
+    X damage. +5% Mass '

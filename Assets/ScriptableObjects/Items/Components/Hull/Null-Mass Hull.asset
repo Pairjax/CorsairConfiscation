@@ -19,3 +19,5 @@ MonoBehaviour:
     quantity: 15
   - drop: {fileID: 11400000, guid: b62ce30983717aa49b71dbec5fef4101, type: 2}
     quantity: 2
+  description: 'Faster than light? Probably not. But still fast!  '
+  effect: '-20% HP -25% Mass '

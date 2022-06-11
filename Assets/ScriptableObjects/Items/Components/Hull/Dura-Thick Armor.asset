@@ -18,4 +18,4 @@ MonoBehaviour:
   - drop: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
     quantity: 45
   description: More between you and the cold vacuum of space.
-  effect: 
+  effect: '+25% HP +20% Mass '

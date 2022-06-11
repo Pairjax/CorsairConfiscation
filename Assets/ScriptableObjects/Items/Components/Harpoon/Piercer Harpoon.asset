@@ -19,3 +19,5 @@ MonoBehaviour:
     quantity: 10
   - drop: {fileID: 11400000, guid: 65f231e658a25ea4299e6db01d9bcf2a, type: 2}
     quantity: 10
+  description: 'Nothing beats a good kebab.  '
+  effect: 'Harpoon can pierce through up to 3 objects,  '

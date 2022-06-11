@@ -21,3 +21,6 @@ MonoBehaviour:
     quantity: 10
   - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
     quantity: 5
+  description: 'Experimental is an understatement.  '
+  effect: '-5% Acceleration +20% Max Speed If the player reaches max speed, they
+    take 50% reduced damage from collisions '

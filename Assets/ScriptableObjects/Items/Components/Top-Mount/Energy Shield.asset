@@ -21,3 +21,5 @@ MonoBehaviour:
     quantity: 3
   - drop: {fileID: 11400000, guid: 65f231e658a25ea4299e6db01d9bcf2a, type: 2}
     quantity: 10
+  description: 'Military grade, except it was made at a rest stop out of scraps.  '
+  effect: 'Adds (10% Max HP) bonus HP that regenerates if untouched for 5 seconds.  '

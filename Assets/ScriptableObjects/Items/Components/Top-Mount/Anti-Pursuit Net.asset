@@ -21,3 +21,6 @@ MonoBehaviour:
     quantity: 5
   - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
     quantity: 12
+  description: 'A simple yet elegant solution to eliminating pursuers.  '
+  effect: 'If an SPF Ship comes within X UU Behind the player, launches a net object
+    that ships can collide into.  '

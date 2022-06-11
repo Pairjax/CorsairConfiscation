@@ -21,3 +21,6 @@ MonoBehaviour:
     quantity: 15
   - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
     quantity: 2
+  description: Nobody told us that asteroids had shiny bits too!
+  effect: Allows the player to scrap asteroids which always drop Supersteel Plating
+    and Mythium Alloy

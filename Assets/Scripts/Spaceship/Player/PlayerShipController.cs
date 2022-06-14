@@ -15,6 +15,7 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
     [SerializeField] private Collider2D shipCollider;
+    [SerializeField] private float impactBase;
 
     void Start()
     {
@@ -45,6 +46,25 @@ public class PlayerShipController : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<Hook>() != null)
             Physics2D.IgnoreCollision(collision.collider, shipCollider);
+
+        // Damage calculation
+        float damage = Mathf.Abs(collision.relativeVelocity.magnitude 
+            * pStats._collisionMultiplier);
+        damage = Mathf.Log(damage, impactBase);
+        damage = damage > 1 ? damage : 0;
+
+        // Maw Component effect
+        if (pStats.maw && pStats._hp - damage <= 0)
+        {
+            Salvagable s;
+            if (collision.gameObject.TryGetComponent(out s))
+                s.OnSalvage();
+
+            Destroy(collision.gameObject);
+            return;
+        }
+
+        pStats._hp -= damage;
     }
 
     private void FixedUpdate()
@@ -177,4 +197,5 @@ public class PlayerShipController : MonoBehaviour
 
         burner.gameObject.SetActive(false);
     }
+
 }

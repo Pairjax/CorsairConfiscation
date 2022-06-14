@@ -10,6 +10,7 @@ public class HPTracker : MonoBehaviour
     public PlayerStats stats;
 
     [SerializeField] private float _chipSpeed = 1.75f;
+    [SerializeField] private float endLimit = 0.002f;
     private float lerpTimer;
 
     void Update()
@@ -21,10 +22,12 @@ public class HPTracker : MonoBehaviour
         if (fillB > hFraction)
         {
             frontHealthBar.fillAmount = hFraction;
-            backHealthBar.color = Color.red;
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / _chipSpeed;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
+
+            if (Mathf.Abs(fillB - hFraction) < endLimit)
+                backHealthBar.fillAmount = hFraction;
 
             /*IF statement to fix the bug appearing due to the health bar neededing to lerp before the 
             gameover screen is displayed*/

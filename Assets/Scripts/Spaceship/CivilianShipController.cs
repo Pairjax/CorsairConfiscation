@@ -105,4 +105,5 @@ public class CivilianShipController : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         obj.rotation = Quaternion.Euler(0f, 0f, angle + offset);
     }
+
 }

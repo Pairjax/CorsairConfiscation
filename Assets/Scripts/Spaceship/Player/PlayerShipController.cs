@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class PlayerShipController : MonoBehaviour
 {
-    [SerializeField] private Harpoon harpoon;
+    // Components
+    [SerializeField] private List<Harpoon> harpoons;
+    [SerializeField] private Burner burner;
 
     public ParticleSystem pSystem;
 
     [SerializeField] private Player player;
-    [SerializeField] private PlayerStats pStats;
+    [SerializeField] public PlayerStats pStats;
     [SerializeField] private PlayerInput input;
     public Rigidbody2D rb2d;
     [SerializeField] private Collider2D shipCollider;
-    private PlayerStats playerStats;
 
     void Start()
     {
         player.animator = transform.GetChild(0).GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         shipCollider = GetComponent<Collider2D>();
-        playerStats = player.stats;
+        pStats = player.stats;
     }
 
     private void Update()
     {
-        if (input.fire) harpoon.OnLaunchHook();
-        if (input.retract) harpoon.Retract();
-        if (input.extend) harpoon.Extend();
-        if (input.loadMap) MapManager.instance.LoadMapScene();
-    }
+        foreach (Harpoon h in harpoons)
+        {
+            if (!h.isActiveAndEnabled) continue;
 
+            if (input.fire) h.OnLaunchHook();
+            if (input.retract) h.Retract();
+            if (input.extend) h.Extend();
+        } 
+
+        if (input.loadMap) MapManager.instance.LoadMapScene();
+
+        if (pStats.refreshComponents)
+            ActivateComponents();
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -108,8 +117,7 @@ public class PlayerShipController : MonoBehaviour
         #endregion
 
         if (input.movementInput.y > 0)
-
-        ApplyLinearDrag();
+            ApplyLinearDrag();
     }
 
     private void Move(Vector2 movement)
@@ -144,5 +152,29 @@ public class PlayerShipController : MonoBehaviour
     private void ApplyLinearDrag()
     {
         rb2d.drag = pStats._linearDrag;
+    }
+
+    private void ActivateComponents()
+    {
+        ResetComponents();
+
+        if (pStats.multiHarpoon)
+            foreach (Harpoon h in harpoons)
+                h.gameObject.SetActive(true);
+
+        pStats.refreshComponents = false;
+
+        if (pStats.burner)
+            burner.gameObject.SetActive(true);
+    }
+
+    private void ResetComponents()
+    {
+        foreach (Harpoon h in harpoons)
+            h.gameObject.SetActive(false);
+
+        harpoons[0].gameObject.SetActive(true);
+
+        burner.gameObject.SetActive(false);
     }
 }

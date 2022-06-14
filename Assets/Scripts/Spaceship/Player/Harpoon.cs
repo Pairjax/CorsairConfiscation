@@ -19,8 +19,9 @@ public class Harpoon : MonoBehaviour
     private Transform hookT;
     private Hook hook;
     private Swingable hookSwing;
+    [SerializeField] private float rotation;
 
-    public bool onCooldown { private set; get; }
+    public bool onCooldown;
 
     private RopeSegment harpoonRope;
     private List<GameObject> ropeRungs = new List<GameObject>();
@@ -34,15 +35,21 @@ public class Harpoon : MonoBehaviour
         hook = hookObj.GetComponent<Hook>();
         hookSwing = hookObj.GetComponent<Swingable>();
 
-        pStats = player.GetComponent<PlayerStats>();
+        pStats = player.GetComponent<PlayerShipController>().pStats;
 
         harpoonRope = GetComponent<RopeSegment>();
+    }
+
+    void OnEnable()
+    {
+        onCooldown = false;
     }
 
     private void Update()
     {
         transform.position = player.transform.position;
         transform.rotation = player.transform.rotation;
+        transform.Rotate(0, 0, rotation);
     } 
 
     private void FixedUpdate()
@@ -132,6 +139,7 @@ public class Harpoon : MonoBehaviour
 
         hState = HookState.Launching;
         hookObj.SetActive(true);
+        hookSwing.radius = 0.1f;
         harpoonRope.target = hookObj;
 
         return true;
@@ -211,6 +219,7 @@ public class Harpoon : MonoBehaviour
             hook.UnhookObj();
 
         harpoonRope.target = hookObj;
+        hookSwing.radius = 0.1f;
         hookObj.SetActive(false);
 
         harpoonRope.target = gameObject;

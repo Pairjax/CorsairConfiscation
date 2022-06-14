@@ -6,6 +6,7 @@ public class Grabbable : MonoBehaviour
 {
     public bool isSalvagable;
     public bool isThrown = false;
+    public bool isGrabbed = false;
     public GameObject objectSprite;
     public GameObject thrownObject;
     public float weight;

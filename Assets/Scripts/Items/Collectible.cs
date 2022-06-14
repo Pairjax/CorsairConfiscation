@@ -18,7 +18,7 @@ public class Collectible : MonoBehaviour
         icon = GetComponent<SpriteRenderer>();
         icon.sprite = drop.sprite;
         player = GameObject.FindGameObjectWithTag("Player");
-        pStats = player.GetComponent<PlayerStats>();
+        pStats = player.GetComponent<PlayerShipController>().pStats;
 
         StartCoroutine(TimerRoutine());
     }

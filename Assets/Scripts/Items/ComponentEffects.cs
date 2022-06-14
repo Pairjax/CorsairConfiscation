@@ -11,7 +11,8 @@ public static class ComponentEffects
 
         switch (c.name)
         {
-            case "Anti-Pursuit Net":
+            case "Dura-Thick Armor":
+                s._maxHP += 0.25f;
                 break;
             default:
                 Debug.LogError("Loot of name " + c.name + " does not exist");

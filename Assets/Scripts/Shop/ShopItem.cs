@@ -11,6 +11,7 @@ public class ShopItem : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI description;
+    [SerializeField] private TextMeshProUGUI effect;
 
     [SerializeField] private Image icon;
     [SerializeField] private Image componentTypeIcon;
@@ -41,6 +42,8 @@ public class ShopItem : MonoBehaviour
 
         title.text = component.name;
         description.text = component.description;
+        if (effect != null)
+            effect.text = component.effect;
 
         scrap1.sprite = component.price[0].drop.sprite;
         scrap1Text.text = component.price[0].quantity + "X";
@@ -49,7 +52,6 @@ public class ShopItem : MonoBehaviour
         {
             scrap2.color = Color.clear;
             scrap2Text.text = "";
-            return;
         }
         else
         {
@@ -62,7 +64,6 @@ public class ShopItem : MonoBehaviour
         {
             scrap3.color = Color.clear;
             scrap3Text.text = "";
-            return;
         }
         else
         {
@@ -74,6 +75,19 @@ public class ShopItem : MonoBehaviour
 
     public void OnPurchase()
     {
+        foreach (CostParameters cost in component.price)
+        {
+            if (!pStats.scrap.ContainsKey(cost.drop)
+                || pStats.scrap[cost.drop] < cost.quantity)
+            {
+                Debug.Log("Not enough scrap to purchase!");
+                return;
+            }
+        }
+
+        foreach (CostParameters cost in component.price)
+            pStats.scrap[cost.drop] -= cost.quantity;
+
         pStats.AddComponent(component);
     }
 }

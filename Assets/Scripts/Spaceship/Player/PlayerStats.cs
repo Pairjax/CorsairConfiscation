@@ -8,7 +8,9 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Health")]
     public float _hp;
+    public float _regen;
     public float _maxHP;
+    public float _maxHPMultiplier;
 
     [Header("Movement")]
     public float _acceleration;
@@ -29,6 +31,21 @@ public class PlayerStats : MonoBehaviour
     public float _lootBonus;
     public float _shopPriceModifier;
 
+    [Header("Component Flags")]
+    public bool refreshComponents;
+    public bool electrocute;
+    public bool net;
+    public bool turret;
+    public bool shield;
+    public bool speedShield;
+    public bool burner;
+    public bool piercer;
+    public bool multiHarpoon;
+    public bool maw;
+    public bool radar;
+    public bool salvager;
+    public bool repair;
+
     [Header("Misc")]
     public float _cameraSize;
     public float _bountyMultiplier;
@@ -45,6 +62,7 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
+        _maxHPMultiplier = 1;
         UpdateEffects();
         _hp = _maxHP;
     }
@@ -128,6 +146,8 @@ public class PlayerStats : MonoBehaviour
         ComponentEffects.ApplyEffect(this, components.thrustSlot);
         ComponentEffects.ApplyEffect(this, components.harpoonSlot);
         ComponentEffects.ApplyEffect(this, components.auxSlot);
+
+        _maxHP *= _maxHPMultiplier;
     }
 
     [System.Serializable]

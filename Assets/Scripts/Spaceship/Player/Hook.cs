@@ -32,6 +32,11 @@ public class Hook : MonoBehaviour
         if (selObj == null || grabbableComp == null)
             return;
 
+        if (grabbableComp.isGrabbed)
+            return;
+
+        grabbableComp.isGrabbed = true;
+
         hookedObj = selObj;
         grabbedObj = Instantiate(grabbableComp.objectSprite, 
             transform.position, hookedObj.transform.rotation, 

@@ -40,6 +40,8 @@ public class PlayerShipController : MonoBehaviour
 
         if (pStats.refreshComponents)
             ActivateComponents();
+
+        HandleRegen();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -196,6 +198,12 @@ public class PlayerShipController : MonoBehaviour
         harpoons[0].gameObject.SetActive(true);
 
         burner.gameObject.SetActive(false);
+    }
+
+    private void HandleRegen()
+    {
+        pStats._hp += pStats._regen * Time.fixedDeltaTime;
+        pStats._hp = Mathf.Min(pStats._hp, pStats._maxHP);
     }
 
 }

@@ -37,14 +37,16 @@ public class HPTracker : MonoBehaviour
                 backHealthBar.fillAmount = 0;
             }
         }
-        /*else if (fillF < hFraction)
+        else if (fillF < hFraction)
         {
-            backHealthBar.color = Color.green;
             backHealthBar.fillAmount = hFraction;
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / _chipSpeed;
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, hFraction, percentComplete);
-        }*/
+
+            if (Mathf.Abs(fillF - hFraction) < endLimit)
+                frontHealthBar.fillAmount = hFraction;
+        }
 
         lerpTimer /= 2;
     }

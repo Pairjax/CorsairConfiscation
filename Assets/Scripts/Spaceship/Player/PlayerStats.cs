@@ -9,15 +9,24 @@ public class PlayerStats : MonoBehaviour
     [Header("Health")]
     public float _hp;
     public float _regen;
+
     public float _maxHP;
     public float _maxHPMultiplier;
 
     [Header("Movement")]
     public float _acceleration;
+    public float _accelerationMultiplier;
+
     public float _maxSpeed;
+    public float _maxSpeedMultiplier;
+
     public float _linearDrag;
+
     public float _rotateSpeed;
-    public float _weight;
+    public float _rotateSpeedMultiplier;
+
+    public float _mass;
+    public float _massMultiplier;
 
     [Header("Harpoon")]
     public int numHooks;
@@ -63,7 +72,13 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         _maxHPMultiplier = 1;
+        _accelerationMultiplier = 1;
+        _maxSpeedMultiplier = 1;
+        _rotateSpeedMultiplier = 1;
+        _massMultiplier = 1;
+
         UpdateEffects();
+
         _hp = _maxHP;
     }
 
@@ -82,7 +97,7 @@ public class PlayerStats : MonoBehaviour
         else
             loot.Add(drop, 1);
 
-        LootEffects.ApplyEffect(this, drop);
+        UpdateEffects();
     }
 
     public void AddComponent(ShipComponent c)
@@ -108,17 +123,20 @@ public class PlayerStats : MonoBehaviour
                 Debug.LogError("Invalid type found. Is the ShipComponent null?");
                 break;
         }
+
+        UpdateEffects();
     }
 
     public void UpdateEffects()
     {
+        // Base stats
         _maxHP = baseClass.hp;
 
-        _acceleration = baseClass.hp;
+        _acceleration = baseClass.acceleration;
         _maxSpeed = baseClass.maxSpeed;
         _linearDrag = baseClass.linearDrag;
         _rotateSpeed = baseClass.rotateSpeed;
-        _weight = baseClass.weight;
+        _mass = baseClass.weight;
 
         _hookMaxLength = baseClass.hookMaxLength;
         _hookSwingMax = baseClass.hookSwingMax;
@@ -133,6 +151,7 @@ public class PlayerStats : MonoBehaviour
         _bountyMultiplier = baseClass.bountyMultiplier;
         _collisionMultiplier = baseClass.collisionMultiplier;
 
+        // Update loot effects
         foreach (KeyValuePair<Droppable, int> l in loot)
         {
             Droppable d = l.Key;
@@ -147,7 +166,13 @@ public class PlayerStats : MonoBehaviour
         ComponentEffects.ApplyEffect(this, components.harpoonSlot);
         ComponentEffects.ApplyEffect(this, components.auxSlot);
 
+        refreshComponents = true;
+
+        // Multipliers applied.
         _maxHP *= _maxHPMultiplier;
+        _acceleration *= _accelerationMultiplier;
+        _rotateSpeed *= _rotateSpeedMultiplier;
+        _mass *= _massMultiplier;
     }
 
     [System.Serializable]

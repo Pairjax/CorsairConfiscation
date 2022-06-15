@@ -3,10 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 // God I could only manually code this and I hate myself for that.
 public class StatsTracker : MonoBehaviour
 {
+
+    [Header("Bounty")]
+    public BountyManager bManager;
+    public TextMeshProUGUI bountyText;
+    public Image bountyImage;
+    public Color green;
+    public Color yellow;
+    public Color red;
+    public Sprite safeImg;
+    public Sprite unsafeImg;
+    public Sprite dangerImg;
+    public Sprite deadlyImg;
+
+    [Header("Player Stats")]
     public PlayerStats pStats;
 
     [Header("Scrap")]
@@ -31,8 +46,41 @@ public class StatsTracker : MonoBehaviour
 
     void FixedUpdate()
     {
+        UpdateBounty();
         UpdateScrap();
         UpdateLoot();
+    }
+
+    private void UpdateBounty()
+    {
+        int bountyModifier = (bManager.bounty / 1000);
+        string bounty = "Bounty: $" + bountyModifier + "K";
+        bountyText.text = bounty; 
+
+        if (bountyModifier > 400)
+        {
+            bountyText.color = red;
+            bountyImage.color = red;
+            bountyImage.sprite = deadlyImg;
+        }
+        else if (bountyModifier > 300)
+        {
+            bountyText.color = red;
+            bountyImage.color = red;
+            bountyImage.sprite = dangerImg;
+        }
+        else if (bountyModifier > 200)
+        {
+            bountyText.color = yellow;
+            bountyImage.color = yellow;
+            bountyImage.sprite = unsafeImg;
+        }
+        else
+        {
+            bountyText.color = green;
+            bountyImage.color = green;
+            bountyImage.sprite = safeImg;
+        }
     }
 
     private void UpdateScrap()

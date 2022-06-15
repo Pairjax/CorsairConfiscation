@@ -140,6 +140,8 @@ public class PlayerShipController : MonoBehaviour
 
         if (input.movementInput.y > 0)
             ApplyLinearDrag();
+
+        rb2d.mass = pStats._mass;
     }
 
     private void Move(Vector2 movement)

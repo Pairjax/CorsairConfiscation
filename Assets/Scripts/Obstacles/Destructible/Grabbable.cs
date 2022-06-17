@@ -6,6 +6,7 @@ using Destructible2D;
 public class Grabbable : Destructible
 {
     public bool isSalvagable;
+    public bool isGrabbed;
     public GameObject objectSprite;
 
     public void Start()

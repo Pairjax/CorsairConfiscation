@@ -34,7 +34,7 @@ public class PlayerShipController : MonoBehaviour
             if (input.fire) h.OnLaunchHook();
             if (input.retract) h.Retract();
             if (input.extend) h.Extend();
-            if (input.detach) harpoon.Detach();
+            if (input.detach) h.Detach();
         }
 
         if (input.loadMap) MapManager.instance.LoadMapScene();

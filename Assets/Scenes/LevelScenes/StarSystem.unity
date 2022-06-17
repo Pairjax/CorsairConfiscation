@@ -1082,6 +1082,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8998434661345359608, guid: 33141e3ad904abc4a9685641c6254019, type: 3}
   m_PrefabInstance: {fileID: 164262651}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &176679578 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 598969936135632072, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+  m_PrefabInstance: {fileID: 693800071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &183450311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,9 +3936,21 @@ PrefabInstance:
       propertyPath: harpoon
       value: 
       objectReference: {fileID: 2046317746}
+    - target: {fileID: 1378679318664848365, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: pSystem
+      value: 
+      objectReference: {fileID: 878973205}
+    - target: {fileID: 1378679318664848365, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: pSystem2
+      value: 
+      objectReference: {fileID: 176679578}
     - target: {fileID: 3526964833912674140, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725912792599207258, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
@@ -5781,6 +5798,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &878973205 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1620620179313645023, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+  m_PrefabInstance: {fileID: 693800071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &881081469
 GameObject:
   m_ObjectHideFlags: 0
@@ -9485,7 +9507,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360385734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 277538f69148e1e4d8b6f3c5f06f141a, type: 3}
   m_Name: 

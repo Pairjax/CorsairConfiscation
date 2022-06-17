@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: BasePlayerShip
   m_EditorClassIdentifier: 
   hp: 50
-  acceleration: 1
+  regen: 0
+  acceleration: 2
   maxSpeed: 20
   linearDrag: 2
-  rotateSpeed: 2
-  weight: 0
+  rotateSpeed: 0.3
+  weight: 0.1
   numHooks: 1
   hookMaxLength: 7
   hookSwingMax: 3

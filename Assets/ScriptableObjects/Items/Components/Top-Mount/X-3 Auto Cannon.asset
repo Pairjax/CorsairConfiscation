@@ -21,3 +21,6 @@ MonoBehaviour:
     quantity: 2
   - drop: {fileID: 11400000, guid: efa04c5700d7fed4bb47916216c4c3c2, type: 2}
     quantity: 4
+  description: "I don\u2019t know if you have the proper permit for this thing.   "
+  effect: 'Automatic Laser Turret, Fires at closest SPF Ship within X UU, shoots
+    off target slightly, similar to Cruiser turret. Deals Y Damage to Ships. '

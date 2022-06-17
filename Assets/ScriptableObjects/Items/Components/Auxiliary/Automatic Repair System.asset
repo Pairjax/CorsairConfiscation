@@ -19,3 +19,6 @@ MonoBehaviour:
     quantity: 8
   - drop: {fileID: 11400000, guid: b62ce30983717aa49b71dbec5fef4101, type: 2}
     quantity: 4
+  description: Can fix anything up with enough duct tape and automatic repair drones.
+  effect: Scrapping ships heals the player 2% max HP. Reduces scrap dropped from
+    scrapped ships.

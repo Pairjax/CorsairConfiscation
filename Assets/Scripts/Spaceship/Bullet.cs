@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     private CopShipController parentShip;
     public Rigidbody2D rb2d;
     public float speed = 5f;
+    public Spaceship.SpaceshipCategory target;
+
     public void Awake()
     {
         rb2d.isKinematic = true;
@@ -24,7 +26,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Spaceship chosenShip = collision.GetComponent<Spaceship>();
-        if (!chosenShip || !chosenShip.category.Equals(Spaceship.SpaceshipCategory.Player))
+        if (!chosenShip || !chosenShip.category.Equals(target))
             return;
 
         chosenShip.Damage();

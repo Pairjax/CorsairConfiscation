@@ -19,3 +19,6 @@ MonoBehaviour:
     quantity: 20
   - drop: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
     quantity: 20
+  description: 'What could go wrong with more harpoons!  '
+  effect: 'Fires two additional harpoons, each spaced 15 degrees to the left and
+    right of the crosshair  '

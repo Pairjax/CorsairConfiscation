@@ -19,3 +19,5 @@ MonoBehaviour:
     quantity: 35
   - drop: {fileID: 11400000, guid: 65f231e658a25ea4299e6db01d9bcf2a, type: 2}
     quantity: 15
+  description: 'Caution, very hot.  '
+  effect: 'Back thruster sprite/VFX becomes larger, deals damage to objects it touches  '

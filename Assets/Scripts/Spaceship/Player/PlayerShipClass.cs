@@ -7,6 +7,7 @@ public class PlayerShipClass : ScriptableObject
 {
     [Header("Health")]
     public int hp;
+    public int regen;
 
     [Header("Movement")]
     public float acceleration;

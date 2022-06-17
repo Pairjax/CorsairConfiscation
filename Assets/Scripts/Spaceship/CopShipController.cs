@@ -282,8 +282,12 @@ public class CopShipController : MonoBehaviour
 
             GameObject spawnedBullet = Instantiate(bulletPrefab.gameObject, bulletSpawn.position, bulletSpawn.rotation);
             HomingMissile missile = spawnedBullet.GetComponent<HomingMissile>();
+
             if (missile)
+            {
+                Physics2D.IgnoreCollision(spawnedBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 missile.SetParent(this);
+            }
 
             if (enemyType.Equals(CopShipController.EnemyType.Seeker))
                 spawnedBullets.Add(spawnedBullet);

@@ -10,15 +10,16 @@ public class Asteroid : MonoBehaviour
     public Vector3 destination;
     private void Start()
     {
-        if (GetComponent<Grabbable>().isThrown)
-            return;
         LookAt();
         rb2d.isKinematic = true;
         rb2d.velocity = transform.TransformDirection(Vector3.right * speed);
     }
     void Update()
     {
-        transform.GetChild(0).transform.Rotate(0, 0, rotateSpeed * Time.deltaTime); //rotates 50 degrees per second around z axis
+        if (!transform.childCount.Equals(0))
+            transform.GetChild(0).transform.Rotate(0, 0, rotateSpeed * Time.deltaTime); //rotates 50 degrees per second around z axis
+        else
+            Destroy(gameObject);
     }
     private void LookAt()
     {

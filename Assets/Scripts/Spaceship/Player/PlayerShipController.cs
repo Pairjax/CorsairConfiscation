@@ -31,11 +31,11 @@ public class PlayerShipController : MonoBehaviour
         foreach (Harpoon h in harpoons)
         {
             if (!h.isActiveAndEnabled) continue;
-
             if (input.fire) h.OnLaunchHook();
             if (input.retract) h.Retract();
             if (input.extend) h.Extend();
-        } 
+            if (input.detach) harpoon.Detach();
+        }
 
         if (input.loadMap) MapManager.instance.LoadMapScene();
 
@@ -51,7 +51,7 @@ public class PlayerShipController : MonoBehaviour
             Physics2D.IgnoreCollision(collision.collider, shipCollider);
 
         // Damage calculation
-        float damage = Mathf.Abs(collision.relativeVelocity.magnitude 
+        float damage = Mathf.Abs(collision.relativeVelocity.magnitude
             * pStats._collisionMultiplier);
         damage = Mathf.Log(damage, impactBase);
         damage = damage > 1 ? damage : 0;
@@ -100,7 +100,7 @@ public class PlayerShipController : MonoBehaviour
                         pSystem.Stop();
                         pSystem2.Stop();
                     }
-                    
+
                 }
             break;
 
@@ -134,7 +134,7 @@ public class PlayerShipController : MonoBehaviour
                     pSystem.Stop();
                     pSystem2.Stop();
                 }
-              
+
                 Debug.Log("not moving");
                 if (input.movementInput.x > 0)
                 {

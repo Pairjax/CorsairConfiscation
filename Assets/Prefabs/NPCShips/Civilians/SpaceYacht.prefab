@@ -107,7 +107,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1.5
-  m_AngularDrag: 0.01
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -154,12 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bb9c522ec3a1242933a259007ffe7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 0}
+  isFractured: 0
   isSalvagable: 0
-  isThrown: 0
   objectSprite: {fileID: 6411971738610628682}
-  thrownObject: {fileID: 4367058817412962813}
-  weight: 0
-  rb2d: {fileID: 0}
 --- !u!1 &4958912929486289651
 GameObject:
   m_ObjectHideFlags: 0

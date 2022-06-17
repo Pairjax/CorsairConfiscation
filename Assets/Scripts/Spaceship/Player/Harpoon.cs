@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Harpoon : MonoBehaviour
 {
-    private enum HookState
+    public enum HookState
     {
         Unlaunched,
         Launching,
@@ -27,7 +27,7 @@ public class Harpoon : MonoBehaviour
     private List<GameObject> ropeRungs = new List<GameObject>();
     [SerializeField] private GameObject rungPrefab;
 
-    private HookState hState = HookState.Unlaunched;
+    public HookState hState = HookState.Unlaunched;
 
     private void Start()
     {
@@ -50,11 +50,12 @@ public class Harpoon : MonoBehaviour
         transform.position = player.transform.position;
         transform.rotation = player.transform.rotation;
         transform.Rotate(0, 0, rotation);
-    } 
+    }
 
     private void FixedUpdate()
     {
-        if (hState == HookState.Launched)
+        if (hState == HookState.Launched
+            || hState == HookState.Retracting)
             UpdateRopeStretch();
         HandleState();
     }
@@ -124,6 +125,11 @@ public class Harpoon : MonoBehaviour
     public void Extend()
     {
         hookSwing.radius += pStats._hookLaunchSpeed * Time.fixedDeltaTime;
+    }
+
+    public void Detach()
+    {
+        hook.UnhookObj();
     }
 
     /// <summary>
@@ -216,7 +222,7 @@ public class Harpoon : MonoBehaviour
 
         if (hook.hookedObj != null
                 || hook.grabbedObj != null)
-            hook.UnhookObj();
+            hook.ScrapObj();
 
         harpoonRope.target = hookObj;
         hookSwing.radius = 0.1f;

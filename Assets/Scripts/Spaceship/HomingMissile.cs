@@ -78,7 +78,6 @@ public class HomingMissile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<CopShipController>()) return;
         if (_explosionPrefab) Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
 
         Player playerShip = collision.gameObject.GetComponent<Player>();

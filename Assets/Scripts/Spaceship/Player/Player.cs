@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : Spaceship
 {
     public PlayerStats stats;
+    public PlayerShipController controller;
+
     public override void SetupStats()
     {
         stats.UpdateEffects();

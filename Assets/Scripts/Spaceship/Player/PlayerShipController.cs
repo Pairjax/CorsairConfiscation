@@ -94,7 +94,6 @@ public class PlayerShipController : MonoBehaviour
                 else
                 {   //default
                     player.animator.SetInteger("moveValue", 0);
-                    Debug.Log("not moving");
                     if (pSystem.isPlaying)
                     {
                         pSystem.Stop();
@@ -111,7 +110,6 @@ public class PlayerShipController : MonoBehaviour
                         pSystem.Play();
                         pSystem2.Play();
                     }
-                    Debug.Log("moving");
                     if (input.movementInput.x > 0)
                     {
                         //forwardleft
@@ -135,7 +133,6 @@ public class PlayerShipController : MonoBehaviour
                     pSystem2.Stop();
                 }
 
-                Debug.Log("not moving");
                 if (input.movementInput.x > 0)
                 {
                     //backleft

@@ -15,13 +15,17 @@ public class Hook : MonoBehaviour
     {
         swingable = GetComponent<Swingable>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.childCount == 0)
+        if (transform.childCount == 0 &&
+            collision.gameObject.transform.parent != null &&
+            collision.transform.parent.parent != null)
         {
-            HookObj(collision.gameObject.transform.parent.transform.parent.gameObject);
+            HookObj(collision.transform.parent.parent.gameObject);
         }
     }
+
     Grabbable grabbableComp = null;
     Throwable throwableComp = null;
     private void HookObj(GameObject selObj)

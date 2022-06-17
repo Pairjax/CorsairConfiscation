@@ -5299,9 +5299,17 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 1637623890}
+    - target: {fileID: 1602044375183713789, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3526964833912674140, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456354279057898560, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1378679318664848367, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
@@ -15240,7 +15248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d86bfafccc0cd54fa1d0a5ea02fa587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseClass: {fileID: 11400000, guid: d326f3350f09b2844853a2bbb64ab317, type: 2}
+  baseClass: {fileID: 11400000, guid: a18b4712c5972ab4faa231240a19e7f4, type: 2}
   _hp: 0
   _regen: 0
   _maxHP: 0

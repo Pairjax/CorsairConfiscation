@@ -4898,8 +4898,8 @@ GameObject:
   - component: {fileID: 3119700199863290692}
   - component: {fileID: 3119700199863290693}
   - component: {fileID: 953469698517627225}
-  - component: {fileID: 3119700199863290689}
   - component: {fileID: -7524675157937295702}
+  - component: {fileID: 6003723505249760086}
   m_Layer: 7
   m_Name: SPF Ship
   m_TagString: grabbable
@@ -4980,27 +4980,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!50 &3119700199863290689
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3119700199863290715}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1.5
-  m_AngularDrag: 0.01
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &-7524675157937295702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5013,12 +4992,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bb9c522ec3a1242933a259007ffe7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: f276a9d591a6d5348aed7676f4666fe0, type: 2}
+  isFractured: 0
   isSalvagable: 1
-  isThrown: 0
-  objectSprite: {fileID: 2151719494696176205, guid: 781dff9a8656fd54780636cce53fb663, type: 3}
-  thrownObject: {fileID: 0}
-  weight: 0
-  rb2d: {fileID: 0}
+  objectSprite: {fileID: 3122574866407035516}
+--- !u!50 &6003723505249760086
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119700199863290715}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 1.5
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3119700200803689726
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5064,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 5
 --- !u!114 &3119700200803689721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5091,7 +5089,6 @@ GameObject:
   - component: {fileID: 590772072515189604}
   - component: {fileID: 7117206364725696940}
   - component: {fileID: 1760373514222708286}
-  - component: {fileID: 6029545722911445635}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -5183,32 +5180,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &6029545722911445635
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3122574866407035516}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 8, y: 8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &5017772123122410711
 GameObject:
   m_ObjectHideFlags: 0

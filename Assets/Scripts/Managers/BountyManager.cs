@@ -158,7 +158,7 @@ public class BountyManager : MonoBehaviour
         gameTime += Time.deltaTime;
         if (gameTime >= 1)
         {
-            AddBounty(bounty);
+            AddBounty(bountyIncrement);
             gameTime = 0;
         }
     }

@@ -19,6 +19,9 @@ public abstract class Spaceship : MonoBehaviour
     {
         if (!bountyManager)
             bountyManager = FindObjectOfType<BountyManager>();
+
+        rb2d = GetComponent<Rigidbody2D>();
+
         SetupStats();
     }
     public abstract void SetupStats();

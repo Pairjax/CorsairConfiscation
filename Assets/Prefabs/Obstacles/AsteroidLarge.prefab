@@ -83,12 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bb9c522ec3a1242933a259007ffe7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 464009257733ef6489d28dbbf378a8d8, type: 2}
+  isFractured: 0
   isSalvagable: 0
-  isThrown: 1
   objectSprite: {fileID: 6168395868507592212}
-  thrownObject: {fileID: 7738606476661149060, guid: 8b50c8f674846c042ad63f418fef956e, type: 3}
-  weight: 0
-  rb2d: {fileID: 6168395866992407533}
 --- !u!1 &6168395868507592212
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6168395868507592213}
   - component: {fileID: 6168395868507592214}
-  - component: {fileID: 7101127939952114716}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -172,42 +169,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7101127939952114716
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6168395868507592212}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 4, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.9142647, y: 0.22639102}
-      - {x: 0.4397149, y: 0.6425233}
-      - {x: 0.21110392, y: 0.6158689}
-      - {x: -0.36979818, y: 1.1916906}
-      - {x: -0.95507383, y: 1.1397967}
-      - {x: -1.4310215, y: 0.65202403}
-      - {x: -1.4316316, y: -0.0074594915}
-      - {x: -1.4578068, y: -0.6131724}
-      - {x: -1.1590619, y: -1.0039495}
-      - {x: -0.6932773, y: -0.9027878}
-      - {x: -0.46600366, y: -1.0665396}
-      - {x: 0.27855825, y: -1.0596145}
-      - {x: 0.6581131, y: -0.8676238}
-      - {x: 1.0096631, y: -0.33565706}

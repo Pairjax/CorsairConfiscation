@@ -16,7 +16,7 @@ MonoBehaviour:
   requireDamageToFracture: 1
   pointsPerPixel: 10
   damageThreshold: 4
-  damageRequiredForFracture: 30
+  damageRequiredForFracture: 10
   pixels: 2
   fade: 1
   lifeMin: 7

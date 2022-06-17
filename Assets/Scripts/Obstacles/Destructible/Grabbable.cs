@@ -10,15 +10,25 @@ public class Grabbable : Destructible
 
     public void Start()
     {
+        if (isFractured)
+            return;
+
         SetupDestructibleSprite();
         CommitFracture = Fracture;
         d2D.OnSplitStart += CommitFracture;
     }
-    
+    public override void OnDestroy()
+    {
+        if(d2D)
+            d2D.OnSplitStart -= CommitFracture;
+    }
     public void Fracture()
     {
         isFractured = true;
-        SetupFadeDestruction(objectSprite);
+        if (objectSprite)
+            SetupFadeDestruction(objectSprite);
+        else
+            SetupFadeDestruction(gameObject);
     }
     public override void ApplyPhysics()
     {

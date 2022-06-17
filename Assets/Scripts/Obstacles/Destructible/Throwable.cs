@@ -5,14 +5,21 @@ using Destructible2D;
 
 public class Throwable : Destructible
 {
-    public bool isThrown;
-    public Hook hook;
 
     public void Start()
     {
-        CommitFracture = Release;
-        d2D.OnSplitStart += CommitFracture;
+        grabbed = false;
+        if(!isFractured)
+        {
+            CommitFracture = Release;
+            d2D.OnSplitStart += CommitFracture;
+        }
     }
+    public override void OnDestroy()
+    {
+        d2D.OnSplitStart -= CommitFracture;
+    }
+
     void Release()
     {
         isFractured = true;

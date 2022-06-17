@@ -19,7 +19,7 @@ public class Hook : MonoBehaviour
     {
         if (transform.childCount == 0)
         {
-            HookObj(collision.gameObject.transform.parent.transform.parent.gameObject);
+            HookObj(collision.gameObject.transform.parent.gameObject);
         }
     }
     Grabbable grabbableComp = null;
@@ -29,9 +29,14 @@ public class Hook : MonoBehaviour
         if (selObj.tag == "Pathing")
             return;
 
-        throwableComp = selObj.GetComponent<Throwable>();
         grabbableComp = selObj.GetComponent<Grabbable>();
 
+        if (grabbableComp == null)
+            selObj = selObj.transform.parent.gameObject;
+
+        throwableComp = selObj.GetComponent<Throwable>();
+        grabbableComp = selObj.GetComponent<Grabbable>();
+        
         if (selObj == null || grabbableComp == null || throwableComp != null)
             return;
 
@@ -39,9 +44,23 @@ public class Hook : MonoBehaviour
             return;
 
         hookedObj = selObj;
-        grabbedObj = Instantiate(grabbableComp.objectSprite, 
-            transform.position, hookedObj.transform.rotation, 
+        grabbableComp.grabbed = true;
+        if (grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.Asteroid))
+        {
+            grabbedObj = Instantiate(grabbableComp.objectSprite,
+            transform.position, hookedObj.transform.rotation,
             gameObject.transform).gameObject;
+        }
+        else if(grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.NPCShip))
+        {
+            Destroy(grabbableComp);
+            grabbedObj = Instantiate(selObj,
+            transform.position, hookedObj.transform.rotation,
+            gameObject.transform).gameObject;
+            
+            grabbableComp.UnactivateChildren(grabbedObj);
+        }
+
         Rigidbody2D grabbedRigidbody = grabbedObj.GetComponent<Rigidbody2D>();
         grabbedRigidbody.Sleep();
         throwableComp = grabbedObj.AddComponent<Throwable>();

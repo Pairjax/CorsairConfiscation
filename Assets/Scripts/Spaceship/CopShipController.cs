@@ -209,7 +209,7 @@ public class CopShipController : MonoBehaviour
         if (seeker.IsDone())
         {
             wanderPoint = GetPointInsideCircle();
-            LookAt(wanderPoint, this.transform, 0f);
+            LookAt(wanderPoint, this.transform, -90f);
             seeker.StartPath(rb2d.position, wanderPoint, OnPathComplete);
         }
     }

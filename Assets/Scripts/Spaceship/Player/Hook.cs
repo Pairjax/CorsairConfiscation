@@ -33,6 +33,11 @@ public class Hook : MonoBehaviour
         if (selObj.tag == "Pathing")
             return;
 
+        grabbableComp = selObj.GetComponent<Grabbable>();
+
+        if (grabbableComp == null)
+            selObj = selObj.transform.parent.gameObject;
+
         throwableComp = selObj.GetComponent<Throwable>();
         grabbableComp = selObj.GetComponent<Grabbable>();
 
@@ -48,9 +53,23 @@ public class Hook : MonoBehaviour
         grabbableComp.isGrabbed = true;
 
         hookedObj = selObj;
-        grabbedObj = Instantiate(grabbableComp.objectSprite, 
-            transform.position, hookedObj.transform.rotation, 
+        grabbableComp.grabbed = true;
+        if (grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.Asteroid))
+        {
+            grabbedObj = Instantiate(grabbableComp.objectSprite,
+            transform.position, hookedObj.transform.rotation,
             gameObject.transform).gameObject;
+        }
+        else if(grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.NPCShip))
+        {
+            Destroy(grabbableComp);
+            grabbedObj = Instantiate(selObj,
+            transform.position, hookedObj.transform.rotation,
+            gameObject.transform).gameObject;
+
+            grabbableComp.UnactivateChildren(grabbedObj);
+        }
+
         Rigidbody2D grabbedRigidbody = grabbedObj.GetComponent<Rigidbody2D>();
         grabbedRigidbody.Sleep();
         throwableComp = grabbedObj.AddComponent<Throwable>();

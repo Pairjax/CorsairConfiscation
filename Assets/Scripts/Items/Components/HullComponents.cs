@@ -37,6 +37,6 @@ public class ArcDefenseSystem : ComponentBehavior
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
     }
 }

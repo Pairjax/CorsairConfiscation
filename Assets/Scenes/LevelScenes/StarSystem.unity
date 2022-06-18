@@ -971,10 +971,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 7098972527773412460, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1378679318664848367, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
@@ -11156,7 +11152,7 @@ MonoBehaviour:
   _collisionMultiplier: 0
   components:
     storage: []
-    hullSlot: {fileID: 11400000, guid: 23e9f696faf313843ba950dca7e5ba0c, type: 2}
+    hullSlot: {fileID: 0}
     mountSlot: {fileID: 0}
     thrustSlot: {fileID: 0}
     harpoonSlot: {fileID: 0}

@@ -20,7 +20,7 @@ public class Civilian : Spaceship
         animator.SetInteger("sprite", num + 1);
     }
 
-    public override void Damage()
+    public override void Damage(float amount)
     {
     }
 }

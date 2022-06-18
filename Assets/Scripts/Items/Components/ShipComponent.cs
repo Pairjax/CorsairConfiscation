@@ -7,6 +7,7 @@ public class ShipComponent : ScriptableObject
 {
     public Sprite sprite;
     public ComponentType type;
+    public GameObject behavior;
     public List<CostParameters> price;
     public string description;
     public string effect;

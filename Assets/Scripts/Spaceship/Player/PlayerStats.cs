@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,21 +38,6 @@ public class PlayerStats : MonoBehaviour
     public float _scrapBonus;
     public float _lootBonus;
     public float _shopPriceModifier;
-
-    [Header("Component Flags")]
-    public bool refreshComponents;
-    public bool electrocute;
-    public bool net;
-    public bool turret;
-    public bool shield;
-    public bool speedShield;
-    public bool burner;
-    public bool piercer;
-    public bool multiHarpoon;
-    public bool maw;
-    public bool radar;
-    public bool salvager;
-    public bool repair;
 
     [Header("Misc")]
     public float _cameraSize;
@@ -106,18 +90,28 @@ public class PlayerStats : MonoBehaviour
         {
             case ComponentType.Hull:
                 components.hullSlot = c;
+                components.hullBehavior = c.behavior
+                    .GetComponent<ComponentBehavior>();
                 break;
             case ComponentType.Top_Mount:
                 components.mountSlot = c;
+                components.mountBehavior = c.behavior
+                    .GetComponent<ComponentBehavior>();
                 break;
             case ComponentType.Thruster:
                 components.thrustSlot = c;
+                components.thrustBehavior = c.behavior
+                    .GetComponent<ComponentBehavior>();
                 break;
             case ComponentType.Harpoon:
                 components.harpoonSlot = c;
+                components.harpoonBehavior = c.behavior
+                    .GetComponent<ComponentBehavior>();
                 break;
             case ComponentType.Auxiliary:
                 components.auxSlot = c;
+                components.auxBehavior = c.behavior
+                    .GetComponent<ComponentBehavior>();
                 break;
             default:
                 Debug.LogError("Invalid type found. Is the ShipComponent null?");
@@ -160,13 +154,11 @@ public class PlayerStats : MonoBehaviour
         }
 
         // Component slot effects updated
-        ComponentEffects.ApplyEffect(this, components.hullSlot);
-        ComponentEffects.ApplyEffect(this, components.mountSlot);
-        ComponentEffects.ApplyEffect(this, components.thrustSlot);
-        ComponentEffects.ApplyEffect(this, components.harpoonSlot);
-        ComponentEffects.ApplyEffect(this, components.auxSlot);
-
-        refreshComponents = true;
+        components.hullBehavior.UpdateStats();
+        components.mountBehavior.UpdateStats();
+        components.thrustBehavior.UpdateStats();
+        components.harpoonBehavior.UpdateStats();
+        components.auxBehavior.UpdateStats();
 
         // Multipliers applied.
         _maxHP *= _maxHPMultiplier;
@@ -179,10 +171,20 @@ public class PlayerStats : MonoBehaviour
     public struct ComponentSlots
     {
         public List<ShipComponent> storage;
+
         public ShipComponent hullSlot;
+        public ComponentBehavior hullBehavior;
+
         public ShipComponent mountSlot;
+        public ComponentBehavior mountBehavior;
+
         public ShipComponent thrustSlot;
+        public ComponentBehavior thrustBehavior;
+
         public ShipComponent harpoonSlot;
+        public ComponentBehavior harpoonBehavior;
+
         public ShipComponent auxSlot;
+        public ComponentBehavior auxBehavior;
     }
 }

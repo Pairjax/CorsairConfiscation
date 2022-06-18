@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerShipController : MonoBehaviour
 {
-    // Components
-    [SerializeField] private List<Harpoon> harpoons;
-    [SerializeField] private Burner burner;
+    public List<Harpoon> harpoons;
 
     public ParticleSystem pSystem;
     public ParticleSystem pSystem2;
@@ -14,8 +12,10 @@ public class PlayerShipController : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] public PlayerStats pStats;
     [SerializeField] private PlayerInput input;
-    public Rigidbody2D rb2d;
     [SerializeField] private Collider2D shipCollider;
+    [SerializeField] private ComponentManager componentManager;
+    public Rigidbody2D rb2d;
+
     [SerializeField] private float impactBase;
 
     void Start()
@@ -24,6 +24,7 @@ public class PlayerShipController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         shipCollider = GetComponent<Collider2D>();
         pStats = player.stats;
+        RequestComponents();
     }
 
     private void Update()
@@ -39,9 +40,6 @@ public class PlayerShipController : MonoBehaviour
 
         if (input.loadMap) MapManager.instance.LoadMapScene();
 
-        if (pStats.refreshComponents)
-            ActivateComponents();
-
         HandleRegen();
     }
 
@@ -55,17 +53,6 @@ public class PlayerShipController : MonoBehaviour
             * pStats._collisionMultiplier);
         damage = Mathf.Log(damage, impactBase);
         damage = damage > 1 ? damage : 0;
-
-        // Maw Component effect
-        if (pStats.maw && pStats._hp - damage <= 0)
-        {
-            Salvagable s;
-            if (collision.gameObject.TryGetComponent(out s))
-                s.OnSalvage();
-
-            Destroy(collision.gameObject);
-            return;
-        }
 
         pStats._hp -= damage;
     }
@@ -192,34 +179,21 @@ public class PlayerShipController : MonoBehaviour
         rb2d.drag = pStats._linearDrag;
     }
 
-    private void ActivateComponents()
-    {
-        ResetComponents();
-
-        if (pStats.multiHarpoon)
-            foreach (Harpoon h in harpoons)
-                h.gameObject.SetActive(true);
-
-        pStats.refreshComponents = false;
-
-        if (pStats.burner)
-            burner.gameObject.SetActive(true);
-    }
-
-    private void ResetComponents()
-    {
-        foreach (Harpoon h in harpoons)
-            h.gameObject.SetActive(false);
-
-        harpoons[0].gameObject.SetActive(true);
-
-        burner.gameObject.SetActive(false);
-    }
-
     private void HandleRegen()
     {
         pStats._hp += pStats._regen * Time.fixedDeltaTime;
         pStats._hp = Mathf.Min(pStats._hp, pStats._maxHP);
+    }
+
+    public void RequestComponents()
+    {
+        pStats.UpdateEffects();
+
+        componentManager.ConstructComponent(pStats.components.hullSlot);
+        componentManager.ConstructComponent(pStats.components.mountSlot);
+        componentManager.ConstructComponent(pStats.components.thrustSlot);
+        componentManager.ConstructComponent(pStats.components.harpoonSlot);
+        componentManager.ConstructComponent(pStats.components.auxSlot);
     }
 
 }

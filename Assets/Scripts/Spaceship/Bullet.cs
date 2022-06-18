@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(target))
             return;
 
-        chosenShip.Damage();
+        chosenShip.Damage(10);
         Destroy(gameObject);
     }
 }

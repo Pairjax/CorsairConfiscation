@@ -82,7 +82,7 @@ public class HomingMissile : MonoBehaviour
 
         Player playerShip = collision.gameObject.GetComponent<Player>();
         if (playerShip != null)
-            playerShip.Damage();
+            playerShip.Damage(10);
         
         Destroy(gameObject);
     }

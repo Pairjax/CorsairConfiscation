@@ -17,6 +17,7 @@ public class PlayerInput : MonoBehaviour
     public Vector2 movementInput { get; private set; }
 
     public bool interacted { get; private set; }
+
     public bool fire { get; private set; }
     public bool detach { get; private set; }
     public bool extend { get; private set; }

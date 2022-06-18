@@ -9,7 +9,7 @@ public static class ComponentEffects
         if (c == null)
             return;
 
-        switch (c.name)
+        /*switch (c.name)
         {
             case "Dura-Thick Armor":
                 s._maxHPMultiplier += 0.25f;
@@ -65,6 +65,6 @@ public static class ComponentEffects
             default:
                 Debug.LogError("Loot of name " + c.name + " does not exist");
                 break;
-        }
+        }*/
     }
 }

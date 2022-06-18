@@ -25,7 +25,7 @@ public abstract class Spaceship : MonoBehaviour
         SetupStats();
     }
     public abstract void SetupStats();
-    public abstract void Damage();
+    public abstract void Damage(float amount);
     
     public void OnDestroy()
     {

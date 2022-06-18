@@ -4907,6 +4907,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &3448452811221786864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7098972527773412460}
+  - component: {fileID: 8162209988054675837}
+  m_Layer: 8
+  m_Name: Components
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7098972527773412460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448452811221786864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 473268701853153379}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8162209988054675837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448452811221786864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163cff2e2b20d3e4a87b1560c4fc2c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentTracker: {fileID: 0}
+  pStats: {fileID: 0}
+  pInput: {fileID: 0}
+  pController: {fileID: 1378679318664848365}
+  currentHullComponent: {fileID: 0}
+  currentMountComponent: {fileID: 0}
+  currentThrustComponent: {fileID: 0}
+  currentHarpoonComponent: {fileID: 0}
+  currentAuxComponent: {fileID: 0}
 --- !u!1 &3526964833912674140
 GameObject:
   m_ObjectHideFlags: 0
@@ -4919,7 +4971,6 @@ GameObject:
   - component: {fileID: 1378679318664848364}
   - component: {fileID: 1378679318664848365}
   - component: {fileID: 1378679318664848366}
-  - component: {fileID: 1378679318664848367}
   - component: {fileID: 1378679318664848360}
   m_Layer: 8
   m_Name: PlayerShip
@@ -4942,6 +4993,7 @@ Transform:
   - {fileID: 1378679318952097612}
   - {fileID: 6456354279057898560}
   - {fileID: 1602044375183713789}
+  - {fileID: 7098972527773412460}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4978,14 +5030,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3e1552ed77f642a258e739f56e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harpoon: {fileID: 0}
+  harpoons: []
   pSystem: {fileID: 1620620179313645023}
   pSystem2: {fileID: 598969936135632072}
   player: {fileID: 1378679318664848366}
-  pStats: {fileID: 1378679318664848367}
+  pStats: {fileID: 0}
   input: {fileID: 0}
-  rb2d: {fileID: 1378679318664848364}
   shipCollider: {fileID: 1378679318664848360}
+  componentManager: {fileID: 8162209988054675837}
+  rb2d: {fileID: 1378679318664848364}
+  impactBase: 0
 --- !u!114 &1378679318664848366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5000,45 +5054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: 1
   spaceshipStats: {fileID: 11400000, guid: d04535920f73681479eb2ac77f187968, type: 2}
-  stats: {fileID: 1378679318664848367}
---- !u!114 &1378679318664848367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3526964833912674140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d86bfafccc0cd54fa1d0a5ea02fa587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseClass: {fileID: 11400000, guid: a18b4712c5972ab4faa231240a19e7f4, type: 2}
-  _hp: 0
-  _maxHP: 0
-  _acceleration: 0
-  _maxSpeed: 0
-  _linearDrag: 0
-  _rotateSpeed: 0
-  _weight: 0
-  numHooks: 0
-  _hookMaxLength: 0
-  _hookSwingMax: 0
-  _hookLaunchSpeed: 0
-  _hookCooldown: 0
-  _scrapBonus: 0
-  _lootBonus: 0
-  _shopPriceModifier: 0
-  _cameraSize: 0
-  _bountyMultiplier: 0
-  _collisionMultiplier: 0
-  components:
-    storage: []
-    hullSlot: {fileID: 0}
-    mountSlot: {fileID: 0}
-    thrustSlot: {fileID: 0}
-    harpoonSlot: {fileID: 0}
-    auxSlot: {fileID: 0}
+  stats: {fileID: 0}
+  controller: {fileID: 1378679318664848365}
 --- !u!61 &1378679318664848360
 BoxCollider2D:
   m_ObjectHideFlags: 0

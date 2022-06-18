@@ -12,9 +12,14 @@ public class Player : Spaceship
         stats.UpdateEffects();
     }
 
-    public override void Damage()
+    public override void Damage(float amount)
     {
-        stats._hp -= 10;
+        if (stats.components.mountBehavior.GetComponent<EnergyShield>() != null)
+        {
+
+        }
+
+        stats._hp -= amount;
 
         if (stats._hp <= 0)
         {

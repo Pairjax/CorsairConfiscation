@@ -8,7 +8,7 @@ public class Enemy : Spaceship
     {
     }
 
-    public override void Damage()
+    public override void Damage(float amount)
     {
     }
 }

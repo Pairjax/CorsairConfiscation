@@ -15,7 +15,7 @@ public class ComponentTracker : MonoBehaviour
 
     public Sprite defaultSprite;
 
-    void FixedUpdate()
+    public void RefreshComponentVisuals()
     {
         hull.sprite = ChooseSprite(pStats.components.hullSlot);
         mount.sprite = ChooseSprite(pStats.components.mountSlot);

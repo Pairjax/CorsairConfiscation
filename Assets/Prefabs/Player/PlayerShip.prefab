@@ -4856,7 +4856,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4978,7 +4978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3e1552ed77f642a258e739f56e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harpoon: {fileID: 0}
+  harpoons: []
+  burner: {fileID: 0}
   pSystem: {fileID: 1620620179313645023}
   pSystem2: {fileID: 598969936135632072}
   player: {fileID: 1378679318664848366}
@@ -4986,6 +4987,7 @@ MonoBehaviour:
   input: {fileID: 0}
   rb2d: {fileID: 1378679318664848364}
   shipCollider: {fileID: 1378679318664848360}
+  impactBase: 0
 --- !u!114 &1378679318664848366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5001,6 +5003,7 @@ MonoBehaviour:
   category: 1
   spaceshipStats: {fileID: 11400000, guid: d04535920f73681479eb2ac77f187968, type: 2}
   stats: {fileID: 1378679318664848367}
+  controller: {fileID: 0}
 --- !u!114 &1378679318664848367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5015,12 +5018,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseClass: {fileID: 11400000, guid: a18b4712c5972ab4faa231240a19e7f4, type: 2}
   _hp: 0
+  _regen: 0
   _maxHP: 0
+  _maxHPMultiplier: 0
   _acceleration: 0
+  _accelerationMultiplier: 0
   _maxSpeed: 0
+  _maxSpeedMultiplier: 0
   _linearDrag: 0
   _rotateSpeed: 0
-  _weight: 0
+  _rotateSpeedMultiplier: 0
+  _mass: 0
+  _massMultiplier: 0
   numHooks: 0
   _hookMaxLength: 0
   _hookSwingMax: 0
@@ -5029,6 +5038,19 @@ MonoBehaviour:
   _scrapBonus: 0
   _lootBonus: 0
   _shopPriceModifier: 0
+  refreshComponents: 0
+  electrocute: 0
+  net: 0
+  turret: 0
+  shield: 0
+  speedShield: 0
+  burner: 0
+  piercer: 0
+  multiHarpoon: 0
+  maw: 0
+  radar: 0
+  salvager: 0
+  repair: 0
   _cameraSize: 0
   _bountyMultiplier: 0
   _collisionMultiplier: 0

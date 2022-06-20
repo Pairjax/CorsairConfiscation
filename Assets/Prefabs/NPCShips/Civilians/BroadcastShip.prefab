@@ -4821,6 +4821,7 @@ GameObject:
   - component: {fileID: 8445911451905578430}
   - component: {fileID: 8834064247328864258}
   - component: {fileID: 1722870245726537859}
+  - component: {fileID: -4004673548949271936}
   m_Layer: 6
   m_Name: BroadcastShip
   m_TagString: grabbable
@@ -4935,6 +4936,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 464009257733ef6489d28dbbf378a8d8, type: 2}
+  isThrown: 0
+  grabbed: 0
+  hook: {fileID: 0}
   isFractured: 0
   isSalvagable: 0
   objectSprite: {fileID: 0}
@@ -5008,6 +5012,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4004673548949271936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367058817412962813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e6d0ddb9249b24b99c57c03fd3df0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 2438df83a87031a4b8d0620fe1394c56, type: 2}
+  dropReference: {fileID: 8316282063186176045, guid: cc0080480af62de48820bf318c7e9d8f, type: 3}
 --- !u!1 &4539690820509384154
 GameObject:
   m_ObjectHideFlags: 0

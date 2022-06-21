@@ -31,5 +31,17 @@ public class TheMaw : ComponentBehavior
 {
     void Start() { name = "The Maw"; }
 
+    void OnTriggerEnter2D(Collision2D collision)
+    {
+        Destructible d;
+
+        if (collision.gameObject.TryGetComponent<Destructible>(out d))
+        {
+            if (collision.relativeVelocity.magnitude > d.damage.Threshold)
+            {
+                d.OnDestroy();
+            }
+        }
+    }
 }
 

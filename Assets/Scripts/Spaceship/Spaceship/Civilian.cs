@@ -10,6 +10,7 @@ public class Civilian : Spaceship
         animator = GetComponent<Animator>();
         PickRandomSprite();
     }
+
     private void PickRandomSprite()
     {
         if (spaceshipStats.spriteSelection == null || spaceshipStats.spriteSelection.Length == 0)

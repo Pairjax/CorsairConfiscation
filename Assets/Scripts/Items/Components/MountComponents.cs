@@ -87,7 +87,7 @@ public class PlayerCannonTracker : MonoBehaviour
 
 public class EnergyShield : ComponentBehavior
 {
-    [SerializeField] private Sprite shieldSprite;
+    [SerializeField] private SpriteRenderer shieldSprite;
     [SerializeField] private float regenRate;
     public float hp;
     private float hpMax;
@@ -108,10 +108,20 @@ public class EnergyShield : ComponentBehavior
         hp += hpMax * regenRate;
 
         hp = Mathf.Min(hp, hpMax);
+
+        float shieldPercent = hp / hpMax;
+
+        shieldSprite.color = new Color(
+            shieldSprite.color.r,
+            shieldSprite.color.g,
+            shieldSprite.color.b,
+            shieldPercent // Transparency
+            );
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Energy Shield Recalibrating . . .");
         StartCoroutine(Cooldown());
     }
 

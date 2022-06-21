@@ -14,9 +14,11 @@ public class Player : Spaceship
 
     public override void Damage(float amount)
     {
-        if (stats.components.mountBehavior.GetComponent<EnergyShield>() != null)
+        if (stats.components.mountBehavior != null)
         {
-
+            EnergyShield s;
+            if (stats.components.mountBehavior.TryGetComponent<EnergyShield>(out s))
+                amount = HandleEnergyShield(s, amount);
         }
 
         stats._hp -= amount;
@@ -27,5 +29,20 @@ public class Player : Spaceship
             GameOverScreen.instance.ShowGameOver();
             Destroy(gameObject);
         }
+    }
+
+    private float HandleEnergyShield(EnergyShield shield, float damage)
+    {
+        float difference = shield.hp - damage;
+
+        if (difference < 0)
+        {
+            shield.hp = 0;
+            return Mathf.Abs(difference);
+        }
+
+        shield.hp = difference;
+
+        return 0;
     }
 }

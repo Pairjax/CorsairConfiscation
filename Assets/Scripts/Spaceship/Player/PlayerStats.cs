@@ -154,11 +154,16 @@ public class PlayerStats : MonoBehaviour
         }
 
         // Component slot effects updated
-        components.hullBehavior.UpdateStats();
-        components.mountBehavior.UpdateStats();
-        components.thrustBehavior.UpdateStats();
-        components.harpoonBehavior.UpdateStats();
-        components.auxBehavior.UpdateStats();
+        if (components.hullBehavior != null)
+            components.hullBehavior.UpdateStats();
+        if (components.mountBehavior != null)
+            components.mountBehavior.UpdateStats();
+        if (components.thrustBehavior != null)
+            components.thrustBehavior.UpdateStats();
+        if (components.harpoonBehavior != null)
+            components.harpoonBehavior.UpdateStats();
+        if (components.auxBehavior != null)
+            components.auxBehavior.UpdateStats();
 
         // Multipliers applied.
         _maxHP *= _maxHPMultiplier;

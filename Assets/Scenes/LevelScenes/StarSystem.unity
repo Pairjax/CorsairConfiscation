@@ -971,6 +971,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8162209988054675837, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: pInput
+      value: 
+      objectReference: {fileID: 1314804677}
+    - target: {fileID: 8162209988054675837, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: pStats
+      value: 
+      objectReference: {fileID: 1314804676}
+    - target: {fileID: 8162209988054675837, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
+      propertyPath: componentTracker
+      value: 
+      objectReference: {fileID: 953959764}
     m_RemovedComponents:
     - {fileID: 1378679318664848367, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
@@ -996,7 +1008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d80bf3804feec419fc1743e3ed0eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electrocutingDamage: 5
 --- !u!114 &155096292 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1378679318664848365, guid: 6311bcb8c2def6a438255275b7b0f499, type: 3}
@@ -1437,8 +1448,8 @@ Transform:
   m_LocalPosition: {x: 9.963715, y: 12.758321, z: -2.880063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1230289907}
-  m_RootOrder: 4
+  m_Father: {fileID: 476678455}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &194450223
 MonoBehaviour:
@@ -3591,7 +3602,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.50195825, y: -0.32787412, z: -0.46626282}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 194450222}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10737,6 +10749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1230289907}
+  - component: {fileID: 1230289908}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -10759,10 +10772,21 @@ Transform:
   - {fileID: 186153086}
   - {fileID: 313332842}
   - {fileID: 178762262}
-  - {fileID: 194450222}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230289908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230289906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ce9b6410fea7a4589a25679f122b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1245533856
 GameObject:
   m_ObjectHideFlags: 0
@@ -11134,29 +11158,22 @@ MonoBehaviour:
   _scrapBonus: 0
   _lootBonus: 0
   _shopPriceModifier: 0
-  refreshComponents: 0
-  electrocute: 0
-  net: 0
-  turret: 0
-  shield: 0
-  speedShield: 0
-  burner: 0
-  piercer: 0
-  multiHarpoon: 0
-  maw: 0
-  radar: 0
-  salvager: 0
-  repair: 0
   _cameraSize: 0
   _bountyMultiplier: 0
   _collisionMultiplier: 0
   components:
-    storage: []
+    storage:
+    - {fileID: 0}
     hullSlot: {fileID: 0}
+    hullBehavior: {fileID: 0}
     mountSlot: {fileID: 0}
+    mountBehavior: {fileID: 0}
     thrustSlot: {fileID: 0}
+    thrustBehavior: {fileID: 0}
     harpoonSlot: {fileID: 0}
+    harpoonBehavior: {fileID: 0}
     auxSlot: {fileID: 0}
+    auxBehavior: {fileID: 0}
 --- !u!114 &1314804677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19147,7 +19164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac03ab18b78f3e49adfed740c1bc0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnDamage: 0
 --- !u!212 &2062194402
 SpriteRenderer:
   m_ObjectHideFlags: 0

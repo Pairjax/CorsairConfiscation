@@ -37,6 +37,10 @@ public class ArcDefenseSystem : ComponentBehavior
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        Spaceship s;
+        if (collision.gameObject.TryGetComponent<Spaceship>(out s))
+        {
+            s.Damage(electrocutingDamage);
+        }
     }
 }

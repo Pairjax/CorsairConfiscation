@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private CopShipController parentShip;
     public Rigidbody2D rb2d;
+    public float damage = 10;
     public float speed = 5f;
     public Spaceship.SpaceshipCategory target;
 
@@ -29,7 +30,7 @@ public class Bullet : MonoBehaviour
         if (!chosenShip || !chosenShip.category.Equals(target))
             return;
 
-        chosenShip.Damage(10);
+        chosenShip.Damage(damage);
         Destroy(gameObject);
     }
 }

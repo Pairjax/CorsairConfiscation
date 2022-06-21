@@ -32,10 +32,57 @@ public class AntiPursuitNet : ComponentBehavior
 public class X3AutoCannon : ComponentBehavior
 {
     [SerializeField] private float damage;
+    [SerializeField] private float cooldownTime;
+    [SerializeField] private GameObject bulletPrefab;
+    public PlayerCannonTracker tracker;
+    private bool onCooldown;
 
     void Start() { name = "X-3 Auto Cannon"; }
 
-    // TODO: Turret Effects
+    private void FixedUpdate()
+    {
+        if (onCooldown) return;
+
+        Fire();
+        Cooldown();
+    }
+
+    private void Fire()
+    {
+        if (tracker.target == null) return;
+
+        Vector2 direction = transform.position - tracker.target.transform.position;
+
+        GameObject bullet = Instantiate(bulletPrefab);
+
+    }
+
+    private IEnumerable Cooldown()
+    {
+        onCooldown = true;
+        yield return new WaitForSeconds(cooldownTime);
+        onCooldown = false;
+    }
+
+}
+
+public class PlayerCannonTracker : MonoBehaviour
+{
+    public GameObject target;
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player") return;
+
+        target = collision.gameObject;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject != target) return;
+
+        target = null;
+    }
 }
 
 public class EnergyShield : ComponentBehavior
@@ -74,5 +121,4 @@ public class EnergyShield : ComponentBehavior
         yield return new WaitForSeconds(cooldownTimer);
         onCooldown = false;
     }
-
 }

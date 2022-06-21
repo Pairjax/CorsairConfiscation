@@ -18,6 +18,8 @@ public class Hook : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Hoi!");
+
         if (transform.childCount == 0 &&
             collision.gameObject.transform.parent != null &&
             collision.transform.parent.parent != null)
@@ -48,7 +50,10 @@ public class Hook : MonoBehaviour
             return;
 
         if (grabbableComp.isGrabbed)
+        {
+            Debug.Log("Hoi!");
             return;
+        }
 
         grabbableComp.isGrabbed = true;
 

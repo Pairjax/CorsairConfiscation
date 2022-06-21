@@ -173,6 +173,7 @@ MonoBehaviour:
   hook: {fileID: 0}
   isFractured: 0
   isSalvagable: 0
+  isGrabbed: 0
   objectSprite: {fileID: 2100010600250175644}
 --- !u!61 &1449438186893121998
 BoxCollider2D:

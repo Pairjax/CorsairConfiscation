@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5951831737567077581}
   m_Layer: 6
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: Pathing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4994,6 +4994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: f276a9d591a6d5348aed7676f4666fe0, type: 2}
+  isThrown: 0
+  grabbed: 0
+  hook: {fileID: 0}
   isFractured: 0
   isSalvagable: 1
   isGrabbed: 0
@@ -5163,7 +5166,7 @@ GameObject:
   - component: {fileID: 6865927990999976612}
   m_Layer: 6
   m_Name: Particle System (2)
-  m_TagString: Untagged
+  m_TagString: Pathing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10028,7 +10031,7 @@ GameObject:
   - component: {fileID: 3729402756717529079}
   m_Layer: 6
   m_Name: Particle System (1)
-  m_TagString: Untagged
+  m_TagString: Pathing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,6 +19,17 @@ public class Level : GameScene
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
 
+    [Header("Required Scrap")]
+    public List<Scrap> requiredScrap;
+    [System.Serializable]
+    public struct Scrap
+    {
+        public Droppable droppable;
+        public int minCount;
+        public int maxCount;
+    }
+
+
     public GameObject PickRandomEnemy()
     {
         // Needs to accomodate spawn rates.

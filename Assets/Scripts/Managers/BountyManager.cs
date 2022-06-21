@@ -21,6 +21,9 @@ public class BountyManager : MonoBehaviour
     public int maxSpecialEnemiesAtOnce;
     public int specialEnemiesToSpawn = 0;
 
+    [Header("ObjectsToSpawn")]
+    public GameObject warpGatePrefab;
+
     [Header("Spawners")]
     public ObjectSpawner[] enemySpawners;
     public ObjectSpawner[] civilianSpawners;
@@ -30,10 +33,15 @@ public class BountyManager : MonoBehaviour
     private List<GameObject> spawnedCivilians = new List<GameObject>();
     private List<GameObject> spawnedSpecialEnemies = new List<GameObject>();
 
-
     public void Initialize()
     {
         instance = this;
+    }
+
+    public void Start()
+    {
+        Initialize();
+        SpawnWarpGate();
     }
 
     public void ResetGame()
@@ -49,6 +57,11 @@ public class BountyManager : MonoBehaviour
         SpawnCivilians();
         SpawnSpecialEnemies();
         UpdateBounty();
+    }
+    private void SpawnWarpGate()
+    {
+        ObjectSpawner spawnEdge = enemySpawners[UnityEngine.Random.Range(0, enemySpawners.Length)];
+        spawnEdge.SpawnWarpGate(warpGatePrefab);
     }
 
     private void SpawnEnemies()

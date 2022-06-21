@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   acceleration: 1
-  maxSpeed: 20
+  maxSpeed: 10
   linearDrag: 2
   rotateSpeed: 2
-  weight: 0
+  weight: 0.1
   numHooks: 1
   hookMaxLength: 7
   hookSwingMax: 3

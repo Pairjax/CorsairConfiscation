@@ -60,7 +60,7 @@ public class CopShipController : MonoBehaviour
             {
                 if (followObject)
                 {
-                    LookAt(followObject, this.transform, 0f);
+                    LookAt(followObject, this.transform, -90f);
                 }
 
                 if (!isFiring && targetedObject)

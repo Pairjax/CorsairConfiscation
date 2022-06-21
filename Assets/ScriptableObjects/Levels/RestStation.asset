@@ -22,3 +22,4 @@ MonoBehaviour:
   civilianTypes: []
   minSpawnTime: 0
   maxSpawnTime: 0
+  requiredScrap: []

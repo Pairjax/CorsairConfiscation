@@ -41,6 +41,50 @@ public class PlayerShipController : MonoBehaviour
         if (input.loadMap) MapManager.instance.LoadMapScene();
 
         HandleRegen();
+        SetClosestInteractable();
+        if (input.interacted
+            && closestInteractable
+            && closestInteractable.TryGetComponent<Interactable>(out Interactable interactable))
+        {
+            interactable.Interact(player);
+        }
+    }
+
+    private List<GameObject> closeInteractables = new List<GameObject>();
+    private GameObject closestInteractable;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            closeInteractables.Add(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (closeInteractables.Contains(other.gameObject))
+        {
+            closeInteractables.Remove(other.gameObject);
+        }
+    }
+
+    private void SetClosestInteractable()
+    {
+        GameObject closest = null;
+        float closestDistance = 0f;
+
+        foreach (GameObject item in closeInteractables)
+        {
+            float newDistance = Vector2.Distance(gameObject.transform.position, item.transform.position);
+            if (closest == null || newDistance < closestDistance)
+            {
+                closest = item;
+                closestDistance = newDistance;
+            }
+        }
+
+        closestInteractable = closest;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

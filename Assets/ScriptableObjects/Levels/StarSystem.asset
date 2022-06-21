@@ -32,3 +32,13 @@ MonoBehaviour:
   - {fileID: 4367058817412962813, guid: 926d37e99c7c73c46a96a82a0b868808, type: 3}
   minSpawnTime: 3
   maxSpawnTime: 8
+  requiredScrap:
+  - droppable: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
+    minCount: 9
+    maxCount: 14
+  - droppable: {fileID: 11400000, guid: d0e6d2880dc26e74c87b45dbfde001e4, type: 2}
+    minCount: 7
+    maxCount: 12
+  - droppable: {fileID: 11400000, guid: 65f231e658a25ea4299e6db01d9bcf2a, type: 2}
+    minCount: 8
+    maxCount: 16

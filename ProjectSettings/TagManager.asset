@@ -7,6 +7,7 @@ TagManager:
   - grabbable
   - MapNode
   - Pathing
+  - Interactable
   layers:
   - Default
   - TransparentFX

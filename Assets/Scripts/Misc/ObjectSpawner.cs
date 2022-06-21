@@ -70,6 +70,14 @@ public class ObjectSpawner : MonoBehaviour
         }
     }
 
+    public void SpawnWarpGate(GameObject prefab)
+    {
+        Bounds colliderBounds = spawnBox.bounds;
+        Vector3 colliderCenter = colliderBounds.center;
+
+        Instantiate(prefab,(Vector2) colliderCenter, Quaternion.identity);
+    }
+
     public float DetermineSpawnPointX(Bounds colliderBounds, Vector3 colliderCenter)
     {
         float randomX = Random.Range(colliderCenter.x - colliderBounds.extents.x, colliderCenter.x + colliderBounds.extents.x);

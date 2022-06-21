@@ -25,8 +25,6 @@ public class PlayerInput : MonoBehaviour
 
     public bool paused { get; private set; }
 
-    public bool loadMap { get; private set; }
-
     void Update()
     {
         if (currentState == GameState.FLYING) handleGameInput();
@@ -41,7 +39,6 @@ public class PlayerInput : MonoBehaviour
         detach = Input.GetMouseButtonDown(1);
         extend = Input.GetAxisRaw("Mouse ScrollWheel") > 0f;
         retract = Input.GetAxisRaw("Mouse ScrollWheel") < 0f;
-        loadMap = Input.GetKeyDown(KeyCode.I);
     }
 
     private void handleMenuInput()

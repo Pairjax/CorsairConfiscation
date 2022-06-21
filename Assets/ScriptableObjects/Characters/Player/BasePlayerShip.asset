@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   regen: 0
-  acceleration: 2
-  maxSpeed: 20
+  acceleration: 1
+  maxSpeed: 4
   linearDrag: 2
-  rotateSpeed: 0.3
+  rotateSpeed: 0.1
   weight: 0.1
   numHooks: 1
-  hookMaxLength: 7
-  hookSwingMax: 3
-  hookLaunchSpeed: 5
-  hookCooldown: 8
+  hookMaxLength: 6
+  hookSwingMax: 20
+  hookLaunchSpeed: 12
+  hookCooldown: 3
   scrapBonus: 1
   lootBonus: 1
   shopPriceModifier: 1

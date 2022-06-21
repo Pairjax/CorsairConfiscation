@@ -5,12 +5,14 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+    public BoxCollider2D aStarBox;
     public float speed;
     public float rotateSpeed;
     public Vector3 destination;
     private void Start()
     {
         LookAt();
+        aStarBox.enabled = false;
         rb2d.isKinematic = true;
         rb2d.velocity = transform.TransformDirection(Vector3.right * speed);
     }

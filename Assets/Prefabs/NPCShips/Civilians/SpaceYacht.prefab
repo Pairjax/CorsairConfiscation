@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8902895986279887415}
   - component: {fileID: 2895788476557652280}
   - component: {fileID: 2304822304745495190}
+  - component: {fileID: 8768169199422576346}
   m_Layer: 6
   m_Name: SpaceYacht
   m_TagString: grabbable
@@ -129,6 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: f276a9d591a6d5348aed7676f4666fe0, type: 2}
+  isThrown: 0
+  grabbed: 0
+  hook: {fileID: 0}
   isFractured: 0
   isSalvagable: 1
   objectSprite: {fileID: 0}
@@ -202,6 +206,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8768169199422576346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367058817412962813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e6d0ddb9249b24b99c57c03fd3df0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 486301432ac532d4bbca7b4be43378dc, type: 2}
+  dropReference: {fileID: 8316282063186176045, guid: cc0080480af62de48820bf318c7e9d8f, type: 3}
 --- !u!1 &4958912929486289651
 GameObject:
   m_ObjectHideFlags: 0

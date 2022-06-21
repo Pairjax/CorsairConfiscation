@@ -18,13 +18,9 @@ public class Hook : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hoi!");
-
-        if (transform.childCount == 0 &&
-            collision.gameObject.transform.parent != null &&
-            collision.transform.parent.parent != null)
+        if (transform.childCount == 0)
         {
-            HookObj(collision.transform.parent.parent.gameObject);
+            HookObj(collision.transform.parent.gameObject);
         }
     }
 
@@ -49,14 +45,6 @@ public class Hook : MonoBehaviour
         if (grabbableComp.isFractured)
             return;
 
-        if (grabbableComp.isGrabbed)
-        {
-            Debug.Log("Hoi!");
-            return;
-        }
-
-        grabbableComp.isGrabbed = true;
-
         hookedObj = selObj;
         grabbableComp.grabbed = true;
         if (grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.Asteroid))
@@ -65,7 +53,7 @@ public class Hook : MonoBehaviour
             transform.position, hookedObj.transform.rotation,
             gameObject.transform).gameObject;
         }
-        else if(grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.NPCShip))
+        else if (grabbableComp.settings.dType.Equals(DestructibleSettings.DestructibleType.NPCShip))
         {
             Destroy(grabbableComp);
             grabbedObj = Instantiate(selObj,

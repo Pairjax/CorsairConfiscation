@@ -31,11 +31,13 @@ public class CivilianShipController : MonoBehaviour
         speed = civ.spaceshipStats.speed;
         rb2d.drag = civ.spaceshipStats.linDrag;
     }
+
     private void Update()
     {
         if (reachedEndOfPath)
             Destroy(gameObject);
     }
+
     private void FixedUpdate()
     {
         if (path == null || !shipState.Equals(ShipState.Moving))
@@ -46,6 +48,7 @@ public class CivilianShipController : MonoBehaviour
             reachedEndOfPath = true;
             return;
         }
+
         reachedEndOfPath = false;
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb2d.position).normalized;

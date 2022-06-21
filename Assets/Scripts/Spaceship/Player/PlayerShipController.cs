@@ -38,8 +38,6 @@ public class PlayerShipController : MonoBehaviour
             if (input.detach) h.Detach();
         }
 
-        if (input.loadMap) MapManager.instance.LoadMapScene();
-
         HandleRegen();
         SetClosestInteractable();
         if (input.interacted

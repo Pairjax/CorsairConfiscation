@@ -48,17 +48,23 @@ MonoBehaviour:
     UseFinger: 1
     UseMouse: 1
     UseKey: 0
-  Intercept: 0
-  Layers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   IndicatorPrefab: {fileID: 6960597468368318867}
+  Interval: 0
   Paint: 1
   Shape: {fileID: -949900613627661759, guid: 082df75cba6ec094a966a53528dc06ac, type: 2}
   Color: {r: 1, g: 1, b: 1, a: 1}
   Size: {x: 2, y: 2}
+  ScaleMin: 0.75
+  ScaleMax: 1.25
   Angle: 0
+  TwistMin: 0
+  TwistMax: 360
   Hit: 0
+  Layers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  Camera: {fileID: 0}
+  Intercept: 0
 --- !u!1 &6960597468368103117
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,10 +111,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   hp: 75
   maxhp: 75
   bountyPoints: 40
-  speed: 150
+  speed: 100
   linDrag: 1
   spriteSelection: []
   drops:

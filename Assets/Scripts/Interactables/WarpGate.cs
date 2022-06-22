@@ -40,8 +40,7 @@ public class WarpGate : Interactable
             return;
         Debug.Log("Warp gate activated!");
         RemoveScrap(player);
-        PlayAnimation();
-        LoadMapScene(15f);
+        animator.SetInteger("GateState", 1);
     }
 
     private bool MeetsScrapRequirement(Player player)
@@ -75,10 +74,15 @@ public class WarpGate : Interactable
 
     private void PlayAnimation()
     {
-        animator.SetBool("isActive", true);
+        animator.SetInteger("gateState", 1);
     }
 
-    void LoadMapScene(float delayTime)
+    public void changeToActive()
+    {
+        animator.SetInteger("GateState", 2);
+    }
+
+    public void LoadMapScene(float delayTime)
     {
         StartCoroutine(DelayAction(delayTime));
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   hp: 35
   maxhp: 35
   bountyPoints: 75
-  speed: 200
+  speed: 150
   linDrag: 1
   spriteSelection:
   - {fileID: -8953770966066585566, guid: 871369af654aa504883d45690cdc0fe0, type: 3}

@@ -18,11 +18,19 @@ MonoBehaviour:
   song: {fileID: 0}
   musicVolume: 0
   levelType: 4
-  enemyTypes: []
-  specialEnemyTypes: []
-  civilianTypes: []
-  minSpawnTime: 0
-  maxSpawnTime: 0
+  enemyTypes:
+  - {fileID: 3119700199863290715, guid: b4bc524fc76a7eb40a2e0796b9ae7e93, type: 3}
+  specialEnemyTypes:
+  - {fileID: 3119700199863290715, guid: 1e9e094a5e473d2489a96e74321a03ba, type: 3}
+  - {fileID: 3119700199863290715, guid: 150bf0a77c80cf746afd5e7a736e6e48, type: 3}
+  civilianTypes:
+  - {fileID: 4367058817412962813, guid: a72b15494160f864c88fb5b5ba56cc57, type: 3}
+  - {fileID: 4367058817412962813, guid: 7af20da4a2ccea84bb1a1d64ab46685e, type: 3}
+  - {fileID: 4367058817412962813, guid: b8cb6839a55c44542b3f84173a6cb61c, type: 3}
+  - {fileID: 4367058817412962813, guid: ad90f7676acfb0d4297dd73d1c7b0887, type: 3}
+  - {fileID: 4367058817412962813, guid: 926d37e99c7c73c46a96a82a0b868808, type: 3}
+  minSpawnTime: 2
+  maxSpawnTime: 4
   requiredScrap:
   - droppable: {fileID: 11400000, guid: 5a5043f124e9bd14f9c5df9c5b9336b0, type: 2}
     minCount: 9
